@@ -1,0 +1,65 @@
+@import "src/styles/mixins/colors.scss";
+@import "src/styles/mixins/fonts.scss";
+
+$gap: 2em;
+$card_gap: 0.7em;
+$font_weight: 300;
+
+.container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 2em 0 3em 0;
+      background-color: $blue-color;
+      
+}
+
+.main {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+      p,
+      h1 {
+            font-family: $font-family;
+            text-align: center;
+            font-weight: $font_weight;
+      }
+}
+
+.cardHolder {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: $card_gap;
+      box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card {
+      border-radius: 5px;
+      background: #FFF;
+      padding: 0.7em;
+      transition: 0.5s cubic-bezier(0.18, 0.89, 0.6, 1.59);;
+      p,
+      h1 {
+            color: black;
+            font-family: $font-family;
+            text-align: left;
+            padding: 0.2em;
+            font-weight: 500;
+            font-size: 2em;
+      }
+      p {
+            font-size: 1em;
+      }
+      img {
+            width: 20%;
+            height: 40%;
+      }
+}
+
+.card:hover {
+      box-shadow: 0px 0px 50px 0px #060616;
+      transform: scale(1.1);
+}

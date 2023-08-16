@@ -1,5 +1,5 @@
 {
-  "name": "nx_time1",
+  "name": "landingpage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "eslint": "8.47.0",
-    "eslint-config-next": "13.4.15",
-    "next": "13.4.15",
+    "eslint-config-next": "13.4.16",
+    "next": "13.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.65.1"
