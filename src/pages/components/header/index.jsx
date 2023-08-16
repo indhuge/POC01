@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "/public/images/logo.svg";
 import Styles from "./header.module.scss";
+import Button from "./botton";
 const Header = () => {
     return (
         <div className={Styles.container}>
@@ -13,7 +14,7 @@ const Header = () => {
                 <Link href="https://google.com">Home</Link>
                 <Link href="/">O que fazemos</Link>
                 <Link href="/">Cases</Link>
-                <button className={Styles.button}>Fale conosco</button>
+                <Button title="Fale conosco" />
             </div>
 
         </div >

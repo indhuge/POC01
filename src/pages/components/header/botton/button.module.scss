@@ -1,0 +1,20 @@
+@import "src/styles/mixins/colors.scss";
+
+.button {
+    margin-left: 80px;
+    padding: 30px 50px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+
+    &.primary {
+        background-color: $blue-color;
+        color: #FFFFFF;
+    }
+
+    &.secundary {
+        background: #00171F;
+        color: #FFFFFF;
+    }
+}
