@@ -13,11 +13,9 @@ const Header = () => {
                 <Link href="https://google.com">Home</Link>
                 <Link href="/">O que fazemos</Link>
                 <Link href="/">Cases</Link>
-
-            </div>
-            <div className={Styles.action}>
                 <button className={Styles.button}>Fale conosco</button>
             </div>
+
         </div >
     )
 }

@@ -3,15 +3,20 @@
 .container {
     padding: 34px 180px;
     width: 100%;
-    background-color: $blue-color;
+    background: linear-gradient(#003459, #87A9C1);
     border-bottom: 0.5px solid $gray-color;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: space-between;
 }
 
+.logotipo {
+    margin-right: 750px;
+}
+
 .menu {
-    font-size: 22px;
+    font-size: 32px;
 
     a+a {
         margin-left: 38.9px;
@@ -19,9 +24,11 @@
 }
 
 .button {
-    padding: 15px 50px;
-    border-radius: 5px;
-    font-size: 16px;
+    margin-left: 80px;
+    padding: 30px 50px;
+    border-radius: 10px;
+    font-size: 24px;
     font-weight: bold;
-    background-color: black;
+    background-color: $blue-color;
+    border: none;
 }
