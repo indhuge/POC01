@@ -1,12 +1,11 @@
 @import "src/styles/mixins/colors.scss";
 
 .button {
-    margin-left: 80px;
-    padding: 30px 50px;
-    border-radius: 10px;
-    font-size: 24px;
+
     font-weight: bold;
     border: none;
+    padding: 1.5em 3em;
+    border-radius: 5px;
 
     &.primary {
         background-color: $blue-color;
@@ -17,4 +16,11 @@
         background: #00171F;
         color: #FFFFFF;
     }
+
+    &:hover {
+        background-color: #00A8E8;
+    }
+
+    transition: 0.5s cubic-bezier(0.42, 0, 0.08, 0.96);
+    
 }

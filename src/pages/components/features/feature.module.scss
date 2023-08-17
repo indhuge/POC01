@@ -11,7 +11,6 @@ $font_weight: 300;
       justify-content: center;
       padding: 2em 0 3em 0;
       background-color: $blue-color;
-      
 }
 
 .main {
@@ -19,11 +18,13 @@ $font_weight: 300;
       display: flex;
       flex-direction: column;
       gap: $gap;
+
       p,
       h1 {
             font-family: $font-family;
             text-align: center;
             font-weight: $font_weight;
+            margin: 0;
       }
 }
 
@@ -34,28 +35,38 @@ $font_weight: 300;
       grid-template-rows: repeat(2, 1fr);
       gap: $card_gap;
       box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.25);
+
+      @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+      }
+
 }
 
 .card {
       border-radius: 5px;
       background: #FFF;
       padding: 0.7em;
-      transition: 0.5s cubic-bezier(0.18, 0.89, 0.6, 1.59);;
+      transition: 0.5s cubic-bezier(0.18, 0.89, 0.6, 1.59);
+      ;
+
       p,
       h1 {
             color: black;
             font-family: $font-family;
             text-align: left;
-            padding: 0.2em;
             font-weight: 500;
-            font-size: 2em;
+            font-size: 2rem;
       }
+
       p {
-            font-size: 1em;
+            font-size: 1.3rem;
+            padding: 0.5em 0 0 0;
+            opacity: 0.75;
       }
+
       img {
-            width: 20%;
-            height: 40%;
+            width: 5em;
+            height: auto;
       }
 }
 

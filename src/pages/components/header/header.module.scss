@@ -1,24 +1,71 @@
 @import "src/styles/mixins/colors.scss";
+@import "src/styles/mixins/padding.scss";
+
+
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#407193, #003459, );
+}
 
 .container {
-    padding: 34px 180px;
-    width: 100%;
-    background: linear-gradient(#003459, #87A9C1);
-    border-bottom: 0.5px solid $gray-color;
+
+    color: #ffffff;
+    
+    width: 60rem;
+
+
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
 }
 
 .logotipo {
-    margin-right: 750px;
+    
+    img {
+        width: 10em;
+        height: auto;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    img:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 50px rgba(19, 122, 170, 0.281);
+    }
 }
 
 .menu {
-    font-size: 32px;
-
-    a+a {
-        margin-left: 38.9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 0 2em;
+@media (max-width: 750px) {
+    display: none;
+}
+    a {
+        transition: 0.3s;
     }
+
+    a:hover {
+        border-radius: 5px;
+        padding: 0.5em;
+        background-color: $accent-color;
+    }
+
+
+}
+
+.action {
+    text-align: end;
+
+
 }

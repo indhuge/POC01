@@ -1,4 +1,3 @@
-
 import styles from './Home.module.scss'
 import Header from './components/header'
 import Welcome from './components/header/welcome'
@@ -11,7 +10,6 @@ export default function Home() {
       <Header />
       <Welcome />
       <Features />
-
       <Contato />
     </div>
 
