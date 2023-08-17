@@ -1,11 +1,9 @@
 @import "src/styles/mixins/colors.scss";
 @import "src/styles/mixins/padding.scss";
 
+
 .container {
-    @include Padding;
     color: #ffffff;
-    padding-top: 34px;
-    padding-bottom: 34px;
 
     width: 100%;
     background: linear-gradient(#407193, #003459, );
@@ -26,4 +24,12 @@
     a+a {
         margin-left: 38.9px;
     }
+
+
+}
+
+.action {
+    text-align: end;
+
+
 }
