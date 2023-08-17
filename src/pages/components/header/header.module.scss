@@ -26,13 +26,13 @@
     img {
         width: 10em;
         height: auto;
-
-        transition: background-color 0.3s;
+        border-radius: 50%;
+        transition: 0.3s;
     }
 
     img:hover {
-        background-color: $accent-color;
-        border-radius: 0 0 5px 5px;
+        transform: scale(1.2);
+        box-shadow: 0 0 50px rgba(19, 122, 170, 0.281);
     }
 }
 
