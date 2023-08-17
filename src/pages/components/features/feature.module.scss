@@ -35,6 +35,11 @@ $font_weight: 300;
       grid-template-rows: repeat(2, 1fr);
       gap: $card_gap;
       box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.25);
+
+      @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+      }
+
 }
 
 .card {
