@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "/public/images/logo.svg";
 import Styles from "./header.module.scss";
 import Button from "./botton";
+
 const Header = () => {
     return (
         <div className={Styles.container}>
