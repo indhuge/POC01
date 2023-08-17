@@ -1,8 +1,12 @@
+@import "./mixins/colors.scss";
+
 html,
 body {
 
   padding: 0;
   margin: 0;
+  background: #003459;
+  color: white;
 
 }
 
