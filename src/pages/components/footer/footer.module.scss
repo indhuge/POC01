@@ -32,24 +32,25 @@
     color: $accent-color;
   }
 
-
   &.alignRight {
     text-align: right;
   }
 
   .icons {
-    display: inline-grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    display: flex;
+    justify-content: right;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
   }
 
   @include Phone {
     margin-top: 0px;
 
     &.alignRight {
+      display: flex;
       text-align: left;
+      align-items: flex-start;
+      flex-direction: column;
     }
   }
 }

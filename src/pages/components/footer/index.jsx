@@ -6,6 +6,7 @@ import IconInstagram from "/public/icons/icon-instagram.svg";
 import IconFacebook from "/public/icons/icon-facebook.svg";
 import IconLinkedin from "/public/icons/icon-linkedin.svg";
 import IconYoutube from "/public/icons/icon-youtube.svg";
+import RotatingGears from "../rotatingGears";
 
 const Footer = () => {
   return (
@@ -40,6 +41,9 @@ const Footer = () => {
           <Link href="/">
             <Image src={IconYoutube} alt="Icon" className={Styles.icon} />
           </Link>
+        </div>
+        <div>
+          <RotatingGears />
         </div>
       </div>
       <div className={Styles.allRightReserved}>
