@@ -27,6 +27,7 @@
 
     img:hover {
         transform: scale(1.2);
+        filter: drop-shadow(0px 0px 5px rgb(19, 122, 170));
         box-shadow: 0 0 50px $darkBlue-color;
     }
 }
