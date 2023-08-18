@@ -8,8 +8,8 @@ const Contato = () => {
     <div className={Styles.container}>
       <div className={Styles.texts}>
         <span>Entre em contato</span>
-        <h1>Aumente seu resultado de vendas e performance</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+        <h1>Aumente seu resultado e sua performance</h1>
+        <p>Fale com nossos consultores e conheça todas as possibilidades</p>
       </div>
       <div className={Styles.forms}>
 
@@ -23,9 +23,10 @@ const Contato = () => {
           <Select placeholder="Orçamento para mídia" 
             options=
             {[
-              { label: "Orçamento para mídia", value: 0 },
-              { label: "Instagram", value: 1 },
-              { label: "Facebook", value: 2 },
+              { label: "Orçamento de produto", value: 0 },
+              { label: "Empresa pequena", value: 1 },
+              { label: "Empresa média", value: 2 },
+              { label: "Empresa grande", value: 3 },
             ]}
             required
           />
