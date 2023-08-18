@@ -1,12 +1,10 @@
-import Style from './select.module.scss';
-
-const Select = ({ placeholder, required, options }) => {
+const Select = ({ placeholder, required, options, onChange }) => {
   return (
-    <select required={required} placeholder={placeholder}>
-        {options?.map((option, index) => (
-          <option key={index} value={option.value}>{option.label}</option>
-        ))}
-    </select>
+    <select required={required} placeholder={placeholder} onChange={onChange}>
+      {options?.map((option, index) => (
+        <option key={index} value={option.value}>{option.label}</option>
+      ))}
+    </select >
   )
 }
 
