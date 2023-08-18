@@ -61,25 +61,6 @@
     width: 100%;
     margin: 2rem 0;
     
-input,
-select {
-  width: 25rem;
-  height: 3rem;
-  border: 1px solid $blue-color;
-  border-radius: 5px;
-  padding: 0 1rem;
-  margin: 1rem 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: black;
-  background-color: #f1f0f0;
-}
-
-select {
-  width: 27rem;
-}
-
-
     textarea {
       width: 100%;
       height: 10rem;
