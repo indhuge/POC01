@@ -2,6 +2,11 @@
 @import "../../../styles/mixins/padding.scss";
 @import "../../../styles/mixins/colors.scss";
 
+.wrapper {
+  display: grid;
+}
+
+
 .container {
   @include Padding;
   display: grid;
@@ -10,6 +15,9 @@
   justify-content: space-around;
   font-family: $font-family-roboto;
   gap: 10rem;
+  z-index: 2;
+  grid-area: 1 / 1 / 2 /2;
+
 }
 
 .texts {
@@ -93,4 +101,10 @@
       }
     }
   }
+}
+
+.particles {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }
