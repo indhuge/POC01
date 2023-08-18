@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={Styles.allRightReserved}>
-        ©2022 AGENCIA - Todos os direitos reservados.
+        ©2023 INDHUGE - Todos os direitos reservados.
       </div>
     </div>
   );
