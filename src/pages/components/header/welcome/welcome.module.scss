@@ -4,9 +4,9 @@
 .container {
     @include Padding;
     height: 100%;
-    padding: 219px;
+    padding: 30px;
     background-image: url("/estilizado.svg");
-    background-size: cover;
+    background-size: 129%;
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -16,11 +16,11 @@
 .text {
     h1 {
         font-weight: bold;
-        font-size: 71px;
+        font-size: 40px;
     }
 
     p {
-        font-size: 30px;
+        font-size: 20px;
         opacity: 0.7;
     }
 }
