@@ -1,31 +1,23 @@
 @import "src/styles/mixins/colors.scss";
 @import "src/styles/mixins/padding.scss";
 
-
-
-
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#407193, #003459, );
+    background: $gradientBlue-color
 }
 
 .container {
-
-    color: #ffffff;
-    
+    color: white;
     width: 60rem;
-
-
-
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
 }
 
 .logotipo {
-    
+
     img {
         width: 10em;
         height: auto;
@@ -35,7 +27,7 @@
 
     img:hover {
         transform: scale(1.2);
-        box-shadow: 0 0 50px rgba(19, 122, 170, 0.281);
+        box-shadow: 0 0 50px $darkBlue-color;
     }
 }
 
@@ -43,14 +35,16 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     gap: 2em;
     padding: 0 2em;
-@media (max-width: 750px) {
-    display: none;
-}
+
+    @media (max-width: 750px) {
+        display: none;
+    }
+
     a {
         transition: 0.3s;
     }
