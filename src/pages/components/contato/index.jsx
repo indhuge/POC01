@@ -32,9 +32,10 @@ const Contato = () => {
             <Select
               placeholder="Orçamento para mídia"
               options={[
-                { label: "Orçamento para mídia", value: 0 },
-                { label: "Instagram", value: 1 },
-                { label: "Facebook", value: 2 },
+              { label: "Orçamento de produto", value: 0 },
+              { label: "Empresa pequena", value: 1 },
+              { label: "Empresa média", value: 2 },
+              { label: "Empresa grande", value: 3 },
               ]}
               required
             />

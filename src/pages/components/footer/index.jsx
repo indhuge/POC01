@@ -23,22 +23,22 @@ const Footer = () => {
       </div>
       <div className={Styles.column}>
         <h1>CONTEÚDO</h1>
-        <p>E-books</p>
+        <p>Blogs</p>
         <p>Fórmulas prontas</p>
       </div>
       <div className={`${Styles.column} ${Styles.alignRight}`}>
         <h1>SOCIAL</h1>
         <div className={Styles.icons}>
-          <Link href="/">
+          <Link href="https://www.instagram.com/">
             <Image src={IconInstagram} alt="Icon" className={Styles.icon} />
           </Link>
-          <Link href="/">
+          <Link href="https://www.facebook.com/">
             <Image src={IconFacebook} alt="Icon" className={Styles.icon} />
           </Link>
-          <Link href="/">
+          <Link href="https://linkedin.com/">
             <Image src={IconLinkedin} alt="Icon" className={Styles.icon} />
           </Link>
-          <Link href="/">
+          <Link href="https://www.youtube.com/">
             <Image src={IconYoutube} alt="Icon" className={Styles.icon} />
           </Link>
         </div>

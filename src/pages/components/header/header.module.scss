@@ -1,5 +1,6 @@
 @import "src/styles/mixins/colors.scss";
 @import "src/styles/mixins/padding.scss";
+@import "src/styles/mixins/fonts.scss";
 
 .main {
     display: flex;
@@ -48,6 +49,7 @@
 
     a {
         transition: 0.3s;
+        font-family: $font-family-roboto;
     }
 
     a:hover {
