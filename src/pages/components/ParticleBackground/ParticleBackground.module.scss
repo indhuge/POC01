@@ -12,19 +12,25 @@
       overflow: hidden;
 }
 
-.circles li {
+.circles li{
       position: absolute;
       display: block;
       list-style: none;
       width: 20px;
       height: 20px;
       //background: rgba(255, 255, 255, 0.2);
-      background-image: url("/icons/gear.svg");
-      background-size: contain;
+      //background-image: url("/icons/gear.svg");
+      //background-size: contain;
       animation: animate 20s linear infinite;
       bottom: -150px;
 
+      img {
+            width: inherit;
+            height: inherit;
+            filter: drop-shadow(0px 0px 50px black);
+      }
 }
+
 
 @for $i from 1 through 20 {
       $rand: random(170) - 15+px;
