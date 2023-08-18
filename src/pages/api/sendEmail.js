@@ -5,15 +5,16 @@ export default async function handler(req, res) {
 
     const client = new SMTPClient({
         user: process.env.EMAIL,
-        host: "smtp.tuamaeaquelaursa.com",
+        password: process.env.EMAIL,
+        host: "smtp.hotmail.com",
         ssl: true,
     });
 
     try {
         const message = await client.sendAsync({
             text: messageBody,
-            from: "software_grupo1@tuamaeaquelaursa.com",
-            to: "software_grupo1@tuamaeaquelaursa.com",
+            from: "gabrielabarbieri09@gmail.com",
+            to: "gabrielabarbieri09@gmail.com",
             subject: "Lead - Landingpage",
         });
         console.log(message);
