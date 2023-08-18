@@ -1,0 +1,363 @@
+.ilustracao {
+    display: block;
+    width: 100%;
+    margin: 1em 0;
+    padding-top: 73.40619307832422%;
+    position: relative;
+    overflow: hidden;
+}
+
+.ilustracao svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.no-svg .ilustracao,
+.no-svg .exemplo {
+    background: #fc1;
+    padding: 1em;
+    font-style: italic;
+    margin: 1em 0;
+}
+
+.no-svg .ilustracao:after,
+.no-svg .exemplo:after {
+    content: 'Seu navegador não suporta SVG pra mostrar os demos.'
+}
+
+.no-svg .ilustracao svg,
+.no-svg .exemplo svg {
+    display: none
+}
+
+.ilustracao .engrenagem-pequena {
+    -webkit-transform-origin: 297px 309px;
+    -moz-transform-origin: 297px 309px;
+    -o-transform-origin: 297px 309px;
+    -ms-transform-origin: 297px 309px;
+    transform-origin: 297px 309px;
+    -webkit-animation: gira-horario 9s linear infinite;
+    -moz-animation: gira-horario 9s linear infinite;
+    -o-animation: gira-horario 9s linear infinite;
+    -ms-animation: gira-horario 9s linear infinite;
+    animation: gira-horario 9s linear infinite
+}
+
+.ilustracao .engrenagem-grande {
+    -webkit-transform-origin: 266px 226px;
+    -moz-transform-origin: 266px 226px;
+    -o-transform-origin: 266px 226px;
+    -ms-transform-origin: 266px 226px;
+    transform-origin: 266px 226px;
+    -webkit-animation: gira-anti 9s linear infinite;
+    -moz-animation: gira-anti 9s linear infinite;
+    -o-animation: gira-anti 9s linear infinite;
+    -ms-animation: gira-anti 9s linear infinite;
+    animation: gira-anti 9s linear infinite
+}
+
+.ilustracao .nuvem-branca {
+    -webkit-animation: move-nuvem 6s ease-out infinite alternate;
+    -moz-animation: move-nuvem 6s ease-out infinite alternate;
+    -o-animation: move-nuvem 6s ease-out infinite alternate;
+    -ms-animation: move-nuvem 6s ease-out infinite alternate;
+    animation: move-nuvem 6s ease-out infinite alternate
+}
+
+.ilustracao .nuvem-fundo {
+    -webkit-animation: move-nuvem 7s ease-in infinite alternate;
+    -moz-animation: move-nuvem 7s ease-in infinite alternate;
+    -o-animation: move-nuvem 7s ease-in infinite alternate;
+    -ms-animation: move-nuvem 7s ease-in infinite alternate;
+    animation: move-nuvem 7s ease-in infinite alternate
+}
+
+.ilustracao .seta {
+    -webkit-animation: muda-cor 2s linear infinite;
+    -moz-animation: muda-cor 2s linear infinite;
+    -o-animation: muda-cor 2s linear infinite;
+    -ms-animation: muda-cor 2s linear infinite;
+    animation: muda-cor 2s linear infinite;
+}
+
+.ilustracao .seta+.seta {
+    -webkit-animation-delay: -.5s;
+    -moz-animation-delay: -.5s;
+    -o-animation-delay: -.5s;
+    -ms-animation-delay: -.5s;
+    animation-delay: -.5s;
+}
+
+.ilustracao .seta+.seta+.seta {
+    -webkit-animation-delay: -1s;
+    -moz-animation-delay: -1s;
+    -o-animation-delay: -1s;
+    -ms-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+.ilustracao .seta+.seta+.seta+.seta {
+    -webkit-animation-delay: -1.5s;
+    -moz-animation-delay: -1.5s;
+    -o-animation-delay: -1.5s;
+    -ms-animation-delay: -1.5s;
+    animation-delay: -1.5s
+}
+
+.exemplo2 .seta {
+    fill: #fcb870
+}
+
+.exemplo3 .seta {
+    -webkit-animation: exemplo3-muda-cor 3s linear infinite;
+    -moz-animation: exemplo3-muda-cor 3s linear infinite;
+    -o-animation: exemplo3-muda-cor 3s linear infinite;
+    -ms-animation: exemplo3-muda-cor 3s linear infinite;
+    animation: exemplo3-muda-cor 3s linear infinite
+}
+
+.exemplo4 .engrenagem {
+    -webkit-animation: gira-horario 2s linear infinite;
+    -moz-animation: gira-horario 2s linear infinite;
+    -o-animation: gira-horario 2s linear infinite;
+    -ms-animation: gira-horario 2s linear infinite;
+    animation: gira-horario 2s linear infinite
+}
+
+.exemplo5 .engrenagem {
+    -webkit-animation: gira-horario 4s linear infinite;
+    -moz-animation: gira-horario 4s linear infinite;
+    -o-animation: gira-horario 4s linear infinite;
+    -ms-animation: gira-horario 4s linear infinite;
+    animation: gira-horario 4s linear infinite;
+    -webkit-transform-origin: 43px 40px;
+    -moz-transform-origin: 43px 40px;
+    -o-transform-origin: 43px 40px;
+    -ms-transform-origin: 43px 40px;
+    transform-origin: 43px 40px
+}
+
+@-moz-keyframes gira-horario {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes gira-horario {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-o-keyframes gira-horario {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes gira-horario {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-moz-keyframes gira-anti {
+    to {
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+}
+
+@-webkit-keyframes gira-anti {
+    to {
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+}
+
+@-o-keyframes gira-anti {
+    to {
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+}
+
+@keyframes gira-anti {
+    to {
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        transform: rotate(-360deg)
+    }
+}
+
+@-moz-keyframes move-nuvem {
+    to {
+        -webkit-transform: translateX(25px);
+        -moz-transform: translateX(25px);
+        -o-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px)
+    }
+}
+
+@-webkit-keyframes move-nuvem {
+    to {
+        -webkit-transform: translateX(25px);
+        -moz-transform: translateX(25px);
+        -o-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px)
+    }
+}
+
+@-o-keyframes move-nuvem {
+    to {
+        -webkit-transform: translateX(25px);
+        -moz-transform: translateX(25px);
+        -o-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px)
+    }
+}
+
+@keyframes move-nuvem {
+    to {
+        -webkit-transform: translateX(25px);
+        -moz-transform: translateX(25px);
+        -o-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px)
+    }
+}
+
+@-moz-keyframes muda-cor {
+
+    0%,
+    74% {
+        fill: #003459
+    }
+
+    75%,
+    100% {
+        fill: #003459
+    }
+}
+
+@-webkit-keyframes muda-cor {
+
+    0%,
+    74% {
+        fill: #003459
+    }
+
+    75%,
+    100% {
+        fill: #003459
+    }
+}
+
+@-o-keyframes muda-cor {
+
+    0%,
+    74% {
+        fill: #003459
+    }
+
+    75%,
+    100% {
+        fill: #003459
+    }
+}
+
+@keyframes muda-cor {
+
+    0%,
+    74% {
+        fill: #003459
+    }
+
+    75%,
+    100% {
+        fill: #003459
+    }
+}
+
+@-moz-keyframes exemplo3-muda-cor {
+
+    0%,
+    49% {
+        fill: #003459
+    }
+
+    50%,
+    100% {
+        fill: #003459
+    }
+}
+
+@-webkit-keyframes exemplo3-muda-cor {
+
+    0%,
+    49% {
+        fill: #003459
+    }
+
+    50%,
+    100% {
+        fill: #003459
+    }
+}
+
+@-o-keyframes exemplo3-muda-cor {
+
+    0%,
+    49% {
+        fill: #003459
+    }
+
+    50%,
+    100% {
+        fill: #003459
+    }
+}
+
+@keyframes exemplo3-muda-cor {
+
+    0%,
+    49% {
+        fill: #ffffff
+    }
+
+    50%,
+    100% {
+        fill: #003459
+    }
+}
