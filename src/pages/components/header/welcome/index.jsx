@@ -19,9 +19,6 @@ const Welcome = () => {
             <Teste />
         </div>
       </div>
-      <div className={Styles.particles}>
-        <ParticleBackground/>
-      </div>
     </div>
   );
 };

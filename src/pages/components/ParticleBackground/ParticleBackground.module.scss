@@ -32,7 +32,7 @@
 }
 
 
-@for $i from 1 through 20 {
+@for $i from 1 through 40 {
       $rand: random(170) - 15+px;
 
       .circles li:nth-child(#{$i}) {
