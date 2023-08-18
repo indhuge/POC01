@@ -14,7 +14,7 @@ const Footer = () => {
       <div className={`${Styles.column} ${Styles.columnPrincipal}`}>
         <Image src={Logo} alt="Logo" />
         <h1 className={Styles.title}>0800 800 800</h1>
-        <p>comercial@agencia.com.br</p>
+        <p>comercial@time1.indhuge.com.br</p>
       </div>
       <div className={Styles.column}>
         <h1>MENU</h1>
