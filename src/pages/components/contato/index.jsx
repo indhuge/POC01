@@ -10,11 +10,33 @@ const Contato = () => {
       <div className={Styles.container}>
         <div className={Styles.texts}>
           <span>Entre em contato</span>
-          <h1>Aumente seu resultado de vendas e performance</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna
-          </p>
+          <h1>Amplie os Horizontes das suas Vendas e Alavanque a Performance da sua Indústria!</h1>
+          <div>
+            <p>
+              Somos o parceiro estratégico ideal para impulsionar suas operações industriais.
+              Nossos especialistas altamente qualificados oferecem soluções inovadoras baseadas
+              em nosso avançado software de monitoramento.
+            </p>
+            <p>
+              Compreendemos as nuances do setor industrial e personalizamos nossas soluções para atender às suas necessidades específicas.
+              De produção à logística, nosso software fornece visibilidade em tempo real e insights valiosos para otimização.
+            </p>
+            <p>
+              Ao nos contatar, você terá acesso a ferramentas que:
+            </p>
+            <ul>
+              <li>Aumentarão a eficiência.</li>
+              <li>Reduzirão custos.</li>
+              <li>Melhorarão a qualidade.</li>
+            </ul>
+            <p>
+              Estamos prontos para:
+            </p>
+            <ul>
+              <li>Moldar um futuro industrial de sucesso junto com você.</li>
+              <li>O próximo passo está a apenas um clique de distância.</li>
+            </ul>
+          </div>
         </div>
         <div className={Styles.forms}>
           <h1>Fale com um especialista</h1>
