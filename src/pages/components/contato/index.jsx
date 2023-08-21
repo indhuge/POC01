@@ -12,6 +12,7 @@ const Contato = () => {
     email: '',
     telefone: '',
     mensagem: '',
+    orcamento: '',
   });
 
   const handleChange = (e) => {
@@ -26,6 +27,7 @@ const Contato = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('sending...')
+    console.log(formData)
     try {
       const response = await axios.post('/api/sendEmail', formData);
       console.log(response.data);
@@ -81,12 +83,14 @@ const Contato = () => {
             />
             <Input name="mensagem" type="text" onChange={handleChange} placeholder="Site" required />
             <Select
+              onChange={handleChange}
               placeholder="Orçamento para mídia"
+              name="orcamento"
               options={[
                 { label: "Orçamento de produto", value: 0 },
-                { label: "Empresa pequena", value: 1 },
-                { label: "Empresa média", value: 2 },
-                { label: "Empresa grande", value: 3 },
+                { label: "Empresa pequena", value: "Empresa pequena" },
+                { label: "Empresa média", value: "Empresa média" },
+                { label: "Empresa grande", value: "Empresa grande", },
               ]}
               required
             />

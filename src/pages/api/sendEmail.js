@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { nome, email, telefone, mensagem } = req.body;
+        const { nome, email, telefone, mensagem, orcamento } = req.body;
 
         const transporter = nodemailer.createTransport({
             service: "Gmail",
@@ -14,9 +14,9 @@ export default async function handler(req, res) {
 
         const mailOptions = {
             from: "gabrielabarbieri09@gmail.com",
-            to: "gabrielabarbieri09@gmail.com",
+            to: "email",
             subject: "Novo formulário de contato",
-            text: `Nome: ${nome}\nEmail: ${email}\nTelefone: ${telefone}\nMensagem: ${mensagem}`,
+            text: `Nome: ${nome}\nEmail: ${email}\nTelefone: ${telefone}\nMensagem: ${mensagem}\nOrcamento: ${orcamento}`,
         };
 
         try {
