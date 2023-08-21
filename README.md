@@ -2,6 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### Clone the repository
+```bash
+git clone git@github.com:EnityBlackHawk/ProjetoNextTime1.git
+```
+
+### Go to the cloned repo
+```bash
+cd ProjetoNextTime1
+```
+
+### Install the dependencies
+```bash
+npm install
+```
+
 First, run the development server:
 
 ```bash
