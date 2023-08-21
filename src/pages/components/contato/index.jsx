@@ -81,7 +81,7 @@ const Contato = () => {
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input name="mensagem" type="text" onChange={handleChange} placeholder="Site" required />
+            <Input name="mensagem" type="text" onChange={handleChange} placeholder="Mensagem" required />
             <Select
               onChange={handleChange}
               placeholder="Orçamento para mídia"
