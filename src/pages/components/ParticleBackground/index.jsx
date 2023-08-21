@@ -25,6 +25,26 @@ export default function ParticleBackground() {
       <li><Image src={gear}/></li>
       <li><Image src={gear}/></li>
       <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
+      <li><Image src={gear}/></li>
      
     </ul>
   );

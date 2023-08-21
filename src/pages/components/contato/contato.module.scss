@@ -2,14 +2,35 @@
 @import "../../../styles/mixins/padding.scss";
 @import "../../../styles/mixins/colors.scss";
 
+.wrapper {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  @media (max-width: 1051px) {
+    padding: 2rem;
+  }
+}
+
+
 .container {
   @include Padding;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   justify-content: space-around;
   font-family: $font-family-roboto;
   gap: 10rem;
+  z-index: 2;
+  grid-area: 1 / 1 / 2 /2;
+
+  @media (max-width: 1051px) {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
 }
 
 .texts {
@@ -34,6 +55,20 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: $whitesmoke-color;
+  }
+
+  @media(max-width: 1051px) {
+    align-items: center;
+    text-align: center;
+    span{
+      font-size: 1.2rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p{
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -93,4 +128,18 @@
       }
     }
   }
+
+  @media (max-width: 1051px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min-content;
+  }
+
+}
+
+.particles {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }
