@@ -1,10 +1,40 @@
 import Styles from "./contato.module.scss";
+import axios from "axios";
 import Button from "../../components/button";
 import Input from "../input";
 import Select from "../select";
 import ParticleBackground from "../ParticleBackground";
-
+import React, { useState } from "react";
 const Contato = () => {
+
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    mensagem: '',
+    orcamento: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(name, value)
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('sending...')
+    console.log(formData)
+    try {
+      const response = await axios.post('/api/sendEmail', formData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.container}>
@@ -41,27 +71,32 @@ const Contato = () => {
         <div className={Styles.forms}>
           <h1>Fale com um especialista</h1>
 
-          <form>
-            <Input type="text" placeholder="Nome completo" required />
-            <Input type="email" placeholder="E-mail profissional" required />
+          <form onSubmit={handleSubmit}>
+            <Input type="text" name="nome" onChange={handleChange} placeholder="Nome completo" required />
+            <Input type="email" name="email" onChange={handleChange} placeholder="E-mail profissional" required />
             <Input
-              type="tel"
+              name="telefone"
+              type="tel" onChange={handleChange}
               placeholder="Celular/Whatsapp"
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input type="text" placeholder="Site" required />
+            <Input name="mensagem" type="text" onChange={handleChange} placeholder="Mensagem" required />
             <Select
+              onChange={handleChange}
               placeholder="Orçamento para mídia"
+              name="orcamento"
               options={[
-              { label: "Orçamento de produto", value: 0 },
-              { label: "Empresa pequena", value: 1 },
-              { label: "Empresa média", value: 2 },
-              { label: "Empresa grande", value: 3 },
+                { label: "Orçamento de produto", value: 0 },
+                { label: "Empresa pequena", value: "Empresa pequena" },
+                { label: "Empresa média", value: "Empresa média" },
+                { label: "Empresa grande", value: "Empresa grande", },
               ]}
               required
             />
-            <Button title="Enviar" />
+
+            <Button type="submit" title="Enviar" />
+
           </form>
         </div>
       </div>
@@ -71,5 +106,6 @@ const Contato = () => {
     </div>
   );
 };
+//>>>>>>> merge-dev-gabi2
 
 export default Contato;
