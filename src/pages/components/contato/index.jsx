@@ -71,15 +71,16 @@ const Contato = () => {
           <h1>Fale com um especialista</h1>
 
           <form onSubmit={handleSubmit}>
-            <Input type="text" onChange={handleChange} placeholder="Nome completo" required />
-            <Input type="email" onChange={handleChange} placeholder="E-mail profissional" required />
+            <Input type="text" name="nome" onChange={handleChange} placeholder="Nome completo" required />
+            <Input type="email" name="email" onChange={handleChange} placeholder="E-mail profissional" required />
             <Input
+              name="telefone"
               type="tel" onChange={handleChange}
               placeholder="Celular/Whatsapp"
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input type="text" onChange={handleChange} placeholder="Site" required />
+            <Input name="mennsagem" type="text" onChange={handleChange} placeholder="Site" required />
             <Select
               placeholder="Orçamento para mídia"
               options={[
@@ -90,7 +91,7 @@ const Contato = () => {
               ]}
               required
             />
-            <Button title="Enviar" />
+            <Button type="submit" title="Enviar" />
           </form>
         </div>
       </div>
