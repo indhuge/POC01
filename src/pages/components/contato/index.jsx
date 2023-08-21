@@ -1,8 +1,12 @@
 import Styles from "./contato.module.scss";
-//<<<<<<< gabi2
 import { useState } from "react";
 import axios from "axios";
-const Formulario = () => {
+import Button from "../../components/button";
+import Input from "../input";
+import Select from "../select";
+import ParticleBackground from "../ParticleBackground";
+
+const Contato = () => {
 
   const [formData, setFormData] = useState({
     nome: '',
@@ -30,25 +34,6 @@ const Formulario = () => {
       console.error(error);
     }
   };
-
-  return <div className={Styles.container} id="formulario">
-    <form onSubmit={handleSubmit}>
-      <h2>ENTRE EM CONTATO E TRANSFORME A SUA PRODUÇÃO</h2>
-      <input type="text" name="nome" onChange={handleChange} placeholder=" NOME" required />
-      <input type="email" name="email" onChange={handleChange} placeholder=" EMAIL" required />
-      <input type="text" name="telefone" onChange={handleChange} placeholder=" TELEFONE" pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$" required />
-      <input type="text" name="mensagem" onChange={handleChange} className={Styles.msg} placeholder=" MENSAGEM" required />
-      <input type="submit" placeholder=" ENVIAR" />
-    </form>
-  </div>
-}
-//=======
-import Button from "../../components/button";
-import Input from "../input";
-import Select from "../select";
-import ParticleBackground from "../ParticleBackground";
-
-const Contato = () => {
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.container}>
@@ -85,16 +70,16 @@ const Contato = () => {
         <div className={Styles.forms}>
           <h1>Fale com um especialista</h1>
 
-          <form>
-            <Input type="text" placeholder="Nome completo" required />
-            <Input type="email" placeholder="E-mail profissional" required />
+          <form onSubmit={handleSubmit}>
+            <Input type="text" onChange={handleChange} placeholder="Nome completo" required />
+            <Input type="email" onChange={handleChange} placeholder="E-mail profissional" required />
             <Input
-              type="tel"
+              type="tel" onChange={handleChange}
               placeholder="Celular/Whatsapp"
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input type="text" placeholder="Site" required />
+            <Input type="text" onChange={handleChange} placeholder="Site" required />
             <Select
               placeholder="Orçamento para mídia"
               options={[
@@ -117,4 +102,4 @@ const Contato = () => {
 };
 //>>>>>>> merge-dev-gabi2
 
-export default Formulario
+export default Contato;
