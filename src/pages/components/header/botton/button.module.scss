@@ -1,4 +1,5 @@
 @import "src/styles/mixins/colors.scss";
+@import "src/styles/mixins/fonts.scss";
 
 .button {
 
@@ -6,19 +7,20 @@
     border: none;
     padding: 1.5em 3em;
     border-radius: 5px;
+    font-family: $font-family-roboto;
 
     &.primary {
         background-color: $blue-color;
-        color: #FFFFFF;
+        color: $white-color;
     }
 
     &.secundary {
-        background: #00171F;
-        color: #FFFFFF;
+        background: #00171F; // qual a cor?
+        color: $white-color;
     }
 
     &:hover {
-        background-color: #00A8E8;
+        background-color: $accent-color;
     }
 
     transition: 0.5s cubic-bezier(0.42, 0, 0.08, 0.96);

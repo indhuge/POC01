@@ -1,16 +1,17 @@
 @import "src/styles/mixins/colors.scss";
 @import "src/styles/mixins/padding.scss";
+@import "src/styles/mixins/fonts.scss";
+
 
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#407193, #003459, );
+    background: $gradientBlue-color
 }
 
 .container {
-
-    color: #ffffff;
+    color: white;
     width: 60rem;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -28,7 +29,8 @@
 
     img:hover {
         transform: scale(1.2);
-        box-shadow: 0 0 50px rgba(19, 122, 170, 0.281);
+        filter: drop-shadow(0px 0px 5px rgb(19, 122, 170));
+        box-shadow: 0 0 50px $darkBlue-color;
     }
 }
 
@@ -48,6 +50,7 @@
 
     a {
         transition: 0.3s;
+        font-family: $font-family-roboto;
     }
 
     a:hover {

@@ -1,14 +1,36 @@
 @import "../../../styles/mixins/fonts.scss";
 @import "../../../styles/mixins/padding.scss";
+@import "../../../styles/mixins/colors.scss";
+
+.wrapper {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  @media (max-width: 1051px) {
+    padding: 2rem;
+  }
+}
+
 
 .container {
   @include Padding;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   justify-content: space-around;
   font-family: $font-family-roboto;
   gap: 10rem;
+  z-index: 2;
+  grid-area: 1 / 1 / 2 /2;
+
+  @media (max-width: 1051px) {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
 }
 
 .texts {
@@ -21,18 +43,32 @@
   span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #00a8e8;
+    color: $accent-color;
     text-transform: uppercase;
   }
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: whitesmoke;
+    color: $whitesmoke-color;
   }
   p {
     font-size: 1.5rem;
     font-weight: 400;
-    color: whitesmoke;
+    color: $whitesmoke-color;
+  }
+
+  @media(max-width: 1051px) {
+    align-items: center;
+    text-align: center;
+    span{
+      font-size: 1.2rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p{
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -41,14 +77,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 38px 32px;
-  background-color: white;
+  background-color: $white-color;
   border-radius: 10px;
   width: 29rem;
 
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #00a8e8;
+    color: $accent-color;
     padding: 0 0 2rem 0;
     margin: 0;
   }
@@ -60,29 +96,10 @@
     width: 100%;
     margin: 2rem 0;
     
-input,
-select {
-  width: 25rem;
-  height: 3rem;
-  border: 1px solid #003459;
-  border-radius: 5px;
-  padding: 0 1rem;
-  margin: 1rem 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: black;
-  background-color: #f1f0f0;
-}
-
-select {
-  width: 27rem;
-}
-
-
     textarea {
       width: 100%;
       height: 10rem;
-      border: 1px solid #00a8e8;
+      border: 1px solid $accent-color;
       border-radius: 5px;
       padding: 1rem;
       margin: 1rem 0;
@@ -94,21 +111,35 @@ select {
     button {
       width: 100%;
       height: 3rem;
-      border: 1px solid #00a8e8;
+      border: 1px solid $accent-color;
       border-radius: 5px;
       padding: 0 1rem;
       margin: 1rem 0;
       font-size: 1.5rem;
       font-weight: 400;
       color: black;
-      background-color: #00a8e8;
+      background-color: $accent-color;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        background-color: #00a8e8;
-        color: white;
+        background-color: $accent-color;
+        color: $white-color;
       }
     }
   }
+
+  @media (max-width: 1051px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min-content;
+  }
+
+}
+
+.particles {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }

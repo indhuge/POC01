@@ -1,19 +1,26 @@
+import ParticleBackground from "../../ParticleBackground";
 import Button from "../botton";
 import Styles from "./welcome.module.scss";
-import Image from "next/image";
-import BannerWelcome from "public/Leads.svg";
+import Teste from "../../teste";
 const Welcome = () => {
-    return <div className={Styles.container}>
+  return (
+    <div className={Styles.wrapper}>
+      <div className={Styles.container}>
         <div className={Styles.text}>
-            <h1>Melhor agência de marketing do bairro</h1>
-            <p>Somos uma agencia de performance digital,
-                aceleramos vendas e aquisição de leads para grandes marcas</p>
-            <Button title="Aumentar vendas" kind="secundary" />
+          <h1>Geramos impacto positivo no planeta</h1>
+          <p>
+            Na IndHuge sabemos que a Manutencäo Inteligente é sustentével.
+            Veja como ajudamos nossos clientes a alcancar maior
+            sustentabilidade social, economica e ambiental.
+          </p>
+          <Button title="Saber Mais" kind="secundary" />
         </div>
         <div className={Styles.image}>
-            <Image src={BannerWelcome} alt="Banner Welcome" />
+            <Teste />
         </div>
-    </div>;
+      </div>
+    </div>
+  );
 };
 
 export default Welcome;

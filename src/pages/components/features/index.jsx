@@ -6,8 +6,9 @@ export default function Features() {
   return (
     <div className={styles.container}>
       <div className={styles.main}>
-        <h1>Neste bairro, não há agência melhor. Garantimos</h1>
-        <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+        <h1>A certeza da Gestão de Manutenção bem feita</h1>
+        <p>O Software de Manutenção que leva o usuário intuitivamente a fazer uma
+          gestão de manutenção que funciona de verdade!</p>
         <div className={styles.cardHolder}>
           <div className={styles.card}>
             <Image src={icons.analytics} />
@@ -16,8 +17,8 @@ export default function Features() {
           </div>
           <div className={styles.card}>
             <Image src={icons.pie} />
-            <h1>Análise</h1>
-            <p>Análise a tudo sobre a manutenção dos seus ativos</p>
+            <h1>Vizualize</h1>
+            <p>Vizualize os seus dados de forma intuitiva e prática</p>
           </div>
           <div className={styles.card}>
             <Image src={icons.calendar} />

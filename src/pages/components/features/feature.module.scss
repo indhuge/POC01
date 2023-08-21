@@ -9,7 +9,7 @@ $font_weight: 300;
       width: 100%;
       display: flex;
       justify-content: center;
-      padding: 2em 0 3em 0;
+      padding: 2em 0 10em 0;
       background-color: $blue-color;
 }
 
@@ -21,7 +21,7 @@ $font_weight: 300;
 
       p,
       h1 {
-            font-family: $font-family;
+            font-family: $font-family-roboto;
             text-align: center;
             font-weight: $font_weight;
             margin: 0;
@@ -52,7 +52,7 @@ $font_weight: 300;
       p,
       h1 {
             color: black;
-            font-family: $font-family;
+            font-family: $font-family-roboto;
             text-align: left;
             font-weight: 500;
             font-size: 2rem;
@@ -71,6 +71,6 @@ $font_weight: 300;
 }
 
 .card:hover {
-      box-shadow: 0px 0px 50px 0px #060616;
+      box-shadow: 0px 0px 50px 0px #faaa51;
       transform: scale(1.1);
 }
