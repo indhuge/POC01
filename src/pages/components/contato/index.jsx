@@ -1,11 +1,10 @@
 import Styles from "./contato.module.scss";
-import { useState } from "react";
 import axios from "axios";
 import Button from "../../components/button";
 import Input from "../input";
 import Select from "../select";
 import ParticleBackground from "../ParticleBackground";
-
+import React, { useState } from "react";
 const Contato = () => {
 
   const [formData, setFormData] = useState({
@@ -80,18 +79,20 @@ const Contato = () => {
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input name="mennsagem" type="text" onChange={handleChange} placeholder="Site" required />
+            <Input name="mensagem" type="text" onChange={handleChange} placeholder="Site" required />
             <Select
               placeholder="Orçamento para mídia"
               options={[
-              { label: "Orçamento de produto", value: 0 },
-              { label: "Empresa pequena", value: 1 },
-              { label: "Empresa média", value: 2 },
-              { label: "Empresa grande", value: 3 },
+                { label: "Orçamento de produto", value: 0 },
+                { label: "Empresa pequena", value: 1 },
+                { label: "Empresa média", value: 2 },
+                { label: "Empresa grande", value: 3 },
               ]}
               required
             />
+
             <Button type="submit" title="Enviar" />
+
           </form>
         </div>
       </div>
