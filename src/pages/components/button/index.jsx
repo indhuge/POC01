@@ -13,7 +13,7 @@ const Button = ({ title, kind, onClick, type }) => {
     <button
       type={type}
       className={`${Styles.button} ${generationClassByKind()}`}
-      onClick={onClick}
+      onClick={() => onClick()}
     >
       {title}
     </button>
