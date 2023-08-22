@@ -14,7 +14,7 @@ $font_weight: 300;
 }
 
 .main {
-      width: 50%;
+      width: 50rem;
       display: flex;
       flex-direction: column;
       gap: $gap;
@@ -26,6 +26,12 @@ $font_weight: 300;
             font-weight: $font_weight;
             margin: 0;
       }
+      @media (max-width: 900px) {
+            width: 25rem;
+      } 
+      @media (max-width: 600px) {
+            width: 18rem;
+      }      
 }
 
 .cardHolder {

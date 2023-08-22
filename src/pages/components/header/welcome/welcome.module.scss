@@ -12,6 +12,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
+    @media (max-width: 900px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
 }
 
 .text {
@@ -33,4 +39,10 @@
 .image {
 
     text-align: end;
+    @media (max-width: 900px) {
+        width: 30rem;
+    }
+    @media (max-width: 600px) {
+        width: 20rem;
+    }
 }

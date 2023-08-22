@@ -5,6 +5,7 @@ import Input from "../input";
 import Select from "../select";
 import ParticleBackground from "../ParticleBackground";
 import React, { useState } from "react";
+import TextArea from "../textarea";
 const Contato = () => {
 
   const [formData, setFormData] = useState({
@@ -81,7 +82,7 @@ const Contato = () => {
               pattern="^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{1,2}\s?\d{4,5}-?\d{4}$"
               required
             />
-            <Input name="mensagem" type="text" onChange={handleChange} placeholder="Mensagem" required />
+            <TextArea name="mensagem" type="text" onChange={handleChange} placeholder="Mensagem" required />
             <Select
               onChange={handleChange}
               placeholder="Orçamento para mídia"

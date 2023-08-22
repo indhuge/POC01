@@ -1,16 +1,15 @@
 @import "src/styles/mixins/colors.scss";
 
-.select {
-  width: 27rem;
-  height: 3rem;
+.textarea {
+  width: 25rem;
   border: none;
+  background-color: #dfdfdf;
   border-radius: 5px;
-  padding: 0 1rem;
+  padding: 1rem;
   margin: 1rem 0;
   font-size: 1.5rem;
   font-weight: 400;
   color: black;
-  background-color: #dfdfdf;
 
   &:hover,
   &:focus {
@@ -22,6 +21,6 @@
 
   @media (max-width: 600px) {
     font-size: 1rem;
-    width: 15rem;
+    width: 13rem;
   }
 }

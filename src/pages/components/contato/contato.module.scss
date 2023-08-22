@@ -9,6 +9,10 @@
   @media (max-width: 1051px) {
     padding: 2rem;
   }
+
+  @media(max-width: 600px){
+    display: block;
+  }
 }
 
 
@@ -19,16 +23,21 @@
   align-items: flex-start;
   justify-content: space-around;
   font-family: $font-family-roboto;
-  gap: 10rem;
+  gap: 6.5rem;
   z-index: 2;
   grid-area: 1 / 1 / 2 /2;
 
   @media (max-width: 1051px) {
+    width: auto;
     grid-template-columns: 1fr;
     gap: 5rem;
     align-items: center;
     flex-direction: column;
     
+  }
+
+  @media(max-width: 600px){
+    font-size: small;
   }
 
 }
@@ -47,28 +56,33 @@
     text-transform: uppercase;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: $whitesmoke-color;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     color: $whitesmoke-color;
   }
 
   @media(max-width: 1051px) {
     align-items: center;
-    text-align: center;
+    text-align: left;
+    padding: 0;
     span{
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     p{
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
+  }
+
+  @media(max-width: 600px){
+
   }
 }
 
@@ -87,7 +101,13 @@
     color: $accent-color;
     padding: 0 0 2rem 0;
     margin: 0;
+
+    @media(max-width: 600px){
+    font-size: 1.5rem;
+    padding: 0;
   }
+  }
+
 
   form {
     display: flex;
@@ -95,30 +115,16 @@
     justify-content: center;
     width: 100%;
     margin: 2rem 0;
-    
-    textarea {
-      width: 100%;
-      height: 10rem;
-      border: 1px solid $accent-color;
-      border-radius: 5px;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: black;
-    }
 
     button {
       width: 100%;
       height: 3rem;
-      border: 1px solid $accent-color;
+      border: none;
       border-radius: 5px;
       padding: 0 1rem;
       margin: 1rem 0;
       font-size: 1.5rem;
       font-weight: 400;
-      color: black;
-      background-color: $accent-color;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
@@ -127,6 +133,10 @@
         color: $white-color;
       }
     }
+    
+    @media(max-width: 600px){
+    margin: 0;
+  }
   }
 
   @media (max-width: 1051px) {
@@ -136,10 +146,18 @@
     width: min-content;
   }
 
+  @media(max-width: 600px){
+    width: 15rem;
+  }
+
 }
 
 .particles {
   width: 100%;
   height: 100%;
   grid-area: 1 / 1 / 2 / 2;
+
+  @media (max-width: 1051px) {
+    display: none;
+  }
 }
