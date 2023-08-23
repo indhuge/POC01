@@ -6,6 +6,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
+
   @media (max-width: 1051px) {
     padding: 2rem;
   }
@@ -28,7 +29,7 @@
     gap: 5rem;
     align-items: center;
     flex-direction: column;
-    
+
   }
 
 }
@@ -46,11 +47,13 @@
     color: $accent-color;
     text-transform: uppercase;
   }
+
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
     color: $whitesmoke-color;
   }
+
   p {
     font-size: 1.5rem;
     font-weight: 400;
@@ -60,13 +63,16 @@
   @media(max-width: 1051px) {
     align-items: center;
     text-align: center;
-    span{
+
+    span {
       font-size: 1.2rem;
     }
+
     h1 {
       font-size: 2rem;
     }
-    p{
+
+    p {
       font-size: 1.2rem;
     }
   }
@@ -95,7 +101,7 @@
     justify-content: center;
     width: 100%;
     margin: 2rem 0;
-    
+
     textarea {
       width: 100%;
       height: 10rem;

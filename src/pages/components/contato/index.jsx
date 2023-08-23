@@ -31,6 +31,7 @@ const Contato = () => {
     try {
       const response = await axios.post('/api/sendEmail', formData);
       console.log(response.data);
+      alert("E-mail enviado com sucesso!");
     } catch (error) {
       console.error(error);
     }
@@ -106,6 +107,5 @@ const Contato = () => {
     </div>
   );
 };
-//>>>>>>> merge-dev-gabi2
 
 export default Contato;
