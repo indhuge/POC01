@@ -15,6 +15,7 @@ const Button = ({ title, kind, onClick, type, disabled }) => {
       className={`${Styles.button} ${generationClassByKind()}`}
       onClick={onClick}
       disabled={disabled}
+
     >
       {title}
     </button>
