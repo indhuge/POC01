@@ -1,9 +1,9 @@
 import nodemailer from "nodemailer";
-import { insertClient } from "./mongodb";
+// import insertClient  from "./mongodb";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { nome, email, telefone, mensagem, orcamento } = req.body;
+    const { name, email, phone, message, budget } = req.body;
 
     const transporter = nodemailer.createTransport({
       service: "Gmail",
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       from: "gabrielabarbieri09@gmail.com",
       to: "gabrielabarbieri09@gmail.com",
       subject: "Novo formulário de contato",
-      text: `Nome: ${nome}\nEmail: ${email}\nTelefone: ${telefone}\nMensagem: ${mensagem}\nOrcamento: ${orcamento}`,
+      text: `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nMensagem: ${message}\nOrcamento: ${budget}`,
     };
 
     try {
@@ -25,10 +25,10 @@ export default async function handler(req, res) {
       res.status(200).json({ message: "Email enviado com sucesso!" });
 
       let obj = {
-        name: nome,
+        name: name,
         email: email,
-        phone: telefone,
-        budget: orcamento,
+        phone: phone,
+        budget: budget,
       };
       insertClient(obj);
     } catch (error) {

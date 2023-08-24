@@ -54,6 +54,15 @@
       flex-direction: column;
     }
   }
+  .nav_links{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    &:hover{
+        color: $accent-color;
+    }
+  }
 }
 
 .allRightReserved {
