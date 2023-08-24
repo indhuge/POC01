@@ -11,12 +11,17 @@
   font-weight: 400;
   color: black;
   background-color: #dfdfdf;
-  transition: all 0.3s ease; 
 
   &:hover,
   &:focus { 
     transform: scale(1.05); 
     box-shadow: 0 0 10px #faaa51;
     outline: none;
+    transition: all 0.3s ease;
+  }
+
+  @media(max-width: 600px){
+    font-size: 1rem;
+    width: 13rem;
   }
 }

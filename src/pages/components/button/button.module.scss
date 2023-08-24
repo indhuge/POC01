@@ -23,4 +23,8 @@
     background-color: $blue-color;
     color:white;
   }
+
+  @media(max-width: 600px){
+    font-size: 0.5rem;
+  }
 }
