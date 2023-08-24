@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "axios": "^1.4.0",
     "emailjs": "^4.0.2",
     "eslint": "8.47.0",
