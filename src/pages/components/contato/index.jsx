@@ -24,7 +24,8 @@ const Contato = () => {
     }));
     console.log(name, value)
   };
-
+  const [buttonStatus, setButtonStatus] = useState("notSent");
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('sending...')
@@ -32,9 +33,15 @@ const Contato = () => {
     try {
       const response = await axios.post('/api/sendEmail', formData);
       console.log(response.data);
-    } catch (error) {
+      e.target.reset()
+      setButtonStatus("enviado");
+      await sleep(2000);
+      setButtonStatus("notSent");
+    }
+    catch (error) {
       console.error(error);
     }
+
   };
   return (
     <div className={Styles.wrapper}>
@@ -96,7 +103,10 @@ const Contato = () => {
               required
             />
 
-            <Button type="submit" title="Enviar" />
+            <Button type="submit" title={buttonStatus === "notSent" ? "Enviar" : "Enviado"} />
+
+
+
 
           </form>
         </div>
@@ -107,6 +117,5 @@ const Contato = () => {
     </div>
   );
 };
-//>>>>>>> merge-dev-gabi2
 
 export default Contato;
