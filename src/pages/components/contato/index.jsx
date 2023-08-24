@@ -44,6 +44,7 @@ const Contato = () => {
       } finally {
         setSubmitting(false);
 
+
         setTimeout(() => {
           setButtonStatus("Enviar");
         }, 5000);
@@ -90,7 +91,6 @@ const Contato = () => {
 
           <form onSubmit={formik.handleSubmit}>
             {/* Name */}
-
             <Input
               type="text"
               name="name"
@@ -102,7 +102,6 @@ const Contato = () => {
             />
             {/* Email */}
             <Input
-
               type="email"
               name="email"
               onChange={formik.handleChange}
@@ -146,7 +145,6 @@ const Contato = () => {
               required
               value={formik.values.budget}
             />
-
             <Button type="submit" title={buttonStatus}/>
           </form>
         </div>
