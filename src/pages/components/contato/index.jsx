@@ -39,6 +39,33 @@ const Contato = () => {
     },
   });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(name, value)
+  };
+  const [buttonStatus, setButtonStatus] = useState("notSent");
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('sending...')
+    console.log(formData)
+    try {
+      const response = await axios.post('/api/sendEmail', formData);
+      console.log(response.data);
+      e.target.reset()
+      setButtonStatus("enviado");
+      await sleep(2000);
+      setButtonStatus("notSent");
+    }
+    catch (error) {
+      console.error(error);
+    }
+
+  };
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.container}>
@@ -132,7 +159,8 @@ const Contato = () => {
               value={formik.values.budget}
             />
 
-            <Button type="submit" title="Enviar" disabled={formik.isSubmitting} />
+
+            <Button type="submit" title={buttonStatus === "notSent" ? "Enviar" : "Enviado"} disabled={formik.isSubmitting}/>
 
           </form>
         </div>

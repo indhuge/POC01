@@ -6,6 +6,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
+
   @media (max-width: 1051px) {
     padding: 2rem;
   }
@@ -14,7 +15,6 @@
     display: block;
   }
 }
-
 
 .container {
   @include Padding;
@@ -33,7 +33,7 @@
     gap: 5rem;
     align-items: center;
     flex-direction: column;
-    
+
   }
 
   @media(max-width: 600px){
@@ -55,11 +55,13 @@
     color: $accent-color;
     text-transform: uppercase;
   }
+
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
     color: $whitesmoke-color;
   }
+
   p {
     font-size: 1rem;
     font-weight: 400;
@@ -73,9 +75,11 @@
     span{
       font-size: 1rem;
     }
+
     h1 {
       font-size: 1.5rem;
     }
+
     p{
       font-size: 1rem;
     }
@@ -115,6 +119,21 @@
     justify-content: center;
     width: 100%;
     margin: 2rem 0;
+
+
+   /* textarea {
+      width: 100%;
+      height: 10rem;
+      border: 1px solid $accent-color;
+      border-radius: 5px;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: black;
+    } */
+
+
 
     button {
       width: 100%;
@@ -161,3 +180,4 @@
     display: none;
   }
 }
+
