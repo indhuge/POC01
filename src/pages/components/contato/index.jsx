@@ -1,15 +1,18 @@
-import Styles from "./contato.module.scss";
+import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import axios from "axios";
+
+import Styles from "./contato.module.scss";
 import Button from "../../components/button";
 import Input from "../input";
 import Select from "../select";
 import ParticleBackground from "../ParticleBackground";
-import React from "react";
 import TextArea from "../textarea";
-import { FormikProvider, useFormik } from "formik";
-import * as Yup from "yup";
 
 const Contato = () => {
+  const [buttonStatus, setButtonStatus] = useState("Enviar"); 
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -29,43 +32,25 @@ const Contato = () => {
       console.log('values', values);
       console.log('verificiation', formik.isValid);
       try {
+        setButtonStatus('Enviando...');
         const response = await axios.post('/api/sendEmail', values);
         console.log('res', response.data);
+        setButtonStatus('Enviado com sucesso!');
+        formik.resetForm();
       } catch (error) {
+        setButtonStatus('Erro ao enviar');
         console.error("api error", error);
       } finally {
         setSubmitting(false);
+
+        setTimeout(() => {
+          setButtonStatus("Enviar");
+        }, 5000);
       }
     },
+
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    console.log(name, value)
-  };
-  const [buttonStatus, setButtonStatus] = useState("notSent");
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('sending...')
-    console.log(formData)
-    try {
-      const response = await axios.post('/api/sendEmail', formData);
-      console.log(response.data);
-      e.target.reset()
-      setButtonStatus("enviado");
-      await sleep(2000);
-      setButtonStatus("notSent");
-    }
-    catch (error) {
-      console.error(error);
-    }
-
-  };
+  
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.container}>
@@ -160,8 +145,7 @@ const Contato = () => {
             />
 
 
-            <Button type="submit" title={buttonStatus === "notSent" ? "Enviar" : "Enviado"} disabled={formik.isSubmitting}/>
-
+            <Button type="submit" title={buttonStatus}/>
           </form>
         </div>
       </div>
