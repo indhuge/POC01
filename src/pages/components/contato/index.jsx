@@ -13,6 +13,7 @@ import TextArea from "../textarea";
 const Contato = () => {
   const [buttonStatus, setButtonStatus] = useState("Enviar"); 
 
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -42,6 +43,7 @@ const Contato = () => {
         console.error("api error", error);
       } finally {
         setSubmitting(false);
+
 
         setTimeout(() => {
           setButtonStatus("Enviar");
@@ -143,8 +145,6 @@ const Contato = () => {
               required
               value={formik.values.budget}
             />
-
-
             <Button type="submit" title={buttonStatus}/>
           </form>
         </div>
