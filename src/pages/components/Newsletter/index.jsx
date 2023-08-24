@@ -1,6 +1,7 @@
 import axios from "axios";
 import Styles from "./Newsletter.module.scss";
 import { useState } from "react";
+import Input from "../input";
 
 async function register(_email) {
   const res = await fetch("/api/mailChimp", {
@@ -15,13 +16,12 @@ async function register(_email) {
 
   const { error } = await res.json();
   if (error) console.log(error);
-  else console.log("OK");
+
 }
 
 export default function Newsletter() {
   let state = useState({
-    email: "",
-    name: "",
+    email: ""
   });
 
   let onEmailChaged = (e) => {
@@ -33,6 +33,7 @@ export default function Newsletter() {
     e.preventDefault();
     console.log(state.email);
     register(state.email);
+    state.email = "";
   };
 
   return (
@@ -40,7 +41,6 @@ export default function Newsletter() {
       <div className={Styles.content}>
         <h1>Fique por dentro das novidades!</h1>
         <form onSubmit={submit}>
-          <input type="text" name="name" placeholder="Insira seu nome" />
           <input
             type="email"
             name="email"
