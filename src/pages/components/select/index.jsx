@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './select.module.scss';
 
-const Select = ({ id, placeholder, required, options, onChange, onBlur, name }) => {
+const Select = ({ id, placeholder, required, options, onChange, onBlur, name , value}) => {
   return (
     <select
       id={id}
@@ -10,6 +10,7 @@ const Select = ({ id, placeholder, required, options, onChange, onBlur, name }) 
       onChange={onChange}
       onBlur={onBlur}
       name={name}
+      value={value}
     >
       <option value="" disabled hidden>
         {placeholder}

@@ -1,6 +1,6 @@
 import Styles from "./textarea.module.scss";
 
-const TextArea = ({ id, type, placeholder, pattern, required, onBlur, onChange, name }) => {
+const TextArea = ({ id, type, placeholder, pattern, required, onBlur, onChange, name, value }) => {
   return (
     <textarea
       id={id}
@@ -13,6 +13,7 @@ const TextArea = ({ id, type, placeholder, pattern, required, onBlur, onChange, 
       required={required}
       className={Styles.textarea}
       onBlur={onBlur}
+      value={value}
     />
   )
 }
