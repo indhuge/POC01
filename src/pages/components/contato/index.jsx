@@ -147,10 +147,6 @@ const Contato = () => {
               value={formik.values.budget}
             />
 
-
-            <Button type="submit" title="Enviar" disabled={formik.isSubmitting} />
-
-
             <Button type="submit" title={buttonStatus}/>
           </form>
         </div>
