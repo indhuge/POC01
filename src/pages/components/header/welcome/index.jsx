@@ -1,5 +1,4 @@
-import ParticleBackground from "../../ParticleBackground";
-import Button from "../botton";
+import Button from "../../button";
 import Styles from "./welcome.module.scss";
 import Teste from "../../teste";
 const Welcome = () => {
@@ -13,10 +12,10 @@ const Welcome = () => {
             Veja como ajudamos nossos clientes a alcancar maior
             sustentabilidade social, economica e ambiental.
           </p>
-          <Button title="Saber Mais" kind="secundary" onClick={() => { location.href = "https://google.com"}}/>
+          <Button title="Saber Mais" kind="secundary" onClick={() => { location.href = "https://google.com" }} />
         </div>
         <div className={Styles.image}>
-            <Teste />
+          <Teste />
         </div>
       </div>
     </div>
