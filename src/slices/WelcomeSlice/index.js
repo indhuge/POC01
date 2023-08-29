@@ -1,3 +1,7 @@
+import Styles from "./welcome.module.scss";
+import { PrismicRichText, PrismicImage } from "@prismicio/react";
+import Button from "@/pages/components/button";
+
 /**
  * @typedef {import("@prismicio/client").Content.WelcomeSliceSlice} WelcomeSliceSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<WelcomeSliceSlice>} WelcomeSliceProps
@@ -9,8 +13,28 @@ const WelcomeSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for welcome_slice (variation: {slice.variation})
-      Slices
+      <div className={Styles.wrapper}>
+        <div className={Styles.container}>
+          <div className={Styles.text}>
+            <h1>
+              <PrismicRichText field={slice.primary.title} />
+            </h1>
+            <p>
+              <PrismicRichText field={slice.primary.text} />
+            </p>
+            <Button
+              title="Saber Mais"
+              kind="secundary"
+              onClick={() => {
+                location.href = "https://google.com";
+              }}
+            />
+          </div>
+          <div className={Styles.image}>
+            <PrismicImage field={slice.primary.mainimage} />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

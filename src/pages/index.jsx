@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 import Newsletter from "./components/Newsletter";
 import { useEffect, useState } from "react";
 import { createClient } from "@/prismicio";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
 
 function queryContent() {
   const client = createClient();
@@ -42,12 +44,16 @@ export default function Home() {
 
   return (
     <div className={styles.description}>
-      <Header logoUrl={page.data.logo.url} callToActionText={page.data.call_to_action_text}/>
-      <Welcome />
+      <Header
+        logoUrl={page.data.logo.url}
+        callToActionText={page.data.call_to_action_text}
+      />
+      <SliceZone slices={page.data.slices} components={components} />
+      {/* <Welcome />
       <Features />
       <Newsletter />
       <Contato />
-      <Footer />
+      <Footer /> */}
       <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
     </div>
   );
