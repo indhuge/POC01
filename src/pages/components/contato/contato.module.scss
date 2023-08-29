@@ -1,20 +1,21 @@
 @import "../../../styles/mixins/fonts.scss";
 @import "../../../styles/mixins/padding.scss";
 @import "../../../styles/mixins/colors.scss";
+@import "../../../styles/mixins/size.scss";
 
 .wrapper {
   display: grid;
   justify-items: center;
   align-items: center;
+
   @media (max-width: 1051px) {
     padding: 2rem;
   }
 
-  @media(max-width: 600px){
+  @media(max-width: 600px) {
     display: block;
   }
 }
-
 
 .container {
   @include Padding;
@@ -33,10 +34,10 @@
     gap: 5rem;
     align-items: center;
     flex-direction: column;
-    
+
   }
 
-  @media(max-width: 600px){
+  @media(max-width: 600px) {
     font-size: small;
   }
 
@@ -55,11 +56,13 @@
     color: $accent-color;
     text-transform: uppercase;
   }
+
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
     color: $whitesmoke-color;
   }
+
   p {
     font-size: 1rem;
     font-weight: 400;
@@ -70,20 +73,21 @@
     align-items: center;
     text-align: left;
     padding: 0;
-    span{
+
+    span {
       font-size: 1rem;
     }
+
     h1 {
       font-size: 1.5rem;
     }
-    p{
+
+    p {
       font-size: 1rem;
     }
   }
 
-  @media(max-width: 600px){
-
-  }
+  @media(max-width: 600px) {}
 }
 
 .forms {
@@ -102,10 +106,10 @@
     padding: 0 0 2rem 0;
     margin: 0;
 
-    @media(max-width: 600px){
-    font-size: 1.5rem;
-    padding: 0;
-  }
+    @media(max-width: 600px) {
+      font-size: 1.5rem;
+      padding: 0;
+    }
   }
 
 
@@ -117,14 +121,9 @@
     margin: 2rem 0;
 
     button {
+      @include Size;
       width: 100%;
-      height: 3rem;
-      border: none;
-      border-radius: 5px;
-      padding: 0 1rem;
       margin: 1rem 0;
-      font-size: 1.5rem;
-      font-weight: 400;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
@@ -133,10 +132,10 @@
         color: $white-color;
       }
     }
-    
-    @media(max-width: 600px){
-    margin: 0;
-  }
+
+    @media(max-width: 600px) {
+      margin: 0;
+    }
   }
 
   @media (max-width: 1051px) {
@@ -146,7 +145,7 @@
     width: min-content;
   }
 
-  @media(max-width: 600px){
+  @media(max-width: 600px) {
     width: 15rem;
   }
 

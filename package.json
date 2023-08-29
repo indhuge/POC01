@@ -9,15 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "axios": "^1.4.0",
     "emailjs": "^4.0.2",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "formik": "^2.4.3",
     "mongodb": "^5.8.0",
     "next": "13.4.16",
     "nodemailer": "^6.9.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.65.1"
+    "sass": "^1.65.1",
+    "yup": "^1.2.0"
   }
 }

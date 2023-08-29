@@ -12,8 +12,8 @@
   }
 
   &.secundary {
-    background-color: $gray-color;
-    color: $blue-color;
+    background-color: #00171F;
+    color: $white-color;
   }
 
   &.full {
@@ -21,10 +21,10 @@
     width: 100%;
     font-weight: 600;
     background-color: $blue-color;
-    color:white;
+    color: white;
   }
 
-  @media(max-width: 600px){
+  @media(max-width: 600px) {
     font-size: 0.5rem;
   }
 }

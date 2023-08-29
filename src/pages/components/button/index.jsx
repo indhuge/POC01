@@ -1,11 +1,9 @@
 import Styles from "./button.module.scss";
-// provisorio para testar o botao
 
-const Button = ({ title, kind, onClick, type }) => {
+const Button = ({ title, kind, onClick, type, disabled }) => {
   const generationClassByKind = () => {
     if (kind === "secundary") return Styles.secundary;
     if (kind === "full") return Styles.full;
-
     return Styles.primary;
   };
 
@@ -13,7 +11,8 @@ const Button = ({ title, kind, onClick, type }) => {
     <button
       type={type}
       className={`${Styles.button} ${generationClassByKind()}`}
-      onClick={() => onClick}
+      onClick={onClick}
+      disabled={disabled}
     >
       {title}
     </button>

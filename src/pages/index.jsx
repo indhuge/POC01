@@ -1,13 +1,14 @@
-import styles from "./Home.module.scss";
-import Header from "./components/header";
-import Welcome from "./components/header/welcome";
-import Features from "./components/features";
-import Contato from "./components/contato";
-import Footer from "./components/footer";
+import styles from './Home.module.scss'
+import Header from './components/header'
+import Welcome from './components/header/welcome'
+import Features from './components/features'
+import Contato from './components/contato'
+import Footer from './components/footer'
+import Newsletter from './components/Newsletter'
 import { useEffect } from "react";
 
-export default function Home() {
-  useEffect(() => {
+export default function Home() {]
+useEffect(() => {
     window.botpressWebChat.init({
       composerPlaceholder: "Chat with IndHelp",
       botConversationDescription: "Tire suas duvidas",
@@ -24,6 +25,7 @@ export default function Home() {
       <Header />
       <Welcome />
       <Features />
+      <Newsletter />
       <Contato />
       <Footer />
 
