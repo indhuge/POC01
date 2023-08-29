@@ -7,7 +7,7 @@ import Footer from './components/footer'
 import Newsletter from './components/Newsletter'
 import { useEffect } from "react";
 
-export default function Home() {]
+export default function Home() {
 useEffect(() => {
     window.botpressWebChat.init({
       composerPlaceholder: "Chat with IndHelp",
