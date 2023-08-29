@@ -14,7 +14,7 @@
   &:hover,
   &:focus {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #faaa51;
+    box-shadow: 0 0 10px $gear-color;
     outline: none;
     transition: all 0.3s ease;
   }

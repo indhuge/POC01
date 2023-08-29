@@ -1,8 +1,6 @@
 @import "src/styles/mixins/colors.scss";
 
-$background-color: $blue-color;
 $font-color: #f6f6f6;
-$gear-color: #faaa51;
 $speed: 5s;
 
 .rotating-gears {
@@ -11,13 +9,16 @@ $speed: 5s;
     max-width: 725px;
     margin: 0px auto;
   }
+
   .gears {
     width: 48%;
     display: inline-block;
   }
+
   .gears:first-child {
     margin-right: 3%;
   }
+
   .gears-container {
     width: 150px;
     height: 150px;
@@ -26,6 +27,7 @@ $speed: 5s;
     position: relative;
     margin: 0px auto;
   }
+
   .gear-rotate {
     width: 2em;
     height: 2em;
@@ -40,6 +42,7 @@ $speed: 5s;
     -moz-animation: $speed gear-rotate linear infinite;
     animation: $speed gear-rotate linear infinite;
   }
+
   .gear-rotate-left {
     margin-top: -2.2em;
     top: 50%;
@@ -57,82 +60,61 @@ $speed: 5s;
   .gear-rotate-left::before {
     width: 2.8em;
     height: 2.8em;
-    background: -webkit-linear-gradient(
-        0deg,
+    background: -webkit-linear-gradient(0deg,
         transparent 39%,
         $gear-color 39%,
         $gear-color 61%,
-        transparent 61%
-      ),
-      -webkit-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%),
-      -webkit-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%);
-    background: -moz-linear-gradient(
-        0deg,
+        transparent 61%),
+      -webkit-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%),
+      -webkit-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%);
+    background: -moz-linear-gradient(0deg,
         transparent 39%,
         $gear-color 39%,
         #47ec19 61%,
-        transparent 61%
-      ),
-      -moz-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%),
-      -moz-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%);
-    background: -o-linear-gradient(
-        0deg,
+        transparent 61%),
+      -moz-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%),
+      -moz-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%);
+    background: -o-linear-gradient(0deg,
         transparent 39%,
         $gear-color 39%,
         $gear-color 61%,
-        transparent 61%
-      ),
-      -o-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%),
-      -o-linear-gradient(120deg, transparent 42%, #47ec19 42%, $gear-color 58%, transparent
-            58%);
-    background: -ms-linear-gradient(
-        0deg,
+        transparent 61%),
+      -o-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%),
+      -o-linear-gradient(120deg, transparent 42%, #47ec19 42%, $gear-color 58%, transparent 58%);
+    background: -ms-linear-gradient(0deg,
         transparent 39%,
         $gear-color 39%,
         $gear-color 61%,
-        transparent 61%
-      ),
-      -ms-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%),
-      -ms-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent
-            58%);
-    background: linear-gradient(
-        0deg,
+        transparent 61%),
+      -ms-linear-gradient(60deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%),
+      -ms-linear-gradient(120deg, transparent 42%, $gear-color 42%, $gear-color 58%, transparent 58%);
+    background: linear-gradient(0deg,
         transparent 39%,
         $gear-color 39%,
         $gear-color 61%,
-        transparent 61%
-      ),
-      linear-gradient(
-        60deg,
+        transparent 61%),
+      linear-gradient(60deg,
         transparent 42%,
         $gear-color 42%,
         $gear-color 58%,
-        transparent 58%
-      ),
-      linear-gradient(
-        120deg,
+        transparent 58%),
+      linear-gradient(120deg,
         transparent 42%,
         $gear-color 42%,
         $gear-color 58%,
-        transparent 58%
-      );
+        transparent 58%);
     position: absolute;
     content: "";
     top: -0.4em;
     left: -0.4em;
     border-radius: 1.4em;
   }
+
   .gear-rotate::after,
   .gear-rotate-left::after {
     width: 1em;
     height: 1em;
-    background: $background-color;
+    background: $blue-color;
     position: absolute;
     content: "";
     top: 0.5em;
@@ -148,6 +130,7 @@ $speed: 5s;
     0% {
       -webkit-transform: rotate(0deg);
     }
+
     100% {
       -webkit-transform: rotate(-180deg);
     }
@@ -157,6 +140,7 @@ $speed: 5s;
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(-180deg);
     }
@@ -166,6 +150,7 @@ $speed: 5s;
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(-180deg);
     }
@@ -175,6 +160,7 @@ $speed: 5s;
     0% {
       -webkit-transform: rotate(30deg);
     }
+
     100% {
       -webkit-transform: rotate(210deg);
     }
@@ -184,6 +170,7 @@ $speed: 5s;
     0% {
       -webkit-transform: rotate(30deg);
     }
+
     100% {
       -webkit-transform: rotate(210deg);
     }
@@ -193,6 +180,7 @@ $speed: 5s;
     0% {
       -webkit-transform: rotate(30deg);
     }
+
     100% {
       -webkit-transform: rotate(210deg);
     }
