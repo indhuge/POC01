@@ -5,10 +5,20 @@ import Features from './components/features'
 import Contato from './components/contato'
 import Footer from './components/footer'
 import Newsletter from './components/Newsletter'
+import { useEffect } from "react";
 
-export default function Home() {
-
-  
+export default function Home() {]
+useEffect(() => {
+    window.botpressWebChat.init({
+      composerPlaceholder: "Chat with IndHelp",
+      botConversationDescription: "Tire suas duvidas",
+      botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
+      messagingUrl: "https://messaging.botpress.cloud",
+      clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+      botName: "IndHelp",
+    });
+  });
 
   return (
     <div className={styles.description}>
@@ -18,7 +28,8 @@ export default function Home() {
       <Newsletter />
       <Contato />
       <Footer />
-    </div>
 
-  )
+      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    </div>
+  );
 }

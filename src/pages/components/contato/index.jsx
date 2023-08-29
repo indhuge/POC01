@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
 import Styles from "./contato.module.scss";
 import Button from "../../components/button";
 import Input from "../input";
@@ -11,7 +10,7 @@ import ParticleBackground from "../ParticleBackground";
 import TextArea from "../textarea";
 
 const Contato = () => {
-  const [buttonStatus, setButtonStatus] = useState("Enviar"); 
+  const [buttonStatus, setButtonStatus] = useState("Enviar");
 
 
   const formik = useFormik({
@@ -52,7 +51,7 @@ const Contato = () => {
     },
 
   });
-  
+
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.container}>
@@ -134,10 +133,10 @@ const Contato = () => {
             <Select
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              placeholder="Orçamento para mídia"
+              placeholder="Orçamento do produto"
               name="budget"
               options={[
-                { label: "Orçamento de produto", value: 0 },
+                // { label: "Orçamento de produto", value: 0 },
                 { label: "Empresa pequena", value: "Empresa pequena" },
                 { label: "Empresa média", value: "Empresa média" },
                 { label: "Empresa grande", value: "Empresa grande" },
@@ -145,7 +144,7 @@ const Contato = () => {
               required
               value={formik.values.budget}
             />
-            <Button type="submit" title={buttonStatus}/>
+            <Button type="submit" title={buttonStatus} />
           </form>
         </div>
       </div>
