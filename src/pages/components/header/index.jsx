@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "/public/images/logo.svg";
 import Styles from "./header.module.scss";
 import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
-import { useEffect, useState } from "react";
 
 var isOpen = false;
 var inMobile = false;
@@ -26,7 +24,7 @@ function toggleMenu() {
   }
 }
 
-const Header = ({logoUrl, callToActionText}) => {
+const Header = ({ logoUrl, callToActionText, navLinks }) => {
   return (
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
@@ -34,10 +32,19 @@ const Header = ({logoUrl, callToActionText}) => {
           <img src={logoUrl} />
         </div>
         <div className={Styles.menu} id="menu">
-          <Link href="#footer">Home</Link>
-          <Link href="https://google.com">O que fazemos</Link>
-          <Link href="https://google.com">Cases</Link>
-          <Button title={callToActionText} onClick={() => { location.href = '#form' }} />
+          {
+            Object.keys(navLinks[0]).map((e) => {
+              return (
+                <Link href={navLinks[0][e].url}>{e}</Link>
+              )
+            })
+          }
+          <Button
+            title={callToActionText}
+            onClick={() => {
+              location.href = "#form";
+            }}
+          />
         </div>
         <Image className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
       </div>

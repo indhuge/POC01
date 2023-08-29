@@ -47,6 +47,7 @@ export default function Home() {
       <Header
         logoUrl={page.data.logo.url}
         callToActionText={page.data.call_to_action_text}
+        navLinks={page.data.menuitens}
       />
       <SliceZone slices={page.data.slices} components={components} />
       {/* <Welcome />
