@@ -26,18 +26,18 @@ function toggleMenu() {
   }
 }
 
-const Header = () => {
+const Header = ({logoUrl, callToActionText}) => {
   return (
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
-          <Image src={Logo} />
+          <img src={logoUrl} />
         </div>
         <div className={Styles.menu} id="menu">
           <Link href="#footer">Home</Link>
           <Link href="https://google.com">O que fazemos</Link>
           <Link href="https://google.com">Cases</Link>
-          <Button title="Fale conosco" onClick={() => { location.href = '#form' }} />
+          <Button title={callToActionText} onClick={() => { location.href = '#form' }} />
         </div>
         <Image className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
       </div>
