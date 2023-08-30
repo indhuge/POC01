@@ -34,14 +34,24 @@ export interface HomepageDocumentDataMenuitensItem {
  */
 export interface HomepageDocumentDataContentMenuOptionsItem {
   /**
-   * Blogs field in *homepage → Content Menu Options*
+   * Link Title field in *homepage → Content Menu Options*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.content_menu_options[].link_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_title: prismic.KeyTextField;
+
+  /**
+   * Link field in *homepage → Content Menu Options*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.content_menu_options[].blogs
+   * - **API ID Path**: homepage.content_menu_options[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  blogs: prismic.LinkField;
+  link: prismic.LinkField;
 }
 
 type HomepageDocumentDataSlicesSlice =

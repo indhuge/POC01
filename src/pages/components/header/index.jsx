@@ -34,12 +34,8 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
           <img src={logoUrl} />
         </div>
         <div className={Styles.menu} id="menu">
-          {Object.keys(navLinks[0]).map((e) => {
-            return (
-              <Link href={navLinks[0][e].url}>
-                {captalize(e.replaceAll("_", " "))}
-              </Link>
-            );
+          {navLinks.map((n) => {
+            return <Link href={n.link.url}>{n.link_title}</Link>;
           })}
           <Button
             title={callToActionText}

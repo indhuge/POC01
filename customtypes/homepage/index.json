@@ -74,11 +74,19 @@
         "config": {
           "label": "Content Menu Options",
           "fields": {
-            "blogs": {
+            "link_title": {
+              "type": "Text",
+              "config": {
+                "label": "Link Title",
+                "placeholder": ""
+              }
+            },
+            "link": {
               "type": "Link",
               "config": {
-                "label": "Blogs",
+                "label": "Link",
                 "placeholder": "",
+                "allowTargetBlank": false,
                 "select": null
               }
             }
