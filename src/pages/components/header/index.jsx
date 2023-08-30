@@ -24,6 +24,8 @@ function toggleMenu() {
   }
 }
 
+var captalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
 const Header = ({ logoUrl, callToActionText, navLinks }) => {
   return (
     <div className={Styles.main} id="main">
@@ -32,13 +34,13 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
           <img src={logoUrl} />
         </div>
         <div className={Styles.menu} id="menu">
-          {
-            Object.keys(navLinks[0]).map((e) => {
-              return (
-                <Link href={navLinks[0][e].url}>{e}</Link>
-              )
-            })
-          }
+          {Object.keys(navLinks[0]).map((e) => {
+            return (
+              <Link href={navLinks[0][e].url}>
+                {captalize(e.replaceAll("_", " "))}
+              </Link>
+            );
+          })}
           <Button
             title={callToActionText}
             onClick={() => {

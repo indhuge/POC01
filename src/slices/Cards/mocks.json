@@ -1,0 +1,91 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"maintitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Pilot"
+						}
+					}
+				]
+			},
+			"maintext": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ea ullamco esse do laboris consectetur sunt fugiat qui eiusmod ullamco. Sit aliquip cillum consectetur esse esse nulla aute voluptate in amet cillum."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"cardicon",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+								"width": 3958,
+								"height": 3958
+							},
+							"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+							"width": 3958,
+							"height": 3958,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"cardtitle",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading1",
+									"content": {
+										"text": "Chicken"
+									}
+								}
+							]
+						}
+					],
+					[
+						"cardtext",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Voluptate laboris Lorem dolor occaecat sit exercitation qui qui magna nostrud. Id laboris velit sint consectetur in consequat aliqua magna."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

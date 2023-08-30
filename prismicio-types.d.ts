@@ -13,33 +13,33 @@ export interface HomepageDocumentDataMenuitensItem {
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].homelink
+   * - **API ID Path**: homepage.menuitens[].home
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  homelink: prismic.LinkField;
+  home: prismic.LinkField;
 
   /**
    * O que fazemos field in *homepage → menuItens*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].o_que_fazemosLink
+   * - **API ID Path**: homepage.menuitens[].o_que_fazemos
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  o_que_fazemosLink: prismic.LinkField;
+  o_que_fazemos: prismic.LinkField;
 
   /**
    * Cases field in *homepage → menuItens*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].casesLink
+   * - **API ID Path**: homepage.menuitens[].cases
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  casesLink: prismic.LinkField;
+  cases: prismic.LinkField;
 }
 
-type HomepageDocumentDataSlicesSlice = WelcomeSliceSlice;
+type HomepageDocumentDataSlicesSlice = WelcomeSliceSlice | CardsSlice;
 
 /**
  * Content for homepage documents
@@ -141,6 +141,93 @@ export type HomepageDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument;
 
 /**
+ * Primary content in *Cards → Primary*
+ */
+export interface CardsSliceDefaultPrimary {
+  /**
+   * mainTitle field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.maintitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  maintitle: prismic.RichTextField;
+
+  /**
+   * mainText field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.maintext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  maintext: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Cards → Items*
+ */
+export interface CardsSliceDefaultItem {
+  /**
+   * cardIcon field in *Cards → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].cardicon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cardicon: prismic.ImageField<never>;
+
+  /**
+   * cardTitle field in *Cards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].cardtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cardtitle: prismic.RichTextField;
+
+  /**
+   * cardText field in *Cards → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.items[].cardtext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cardtext: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Cards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceDefaultPrimary>,
+  Simplify<CardsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Cards*
+ */
+type CardsSliceVariation = CardsSliceDefault;
+
+/**
+ * Cards Shared Slice
+ *
+ * - **API ID**: `cards`
+ * - **Description**: Cards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -229,6 +316,9 @@ declare module "@prismicio/client" {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CardsSlice,
+      CardsSliceVariation,
+      CardsSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceVariation,
       WelcomeSliceSliceDefault,

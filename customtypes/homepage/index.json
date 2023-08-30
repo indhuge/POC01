@@ -25,7 +25,7 @@
         "config": {
           "label": "menuItens",
           "fields": {
-            "homelink": {
+            "home": {
               "type": "Link",
               "config": {
                 "label": "Home",
@@ -34,19 +34,21 @@
                 "select": null
               }
             },
-            "o_que_fazemosLink": {
+            "o_que_fazemos": {
               "type": "Link",
               "config": {
                 "label": "O que fazemos",
                 "placeholder": "",
+                "allowTargetBlank": false,
                 "select": null
               }
             },
-            "casesLink": {
+            "cases": {
               "type": "Link",
               "config": {
                 "label": "Cases",
                 "placeholder": "",
+                "allowTargetBlank": false,
                 "select": null
               }
             }
@@ -66,6 +68,9 @@
         "config": {
           "choices": {
             "welcome_slice": {
+              "type": "SharedSlice"
+            },
+            "cards": {
               "type": "SharedSlice"
             }
           }
