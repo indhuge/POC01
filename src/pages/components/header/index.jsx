@@ -31,7 +31,7 @@ const Header = () => {
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
-          <Image src={Logo} />
+          <Image alt="Logo" src={Logo} />
         </div>
         <div className={Styles.menu} id="menu">
           <Link href="#footer">Home</Link>
@@ -39,7 +39,7 @@ const Header = () => {
           <Link href="https://google.com">Cases</Link>
           <Button title="Fale conosco" onClick={() => { location.href = '#form' }} />
         </div>
-        <Image className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
+        <Image alt="Menu Icon" className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
       </div>
     </div>
   );

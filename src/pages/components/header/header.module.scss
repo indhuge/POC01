@@ -24,11 +24,7 @@
     display: none;
     width: 4em;
     height: 4em;
-
-    justify-self: flex-end;
-
-
-
+    // justify-self: flex-start;
 }
 
 .logotipo {
@@ -73,11 +69,6 @@
     display: none;
 }
 
-.expanded {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
 
 
 .action {
