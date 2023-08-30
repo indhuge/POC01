@@ -9,37 +9,46 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
  */
 export interface HomepageDocumentDataMenuitensItem {
   /**
-   * Home field in *homepage → menuItens*
+   * Link Title field in *homepage → menuItens*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].home
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: homepage.menuitens[].link_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  home: prismic.LinkField;
+  link_title: prismic.KeyTextField;
 
   /**
-   * O que fazemos field in *homepage → menuItens*
+   * link field in *homepage → menuItens*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].o_que_fazemos
+   * - **API ID Path**: homepage.menuitens[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  o_que_fazemos: prismic.LinkField;
-
-  /**
-   * Cases field in *homepage → menuItens*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.menuitens[].cases
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cases: prismic.LinkField;
+  link: prismic.LinkField;
 }
 
-type HomepageDocumentDataSlicesSlice = WelcomeSliceSlice | CardsSlice;
+/**
+ * Item in *homepage → Content Menu Options*
+ */
+export interface HomepageDocumentDataContentMenuOptionsItem {
+  /**
+   * Blogs field in *homepage → Content Menu Options*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.content_menu_options[].blogs
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  blogs: prismic.LinkField;
+}
+
+type HomepageDocumentDataSlicesSlice =
+  | WelcomeSliceSlice
+  | CardsSlice
+  | NewsletterSlotSlice
+  | ContactFormSliceSlice;
 
 /**
  * Content for homepage documents
@@ -77,6 +86,41 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   call_to_action_text: prismic.KeyTextField;
+
+  /**
+   * Menu Footer Title field in *homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.menu_footer_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  menu_footer_title: prismic.RichTextField;
+
+  /**
+   * Content Footer Title field in *homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.content_footer_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content_footer_title: prismic.RichTextField;
+
+  /**
+   * Content Menu Options field in *homepage*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.content_menu_options[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  content_menu_options: prismic.GroupField<
+    Simplify<HomepageDocumentDataContentMenuOptionsItem>
+  >;
 
   /**
    * Slice Zone field in *homepage*
@@ -228,6 +272,218 @@ type CardsSliceVariation = CardsSliceDefault;
 export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
 
 /**
+ * Primary content in *ContactFormSlice → Primary*
+ */
+export interface ContactFormSliceSliceDefaultPrimary {
+  /**
+   * Titulo de Ação field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.actionTitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  actionTitle: prismic.RichTextField;
+
+  /**
+   * Main Title field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_title: prismic.RichTextField;
+
+  /**
+   * Text Body field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.text_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_body: prismic.RichTextField;
+
+  /**
+   * Forms Title field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.forms_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  forms_title: prismic.RichTextField;
+
+  /**
+   * Name Placeholder field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.name_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name_placeholder: prismic.KeyTextField;
+
+  /**
+   * Email Placeholder field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.email_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_placeholder: prismic.KeyTextField;
+
+  /**
+   * Phone Placeholder field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.phone_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_placeholder: prismic.KeyTextField;
+
+  /**
+   * Message Placeholder field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.message_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message_placeholder: prismic.KeyTextField;
+
+  /**
+   * Contact Options Placeholder field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.contact_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_placeholder: prismic.KeyTextField;
+
+  /**
+   * Contact Options field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.contact_options
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  contact_options: prismic.SelectField<
+    "small_company" | "medium_company" | "big_company"
+  >;
+
+  /**
+   * Send Button Text field in *ContactFormSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.primary.send_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  send_button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactFormSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactFormSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactFormSlice*
+ */
+type ContactFormSliceSliceVariation = ContactFormSliceSliceDefault;
+
+/**
+ * ContactFormSlice Shared Slice
+ *
+ * - **API ID**: `contact_form_slice`
+ * - **Description**: ContactFormSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceSlice = prismic.SharedSlice<
+  "contact_form_slice",
+  ContactFormSliceSliceVariation
+>;
+
+/**
+ * Primary content in *NewsletterSlot → Primary*
+ */
+export interface NewsletterSlotSliceDefaultPrimary {
+  /**
+   * mainText field in *NewsletterSlot → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_slot.primary.maintext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  maintext: prismic.RichTextField;
+
+  /**
+   * placeholderText field in *NewsletterSlot → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_slot.primary.placeholdertext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  placeholdertext: prismic.KeyTextField;
+
+  /**
+   * buttonText field in *NewsletterSlot → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_slot.primary.buttontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  buttontext: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for NewsletterSlot Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSlotSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSlotSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NewsletterSlot*
+ */
+type NewsletterSlotSliceVariation = NewsletterSlotSliceDefault;
+
+/**
+ * NewsletterSlot Shared Slice
+ *
+ * - **API ID**: `newsletter_slot`
+ * - **Description**: NewsletterSlot
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSlotSlice = prismic.SharedSlice<
+  "newsletter_slot",
+  NewsletterSlotSliceVariation
+>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -319,6 +575,12 @@ declare module "@prismicio/client" {
       CardsSlice,
       CardsSliceVariation,
       CardsSliceDefault,
+      ContactFormSliceSlice,
+      ContactFormSliceSliceVariation,
+      ContactFormSliceSliceDefault,
+      NewsletterSlotSlice,
+      NewsletterSlotSliceVariation,
+      NewsletterSlotSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceVariation,
       WelcomeSliceSliceDefault,

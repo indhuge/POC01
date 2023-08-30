@@ -43,7 +43,7 @@ $font_weight: 300;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
       gap: $card_gap;
-      
+      filter: drop-shadow(0 0 50px black);
 
       @media (max-width: 900px) {
             grid-template-columns: 1fr;

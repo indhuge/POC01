@@ -25,28 +25,17 @@
         "config": {
           "label": "menuItens",
           "fields": {
-            "home": {
-              "type": "Link",
+            "link_title": {
+              "type": "Text",
               "config": {
-                "label": "Home",
-                "placeholder": "",
-                "allowTargetBlank": false,
-                "select": null
+                "label": "Link Title",
+                "placeholder": ""
               }
             },
-            "o_que_fazemos": {
+            "link": {
               "type": "Link",
               "config": {
-                "label": "O que fazemos",
-                "placeholder": "",
-                "allowTargetBlank": false,
-                "select": null
-              }
-            },
-            "cases": {
-              "type": "Link",
-              "config": {
-                "label": "Cases",
+                "label": "link",
                 "placeholder": "",
                 "allowTargetBlank": false,
                 "select": null
@@ -62,6 +51,40 @@
           "placeholder": ""
         }
       },
+      "menu_footer_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Menu Footer Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+        }
+      },
+      "content_footer_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Content Footer Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+        }
+      },
+      "content_menu_options": {
+        "type": "Group",
+        "config": {
+          "label": "Content Menu Options",
+          "fields": {
+            "blogs": {
+              "type": "Link",
+              "config": {
+                "label": "Blogs",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -71,6 +94,12 @@
               "type": "SharedSlice"
             },
             "cards": {
+              "type": "SharedSlice"
+            },
+            "newsletter_slot": {
+              "type": "SharedSlice"
+            },
+            "contact_form_slice": {
               "type": "SharedSlice"
             }
           }
