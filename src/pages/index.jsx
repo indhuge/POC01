@@ -9,7 +9,8 @@ import { useEffect } from "react";
 
 export default function Home() {
 useEffect(() => {
-    window.botpressWebChat.init({
+  async function loadBotpress() {
+    await window.botpressWebChat.init({
       composerPlaceholder: "Chat with IndHelp",
       botConversationDescription: "Tire suas duvidas",
       botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
@@ -18,6 +19,8 @@ useEffect(() => {
       clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
       botName: "IndHelp",
     });
+  }
+  loadBotpress();
   });
 
   return (
@@ -29,7 +32,7 @@ useEffect(() => {
       <Contato />
       <Footer />
 
-      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
     </div>
   );
 }
