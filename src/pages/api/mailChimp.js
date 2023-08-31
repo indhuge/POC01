@@ -41,3 +41,5 @@ export default async function addContact(req, res) {
       res.status(500).json(JSON.parse(err.response.text));
   }
 }
+
+export const runtime = "edge";
