@@ -30,6 +30,7 @@ export default function Home() {
   //     botName: "IndHelp",
   //   });
   // });
+
   if (!page) {
     queryContent().then((p) => {
       setIsLoading(false);
@@ -50,6 +51,13 @@ export default function Home() {
         navLinks={page.data.menuitens}
       />
       <SliceZone slices={page.data.slices} components={components} />
+      <Footer
+        logoUrl={page.data.logo.url}
+        menuFooterTitle={page.data.menu_footer_title}
+        navLinks={page.data.menuitens}
+        contentTitle={page.data.content_footer_title}
+        contentLinks={page.data.content_menu_options}
+      />
       {/* <Welcome />
       <Features />
       <Newsletter />

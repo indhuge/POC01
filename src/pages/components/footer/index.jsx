@@ -7,29 +7,46 @@ import IconFacebook from "/public/icons/icon-facebook.svg";
 import IconLinkedin from "/public/icons/icon-linkedin.svg";
 import IconYoutube from "/public/icons/icon-youtube.svg";
 import RotatingGears from "../rotatingGears";
+import { PrismicRichText } from "@prismicio/react";
 
-const Footer = () => {
+const Footer = ({
+  logoUrl,
+  menuFooterTitle,
+  navLinks,
+  contentTitle,
+  contentLinks,
+}) => {
   return (
     <div className={Styles.container} id="footer">
       <div className={`${Styles.column} ${Styles.columnPrincipal}`}>
         <Link href="/">
-          <Image src={Logo} alt="Logo" />
+          <img src={logoUrl} alt="Logo" />
         </Link>
         <h1 className={Styles.title}>0800 800 800</h1>
         <p>comercial@time1.indhuge.com.br</p>
       </div>
       <div className={Styles.column}>
-        <h1>MENU</h1>
+        <PrismicRichText field={menuFooterTitle} />
         <div>
-          <Link className={Styles.nav_links} href="https://google.com">Quem somos</Link>
-          <Link className={Styles.nav_links} href="https://google.com">Cases</Link>
+          {navLinks.map((n) => {
+            return (
+              <Link className={Styles.nav_links} href={n.link.url}>
+                {n.link_title}
+              </Link>
+            );
+          })}
         </div>
       </div>
       <div className={Styles.column}>
-        <h1>CONTEÚDO</h1>
+        <PrismicRichText field={contentTitle} />
         <div>
-          <Link className={Styles.nav_links} href="https://google.com">Blogs</Link>
-          <Link className={Styles.nav_links} href="https://google.com">Fórmulas prontas</Link>
+          {contentLinks.map((n) => {
+            return (
+              <Link className={Styles.nav_links} href={n.link.url}>
+                {n.link_title}
+              </Link>
+            );
+          })}
         </div>
       </div>
       <div className={`${Styles.column} ${Styles.alignRight}`}>
