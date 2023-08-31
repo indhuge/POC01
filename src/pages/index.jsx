@@ -64,6 +64,11 @@ export default function Home() {
       <Contato />
       <Footer /> */}
       <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+      <script
+        async
+        defer
+        src="https://static.cdn.prismic.io/prismic.js?new=true&repo=indhugep1t1"
+      ></script>
     </div>
   );
 }
