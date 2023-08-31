@@ -42,4 +42,4 @@ export default async function addContact(req, res) {
   }
 }
 
-// export const runtime = "edge";
+export const runtime = "edge";
