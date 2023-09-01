@@ -2,6 +2,7 @@ import axios from "axios";
 import Styles from "./Newsletter.module.scss";
 import { useState } from "react";
 import Input from "../input";
+import { PrismicRichText } from "@prismicio/react";
 
 async function register(_email) {
   const res = await fetch("/api/mailChimp", {
@@ -16,12 +17,11 @@ async function register(_email) {
 
   const { error } = await res.json();
   if (error) console.log(error);
-
 }
 
-export default function Newsletter() {
+export default function Newsletter({ mainText, inputPlaceholder, buttonText }) {
   let state = useState({
-    email: ""
+    email: "",
   });
 
   let onEmailChaged = (e) => {
@@ -39,16 +39,16 @@ export default function Newsletter() {
   return (
     <div className={Styles.main}>
       <div className={Styles.content}>
-        <h1>Fique por dentro das novidades!</h1>
+        <PrismicRichText field={mainText} />
         <form onSubmit={submit}>
           <input
             type="email"
             name="email"
-            placeholder="Insira seu email"
+            placeholder={inputPlaceholder}
             value={state.email}
             onChange={onEmailChaged}
           />
-          <input type="submit" value="Enviar" />
+          <input type="submit" value={buttonText} />
         </form>
       </div>
     </div>

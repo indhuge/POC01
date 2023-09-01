@@ -1,3 +1,5 @@
+import Newsletter from "@/pages/components/Newsletter";
+
 /**
  * @typedef {import("@prismicio/client").Content.NewsletterSlotSlice} NewsletterSlotSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<NewsletterSlotSlice>} NewsletterSlotProps
@@ -9,8 +11,11 @@ const NewsletterSlot = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for newsletter_slot (variation: {slice.variation})
-      Slices
+      <Newsletter
+        mainText={slice.primary.maintext}
+        inputPlaceholder={slice.primary.placeholdertext}
+        buttonText={slice.primary.buttontext}
+      />
     </section>
   );
 };
