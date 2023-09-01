@@ -1,8 +1,5 @@
 import styles from "./Home.module.scss";
 import Header from "./components/header";
-import Welcome from "./components/header/welcome";
-import Features from "./components/features";
-import Contato from "./components/contato";
 import Footer from "./components/footer";
 import Newsletter from "./components/Newsletter";
 import { useEffect, useState } from "react";
@@ -19,28 +16,34 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState();
 
-  // useEffect(() => {
-  //   window.botpressWebChat.init({
-  //     composerPlaceholder: "Chat with IndHelp",
-  //     botConversationDescription: "Tire suas duvidas",
-  //     botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
-  //     hostUrl: "https://cdn.botpress.cloud/webchat/v0",
-  //     messagingUrl: "https://messaging.botpress.cloud",
-  //     clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
-  //     botName: "IndHelp",
-  //   });
-  // });
+  useEffect(() => {
+    window.botpressWebChat?.init({
+      composerPlaceholder: "Chat with IndHelp",
+      botConversationDescription: "Tire suas duvidas",
+      botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
+      messagingUrl: "https://messaging.botpress.cloud",
+      clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+      botName: "IndHelp",
+    });
+  }, [page]);
 
   if (!page) {
     queryContent().then((p) => {
       setIsLoading(false);
       setPage(p);
-      console.log(p);
     });
   }
 
   if (isLoading) {
-    return <h1>Is Loading</h1>;
+    return (
+      <>
+        <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
+        <div className={styles.Loading}>
+          <h1>Carregando</h1>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -63,12 +66,7 @@ export default function Home() {
         socialLinks={page.data.social_links}
         copyright={page.data.copyright_text}
       />
-      {/* <Welcome />
-      <Features />
-      <Newsletter />
-      <Contato />
-      <Footer /> */}
-      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+
       <script
         async
         defer
