@@ -8,6 +8,7 @@ import IconLinkedin from "/public/icons/icon-linkedin.svg";
 import IconYoutube from "/public/icons/icon-youtube.svg";
 import RotatingGears from "../rotatingGears";
 import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 
 const Footer = ({
   logoUrl,
@@ -15,6 +16,11 @@ const Footer = ({
   navLinks,
   contentTitle,
   contentLinks,
+  phoneNumber,
+  email,
+  socialTitle,
+  socialLinks,
+  copyright
 }) => {
   return (
     <div className={Styles.container} id="footer">
@@ -22,8 +28,10 @@ const Footer = ({
         <Link href="/">
           <img src={logoUrl} alt="Logo" />
         </Link>
-        <h1 className={Styles.title}>0800 800 800</h1>
-        <p>comercial@time1.indhuge.com.br</p>
+        <h1 className={Styles.title}>
+          <PrismicRichText field={phoneNumber} />
+        </h1>
+        <PrismicRichText field={email} />
       </div>
       <div className={Styles.column}>
         <PrismicRichText field={menuFooterTitle} />
@@ -50,27 +58,24 @@ const Footer = ({
         </div>
       </div>
       <div className={`${Styles.column} ${Styles.alignRight}`}>
-        <h1>SOCIAL</h1>
+        <PrismicRichText field={socialTitle} />
         <div className={Styles.icons}>
-          <Link href="https://www.instagram.com/">
-            <Image src={IconInstagram} alt="Icon" className={Styles.icon} />
-          </Link>
-          <Link href="https://www.facebook.com/">
-            <Image src={IconFacebook} alt="Icon" className={Styles.icon} />
-          </Link>
-          <Link href="https://linkedin.com/">
-            <Image src={IconLinkedin} alt="Icon" className={Styles.icon} />
-          </Link>
-          <Link href="https://www.youtube.com/">
-            <Image src={IconYoutube} alt="Icon" className={Styles.icon} />
-          </Link>
+          {
+            socialLinks.map((l) => {
+              return (
+                <Link href={l.link.url}>
+                  <PrismicNextImage field={l.icon} />
+                </Link>
+              )
+            })
+          }
         </div>
         <div>
           <RotatingGears />
         </div>
       </div>
       <div className={Styles.allRightReserved}>
-        ©2023 INDHUGE - Todos os direitos reservados.
+        {copyright}
       </div>
     </div>
   );

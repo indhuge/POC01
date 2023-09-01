@@ -57,6 +57,11 @@ export default function Home() {
         navLinks={page.data.menuitens}
         contentTitle={page.data.content_footer_title}
         contentLinks={page.data.content_menu_options}
+        phoneNumber={page.data.phone_number}
+        email={page.data.email}
+        socialTitle={page.data.social_footer_title}
+        socialLinks={page.data.social_links}
+        copyright={page.data.copyright_text}
       />
       {/* <Welcome />
       <Features />
