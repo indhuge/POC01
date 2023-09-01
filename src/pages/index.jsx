@@ -72,12 +72,6 @@ export default function Home() {
         socialLinks={page.data.social_links}
         copyright={page.data.copyright_text}
       />
-
-      <script
-        async
-        defer
-        src="https://static.cdn.prismic.io/prismic.js?new=true&repo=indhugep1t1"
-      ></script>
     </div>
   );
 }

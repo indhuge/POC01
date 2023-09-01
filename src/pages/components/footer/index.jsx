@@ -9,6 +9,7 @@ import IconYoutube from "/public/icons/icon-youtube.svg";
 import RotatingGears from "../rotatingGears";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import * as prismic from "@prismicio/client"
 
 const Footer = ({
   logoUrl,
@@ -29,7 +30,7 @@ const Footer = ({
           <img src={logoUrl} alt="Logo" />
         </Link>
         <h1 className={Styles.title}>
-          <PrismicRichText field={phoneNumber} />
+          {prismic.asText(phoneNumber)}
         </h1>
         <PrismicRichText field={email} />
       </div>
