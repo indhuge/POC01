@@ -22,9 +22,9 @@ const Cards = ({ slice }) => {
             <PrismicRichText field={slice.primary.maintext} />
           </p>
           <div className={styles.cardHolder}>
-            {slice.items.map((i) => {
+            {slice.items.map((i, index) => {
               return (
-                <div className={styles.card} key={i.cardtitle}>
+                <div className={styles.card} key={index}>
                   <PrismicNextImage field={i.cardicon} />
                   <h1>
                     <PrismicRichText field={i.cardtitle} />
