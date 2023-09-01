@@ -18,3 +18,4 @@ export async function insertClient(clientObj) {
     await client.close();
   }
 }
+export const runtime = "edge";

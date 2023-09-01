@@ -17,16 +17,19 @@ export default function Home() {
   const [page, setPage] = useState();
 
   useEffect(() => {
-    window.botpressWebChat?.init({
-      composerPlaceholder: "Chat with IndHelp",
-      botConversationDescription: "Tire suas duvidas",
-      botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
-      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
-      messagingUrl: "https://messaging.botpress.cloud",
-      clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
-      botName: "IndHelp",
-    });
-  }, [page]);
+    async function loadBotpress() {
+      await window.botpressWebChat.init({
+        composerPlaceholder: "Chat with IndHelp",
+        botConversationDescription: "Tire suas duvidas",
+        botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+        hostUrl: "https://cdn.botpress.cloud/webchat/v0",
+        messagingUrl: "https://messaging.botpress.cloud",
+        clientId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
+        botName: "IndHelp",
+      });
+    }
+    loadBotpress();
+  });
 
   if (!page) {
     queryContent().then((p) => {
@@ -38,7 +41,10 @@ export default function Home() {
   if (isLoading) {
     return (
       <>
-        <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
+        <script
+          src="https://cdn.botpress.cloud/webchat/v0/inject.js"
+          async
+        ></script>
         <div className={styles.Loading}>
           <h1>Carregando</h1>
         </div>

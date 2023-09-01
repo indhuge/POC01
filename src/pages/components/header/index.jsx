@@ -44,7 +44,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
             }}
           />
         </div>
-        <Image className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
+        <Image alt="Menu Icon" className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
       </div>
     </div>
   );
