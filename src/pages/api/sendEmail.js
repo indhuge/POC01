@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 // import insertClient  from "./mongodb";
-
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { name, email, phone, message, budget } = req.body;
