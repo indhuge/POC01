@@ -34,7 +34,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
           <img src={logoUrl} />
         </div>
         <div className={Styles.menu} id="menu">
-          {navLinks.map((n, index) => {
+          {navLinks?.map((n, index) => {
             return <Link key={index} href={n.link.url}>{n.link_title}</Link>;
           })}
           <Button

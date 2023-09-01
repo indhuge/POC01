@@ -36,7 +36,7 @@ const Footer = ({
       <div className={Styles.column}>
         <PrismicRichText field={menuFooterTitle} />
         <div>
-          {navLinks.map((n, index) => {
+          {navLinks?.map((n, index) => {
             return (
               <Link key={index} className={Styles.nav_links} href={n.link.url}>
                 {n.link_title}
@@ -48,7 +48,7 @@ const Footer = ({
       <div className={Styles.column}>
         <PrismicRichText field={contentTitle} />
         <div>
-          {contentLinks.map((n, index) => {
+          {contentLinks?.map((n, index) => {
             return (
               <Link key={index} className={Styles.nav_links} href={n.link.url}>
                 {n.link_title}
@@ -61,7 +61,7 @@ const Footer = ({
         <PrismicRichText field={socialTitle} />
         <div className={Styles.icons}>
           {
-            socialLinks.map((l, index) => {
+            socialLinks?.map((l, index) => {
               return (
                 <Link key={index} href={l.link.url}>
                   <PrismicNextImage field={l.icon} />
