@@ -54,6 +54,31 @@ export interface HomepageDocumentDataContentMenuOptionsItem {
   link: prismic.LinkField;
 }
 
+/**
+ * Item in *homepage → Social Links*
+ */
+export interface HomepageDocumentDataSocialLinksItem {
+  /**
+   * icon field in *homepage → Social Links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.social_links[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Link field in *homepage → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
 type HomepageDocumentDataSlicesSlice =
   | WelcomeSliceSlice
   | CardsSlice
@@ -131,6 +156,63 @@ interface HomepageDocumentData {
   content_menu_options: prismic.GroupField<
     Simplify<HomepageDocumentDataContentMenuOptionsItem>
   >;
+
+  /**
+   * Phone Number field in *homepage*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.phone_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  phone_number: prismic.TitleField;
+
+  /**
+   * Email IndHuge field in *homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email: prismic.RichTextField;
+
+  /**
+   * Social footer title field in *homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.social_footer_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  social_footer_title: prismic.RichTextField;
+
+  /**
+   * Social Links field in *homepage*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_links: prismic.GroupField<
+    Simplify<HomepageDocumentDataSocialLinksItem>
+  >;
+
+  /**
+   * Copyright Text field in *homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.copyright_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  copyright_text: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *homepage*

@@ -93,6 +93,64 @@
           }
         }
       },
+      "phone_number": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "email": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Email IndHuge",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "social_footer_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Social footer title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Links",
+          "fields": {
+            "icon": {
+              "type": "Image",
+              "config": {
+                "label": "icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "copyright_text": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright Text",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
