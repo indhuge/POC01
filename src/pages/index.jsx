@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     async function loadBotpress() {
-      await window.botpressWebChat.init({
+      await window.botpressWebChat?.init({
         composerPlaceholder: "Chat with IndHelp",
         botConversationDescription: "Tire suas duvidas",
         botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
