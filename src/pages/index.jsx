@@ -22,7 +22,7 @@ export default function Home() {
     }
     loadBotpress();
   });
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
+
   return (
 
     <div className={styles.description}>
@@ -32,6 +32,7 @@ export default function Home() {
       <Newsletter />
       <Contato />
       <Footer />
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
       <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
     </div>
   );

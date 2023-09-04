@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
 // import insertClient  from "./mongodb";
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { name, email, phone, message, budget } = req.body;
@@ -23,14 +22,6 @@ export default async function handler(req, res) {
     try {
       await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Email enviado com sucesso!" });
-
-      let obj = {
-        name: name,
-        email: email,
-        phone: phone,
-        budget: budget,
-      };
-      insertClient(obj);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Ocorreu um erro ao enviar o email." });
