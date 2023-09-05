@@ -1,10 +1,10 @@
 import styles from './Home.module.scss'
-import Header from './components/header'
-import Welcome from './components/header/welcome'
-import Features from './components/features'
-import Contato from './components/contato'
-import Footer from './components/footer'
-import Newsletter from './components/Newsletter'
+import Header from '../components/header'
+import Welcome from '../components/header/welcome'
+import Features from '../components/features'
+import Contato from '../components/contato'
+import Footer from '../components/footer'
+import Newsletter from '../components/Newsletter'
 import { useEffect } from "react";
 
 export default function Home() {
