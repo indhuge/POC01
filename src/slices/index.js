@@ -6,5 +6,7 @@ export const components = {
   cards: dynamic(() => import("./Cards")),
   contact_form_slice: dynamic(() => import("./ContactFormSlice")),
   newsletter_slot: dynamic(() => import("./NewsletterSlot")),
+  post_image_slice: dynamic(() => import("./PostImageSlice")),
+  post_title_slice: dynamic(() => import("./PostContentSlice")),
   welcome_slice: dynamic(() => import("./WelcomeSlice")),
 };

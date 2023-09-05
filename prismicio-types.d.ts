@@ -4,6 +4,118 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogPostDocumentDataSlicesSlice =
+  | PostTitleSliceSlice
+  | PostImageSliceSlice;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+  /**
+   * Main Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.main_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Post Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  post_title: prismic.KeyTextField;
+
+  /**
+   * Post Author field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.post_author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  post_author: prismic.KeyTextField;
+
+  /**
+   * Publish Date field in *Blog Post*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Slice Zone field in *Blog Post*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_post.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_post.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blog_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogPostDocumentData>,
+    "blog_post",
+    Lang
+  >;
+
 /**
  * Item in *homepage → menuItens*
  */
@@ -274,7 +386,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+export type AllDocumentTypes = BlogPostDocument | HomepageDocument;
 
 /**
  * Primary content in *Cards → Primary*
@@ -576,6 +688,111 @@ export type NewsletterSlotSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PostImageSlice → Items*
+ */
+export interface PostImageSliceSliceDefaultItem {
+  /**
+   * image field in *PostImageSlice → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post_image_slice.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for PostImageSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostImageSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<PostImageSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PostImageSlice*
+ */
+type PostImageSliceSliceVariation = PostImageSliceSliceDefault;
+
+/**
+ * PostImageSlice Shared Slice
+ *
+ * - **API ID**: `post_image_slice`
+ * - **Description**: PostImageSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostImageSliceSlice = prismic.SharedSlice<
+  "post_image_slice",
+  PostImageSliceSliceVariation
+>;
+
+/**
+ * Primary content in *PostContentSlice → Primary*
+ */
+export interface PostTitleSliceSliceDefaultPrimary {
+  /**
+   * Title field in *PostContentSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post_title_slice.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *PostContentSlice → Items*
+ */
+export interface PostTitleSliceSliceDefaultItem {
+  /**
+   * Content field in *PostContentSlice → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post_title_slice.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for PostContentSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostTitleSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PostTitleSliceSliceDefaultPrimary>,
+  Simplify<PostTitleSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PostContentSlice*
+ */
+type PostTitleSliceSliceVariation = PostTitleSliceSliceDefault;
+
+/**
+ * PostContentSlice Shared Slice
+ *
+ * - **API ID**: `post_title_slice`
+ * - **Description**: PostTitleSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostTitleSliceSlice = prismic.SharedSlice<
+  "post_title_slice",
+  PostTitleSliceSliceVariation
+>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -660,6 +877,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogPostDocument,
+      BlogPostDocumentData,
+      BlogPostDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -673,6 +893,12 @@ declare module "@prismicio/client" {
       NewsletterSlotSlice,
       NewsletterSlotSliceVariation,
       NewsletterSlotSliceDefault,
+      PostImageSliceSlice,
+      PostImageSliceSliceVariation,
+      PostImageSliceSliceDefault,
+      PostTitleSliceSlice,
+      PostTitleSliceSliceVariation,
+      PostTitleSliceSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceVariation,
       WelcomeSliceSliceDefault,
