@@ -1,7 +1,5 @@
-import axios from "axios";
 import Styles from "./Newsletter.module.scss";
 import { useState } from "react";
-import Input from "../input";
 import { PrismicRichText } from "@prismicio/react";
 
 async function register(_email) {

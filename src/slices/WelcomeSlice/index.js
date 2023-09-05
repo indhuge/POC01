@@ -1,6 +1,6 @@
 import Styles from "./welcome.module.scss";
 import { PrismicRichText, PrismicImage } from "@prismicio/react";
-import Button from "@/pages/components/button";
+import Button from "@/components/button";
 
 /**
  * @typedef {import("@prismicio/client").Content.WelcomeSliceSlice} WelcomeSliceSlice

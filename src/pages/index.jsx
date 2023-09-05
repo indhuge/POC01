@@ -1,7 +1,6 @@
 import styles from "./Home.module.scss";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Newsletter from "./components/Newsletter";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";

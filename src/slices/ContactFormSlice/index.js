@@ -4,11 +4,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Styles from "./contato.module.scss";
-import Button from "@/pages/components/button";
-import Input from "@/pages/components/input";
-import Select from "@/pages/components/select";
-import ParticleBackground from "@/pages/components/ParticleBackground";
-import TextArea from "@/pages/components/textarea";
+import Button from "@/components/button";
+import Input from "@/components/input";
+import Select from "@/components/select";
+import ParticleBackground from "@/components/ParticleBackground";
+import TextArea from "@/components/textarea";
 
 /**
  * @typedef {import("@prismicio/client").Content.ContactFormSliceSlice} ContactFormSliceSlice
