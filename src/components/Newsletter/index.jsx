@@ -3,14 +3,14 @@ import { useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
 
 async function register(_email) {
-  const res = await fetch("/api/mailChimp", {
-    body: JSON.stringify({
-      email: _email,
-    }),
+  const res = await fetch("/api/addContact", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    method: "POST",
+    body: JSON.stringify({
+      email: _email,
+    }),
   });
 
   const { error } = await res.json();
@@ -30,9 +30,10 @@ export default function Newsletter({ mainText, inputPlaceholder, buttonText }) {
   let submit = async (e) => {
     e.preventDefault();
     console.log(state.email);
-    register(state.email);
-    state.email = "";
+    await register(state.email);
+    state.email = ""; 
   };
+
 
   return (
     <div className={Styles.main}>
