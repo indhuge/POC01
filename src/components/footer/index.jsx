@@ -65,7 +65,7 @@ const Footer = ({
             socialLinks?.map((l, index) => {
               return (
                 <Link key={index} href={l.link.url}>
-                  <PrismicNextImage field={l.icon} alt=""/> //Colocando o alt="" para não dar erro no console
+                   <PrismicNextImage field={l.icon} alt=""/> {/*Colocando o alt="" para não dar erro no console */}
                 </Link>
               )
             })
