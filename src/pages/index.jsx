@@ -1,11 +1,11 @@
 import styles from "./Home.module.scss";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Newsletter from "./components/Newsletter";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import Page from "@/components/page"
 
 function queryContent() {
   const client = createClient();
@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     async function loadBotpress() {
-      await window.botpressWebChat.init({
+      await window.botpressWebChat?.init({
         composerPlaceholder: "Chat with IndHelp",
         botConversationDescription: "Tire suas duvidas",
         botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
@@ -53,25 +53,27 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.description}>
-      <Header
-        logoUrl={page.data.logo.url}
-        callToActionText={page.data.call_to_action_text}
-        navLinks={page.data.menuitens}
-      />
-      <SliceZone slices={page.data.slices} components={components} />
-      <Footer
-        logoUrl={page.data.logo.url}
-        menuFooterTitle={page.data.menu_footer_title}
-        navLinks={page.data.menuitens}
-        contentTitle={page.data.content_footer_title}
-        contentLinks={page.data.content_menu_options}
-        phoneNumber={page.data.phone_number}
-        email={page.data.email}
-        socialTitle={page.data.social_footer_title}
-        socialLinks={page.data.social_links}
-        copyright={page.data.copyright_text}
-      />
-    </div>
+    <Page>
+      <div className={styles.description}>
+        <Header
+          logoUrl={page.data.logo.url}
+          callToActionText={page.data.call_to_action_text}
+          navLinks={page.data.menuitens}
+        />
+        <SliceZone slices={page.data.slices} components={components} />
+        <Footer
+          logoUrl={page.data.logo.url}
+          menuFooterTitle={page.data.menu_footer_title}
+          navLinks={page.data.menuitens}
+          contentTitle={page.data.content_footer_title}
+          contentLinks={page.data.content_menu_options}
+          phoneNumber={page.data.phone_number}
+          email={page.data.email}
+          socialTitle={page.data.social_footer_title}
+          socialLinks={page.data.social_links}
+          copyright={page.data.copyright_text}
+        />
+      </div>
+    </Page>
   );
 }

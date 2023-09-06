@@ -1,4 +1,4 @@
-import Newsletter from "@/pages/components/Newsletter";
+import Newsletter from "@/components/Newsletter";
 
 /**
  * @typedef {import("@prismicio/client").Content.NewsletterSlotSlice} NewsletterSlotSlice
