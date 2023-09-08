@@ -22,20 +22,25 @@ export function getStaticPaths() {
 
 export default function Page({ page }) {
   //TODO: Add a loading state
-  console.log(page);
   return (
     <>
       <div className={Styles.wrapper}>
-        <PrismicNextImage field={page?.data?.main_image} />
+        <div className={Styles.heroImage}>
+          <PrismicNextImage field={page?.data?.main_image} />
+          <div className={Styles.heroCover}></div>
+        </div>
         <div className={Styles.contentContainer}>
           <div className={Styles.content}>
             <div className={Styles.title}>
               <h1>{page?.data.post_title}</h1>
               <p>
-                Autor: {page?.data.post_author} <span>{page?.data?.publish_date}</span>
+                Autor: {page?.data.post_author}{" "}
+                <span>{page?.data?.publish_date}</span>
               </p>
             </div>
-            <SliceZone slices={page?.data?.slices} components={components} />
+            <div className={Styles.sliceZone}>
+              <SliceZone slices={page?.data?.slices} components={components} />
+            </div>
           </div>
         </div>
       </div>

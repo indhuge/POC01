@@ -1,6 +1,19 @@
 @import "../../styles/mixins/fonts.scss";
-
+@import "../../styles/mixins/colors.scss";
+@import "../../styles/mixins/padding.scss";
 .wrapper {
-    width: 100vw;
+  width: $blog-content-size;
+  h1 {
+    font-size: 1.6rem;
+    color: $blue-color;
+  }
+  h1,
+  h2 {
+    padding: 1em 0;
+  }
+  p,
+  li {
+    padding: 0.5em 0;
+    text-align: justify;
+  }
 }
-

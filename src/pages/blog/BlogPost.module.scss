@@ -1,43 +1,60 @@
 @import "../../styles/mixins/fonts.scss";
 @import "../../styles/mixins/colors.scss";
-
+@import "../../styles/mixins/padding.scss";
 .wrapper {
-    width: 100vw;
-
-    * {
-        margin: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6, p, li {
-        font-family: $font-family;
-        color: black;
-    }
-
+  width: 100vw;
+  * {
+    margin: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    font-family: $font-family;
+    color: black;
+  }
+  .heroImage {
+    height: 20rem;
+    display: grid;
     img {
-        width: 100%;
-        height: 20rem;
-        object-fit: cover;
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+      grid-area: 1/ 1 / 2 / 2;
     }
+    .heroCover {
+      background: linear-gradient(180deg, transparent, rgb(255, 255, 255));
+      grid-area: 1 / 1 / 2 / 2;
+      width: 100%;
+      height: 20rem;
+      z-index: 2;
+    }
+  }
 }
 
 .contentContainer {
-    background-color: white;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
-    width: 70%;
+  width: $blog-content-size;
 }
 
 .title {
-    h1 {
-        color: $blue-color;
-        padding: 0.5em 0;
-    }
-    p {
-        
-    }
+  h1 {
+    color: $blue-color;
+    padding: 0.5em 0;
+  }
+}
+
+.sliceZone {
+  padding: 2em 0;
 }
