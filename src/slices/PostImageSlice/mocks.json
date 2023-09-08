@@ -10,7 +10,6 @@
 					[
 						"image",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
@@ -28,7 +27,18 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
+						}
+					],
+					[
+						"image_legend",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "guess",
+							"type": "Text"
 						}
 					]
 				]

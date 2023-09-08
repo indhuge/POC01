@@ -1,4 +1,7 @@
+import { PrismicNextImage } from "@prismicio/next";
+import Styles from "./PostImageSlice.module.scss";
 /**
+ *
  * @typedef {import("@prismicio/client").Content.PostImageSliceSlice} PostImageSliceSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<PostImageSliceSlice>} PostImageSliceProps
  * @param {PostImageSliceProps}
@@ -9,8 +12,14 @@ const PostImageSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for post_image_slice (variation: {slice.variation})
-      Slices
+      {slice.items.map((e, index) => {
+        return (
+          <div key={index} className={Styles.imageHolder}>
+            <PrismicNextImage field={e.image} />
+            <p>{e.image_legend}</p>
+          </div>
+        );
+      })}
     </section>
   );
 };

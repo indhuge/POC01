@@ -700,6 +700,16 @@ export interface PostImageSliceSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Image Legend field in *PostImageSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post_image_slice.items[].image_legend
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_legend: prismic.KeyTextField;
 }
 
 /**

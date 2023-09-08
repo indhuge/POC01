@@ -20,6 +20,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "image_legend": {
+          "type": "Text",
+          "config": {
+            "label": "Image Legend",
+            "placeholder": ""
+          }
         }
       }
     }
