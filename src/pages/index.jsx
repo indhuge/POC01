@@ -9,10 +9,12 @@ import { useEffect } from "react";
 import button from './components/button'
 
 export default function Home() {
+
   function cookies() {
     var _hsp = window._hsp = window._hsp || [];
     _hsp.push(['showBanner']);
   }
+
   useEffect(() => {
     async function loadBotpress() {
       await window.botpressWebChat.init({
@@ -30,6 +32,7 @@ export default function Home() {
 
 
   return (
+
     <div className={styles.description}>
       <Header />
       <Welcome />
@@ -52,6 +55,5 @@ export default function Home() {
 
 
     </div >
-
   );
 }

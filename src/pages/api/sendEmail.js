@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
 // import insertClient  from "./mongodb";
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { name, email, phone, message, budget } = req.body;
