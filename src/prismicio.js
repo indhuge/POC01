@@ -19,7 +19,11 @@ const routes = [
   {
     type: "homepage",
     path: "/",
-  }
+  },
+  {
+    type: "blog_post",
+    path: "/blog/:uid",
+  },
 ];
 
 /**

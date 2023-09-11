@@ -3,6 +3,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import Styles from "./BlogPost.module.scss";
+import * as prismic from "@prismicio/client";
 
 export async function getStaticProps({ params }) {
   const client = createClient();
@@ -13,9 +14,12 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const client = createClient();
+  const pages = await client.getAllByType("blog_post");
+
   return {
-    paths: ["/blog/abc"],
+    paths: pages.map((page) => prismic.asLink(page)),
     fallback: true,
   };
 }
