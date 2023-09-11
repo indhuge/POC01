@@ -1,33 +1,12 @@
+import { PrismicNextImage } from "@prismicio/next";
 import Styles from "./BlogCards.module.scss";
 
-const cards = [
-  {
-    image:
-      "https://images.wallpaperscraft.com/image/single/nissan_gtr_supercar_121502_1280x720.jpg",
-    title: "Titulo",
-    text: "Text",
-  },
-  {
-    image:
-      "https://images.wallpaperscraft.com/image/single/nissan_gtr_supercar_121502_1280x720.jpg",
-    title: "Titulo",
-    text: "Text",
-  },
-  {
-    image:
-      "https://images.wallpaperscraft.com/image/single/nissan_gtr_supercar_121502_1280x720.jpg",
-    title: "Titulo",
-    text: "Text",
-  },
-  {
-    image:
-      "https://images.wallpaperscraft.com/image/single/nissan_gtr_supercar_121502_1280x720.jpg",
-    title: "Titulo",
-    text: "Text",
-  },
-];
+function _onClick(id) {
+  console.log(id);
+  window.location.href = window.location.href + `/${id}`;
+}
 
-export default function Component() {
+export default function Component({ cards }) {
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.content}>
@@ -35,13 +14,17 @@ export default function Component() {
         <div className={Styles.cardHolder}>
           {cards.map((c, index) => {
             return (
-              <div className={Styles.card} key={index}>
+              <div
+                className={Styles.card}
+                key={index}
+                onClick={() => _onClick(c.uid)}
+              >
                 <div className={Styles.cardText}>
-                  <h2>{c.title}</h2>
-                  <p>{c.text}</p>
+                  <h2>{c.data.post_title}</h2>
+                  <p>{c.data.post_description}</p>
                 </div>
                 <div className={Styles.imageContainer}>
-                  <img src={c.image} />
+                  <PrismicNextImage field={c.data.main_image} />
                 </div>
               </div>
             );

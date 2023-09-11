@@ -41,6 +41,13 @@
           "placeholder": ""
         }
       },
+      "post_description": {
+        "type": "Text",
+        "config": {
+          "label": "Post Description",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
