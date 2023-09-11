@@ -1,0 +1,11 @@
+name: Auto Assign
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+  workflow_dispatch:
+
+jobs:
+  add-reviews:
+    runs-on: self-hosted
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.2.5
