@@ -4,6 +4,8 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import Styles from "./BlogPost.module.scss";
 import * as prismic from "@prismicio/client";
+import Page from "@/components/page";
+import StaticContent from "@/utils/StaticContent";
 
 export async function getStaticProps({ params }) {
   const client = createClient();
@@ -24,10 +26,12 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Page({ page }) {
+export default function BlogPage({ page }) {
   //TODO: Add a loading state
-  return (
-    <>
+  return !page ? (
+    <h1>404</h1>
+  ) : (
+    <Page>
       <div className={Styles.wrapper}>
         <div className={Styles.heroImage}>
           <PrismicNextImage field={page?.data?.main_image} />
@@ -48,6 +52,6 @@ export default function Page({ page }) {
           </div>
         </div>
       </div>
-    </>
+    </Page>
   );
 }

@@ -3,6 +3,7 @@ import BlogNewPost from "../components/BlogNewPost";
 import BlogCards from "../components/BlogCards";
 import { createClient } from "@/prismicio";
 import { useState } from "react";
+import Page from "@/components/page";
 
 async function getBlogContent() {
   const client = createClient();
@@ -25,13 +26,14 @@ export default function Blog() {
 
   if (pages) {
     return (
-      <div className={Styles.wrapper}>
-        <div className={Styles.header}></div>
-        <div className={Styles.content}>
-          <BlogNewPost post={pages[0]} />
-          <BlogCards cards={pages} />
+      <Page>
+        <div className={Styles.wrapper}>
+          <div className={Styles.content}>
+            <BlogNewPost post={pages[0]} />
+            <BlogCards cards={pages} />
+          </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }
