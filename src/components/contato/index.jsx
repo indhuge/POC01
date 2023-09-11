@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import Styles from "./contato.module.scss";
 import Button from "../../components/button";
 import Input from "../input";
@@ -12,6 +11,25 @@ import TextArea from "../textarea";
 const Contato = () => {
   const [buttonStatus, setButtonStatus] = useState("Enviar");
 
+  const handleSubmit = async (values, { setSubmitting }) => {
+    console.log('values', values);
+    console.log('verificiation', formik.isValid);
+    try {
+      setButtonStatus('Enviando...');
+      const response = await fetch('/api/sendEmail', values);
+      console.log('res', response.data);
+      setButtonStatus('Enviado com sucesso!');
+      formik.resetForm();
+    } catch (error) {
+      setButtonStatus('Erro ao enviar');
+      console.error("api error", error);
+    } finally {
+      setSubmitting(false);
+      setTimeout(() => {
+        setButtonStatus("Enviar");
+      }, 5000);
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -28,27 +46,7 @@ const Contato = () => {
       message: Yup.string(),
       budget: Yup.string().required('Orçamento obrigatório'),
     }),
-    onSubmit: async (values, { setSubmitting }) => {
-      console.log('values', values);
-      console.log('verificiation', formik.isValid);
-      try {
-        setButtonStatus('Enviando...');
-        const response = await axios.post('/api/sendEmail', values);
-        console.log('res', response.data);
-        setButtonStatus('Enviado com sucesso!');
-        formik.resetForm();
-      } catch (error) {
-        setButtonStatus('Erro ao enviar');
-        console.error("api error", error);
-      } finally {
-        setSubmitting(false);
-
-
-        setTimeout(() => {
-          setButtonStatus("Enviar");
-        }, 5000);
-      }
-    },
+    onSubmit: handleSubmit,
 
   });
 
