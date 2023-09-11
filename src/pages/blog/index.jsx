@@ -23,8 +23,6 @@ export default function Blog() {
     return <h1>Carregando</h1>;
   }
 
-  console.log(pages);
-
   if (pages) {
     return (
       <div className={Styles.wrapper}>
