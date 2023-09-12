@@ -2,7 +2,7 @@ import Styles from "./Blog.module.scss";
 import BlogNewPost from "../components/BlogNewPost";
 import BlogCards from "../components/BlogCards";
 import { createClient } from "@/prismicio";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Page from "@/components/page";
 
 async function getBlogContent() {
@@ -10,13 +10,35 @@ async function getBlogContent() {
   return client.getAllByType("blog_post");
 }
 
+async function getTags() {
+  const client = createClient();
+  return client.getAllByType("category");
+}
+
 export default function Blog() {
   const [isLoading, setIsLoading] = useState(true);
   const [pages, setPages] = useState();
+  const [category, setCategories] = useState();
+
+  useEffect(
+    () => {
+      if (pages && category) {
+        setIsLoading(false);
+      }
+    },
+    pages,
+    category
+  );
 
   if (!pages) {
     getBlogContent().then((o) => {
-      setIsLoading(false), setPages(o);
+      setPages(o);
+      console.log(o);
+    });
+
+    getTags().then((o) => {
+      setCategories(o);
+      console.log(o);
     });
   }
 
@@ -30,7 +52,17 @@ export default function Blog() {
         <div className={Styles.wrapper}>
           <div className={Styles.content}>
             <BlogNewPost post={pages[0]} />
-            <BlogCards cards={pages} />
+            <div>
+              {category.map((c, index) => {
+                return (
+                  <BlogCards
+                    key={index}
+                    category={c.data.name}
+                    cards={pages.filter((p) => p.data.categoty.uid == c.uid)}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </Page>

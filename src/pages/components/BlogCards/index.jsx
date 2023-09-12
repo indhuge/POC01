@@ -6,11 +6,11 @@ function _onClick(id) {
   window.location.href = window.location.href + `/${id}`;
 }
 
-export default function Component({ cards }) {
+export default function Component({ category, cards }) {
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.content}>
-        <h1>Titulo</h1>
+        <h1>{category}</h1>
         <div className={Styles.cardHolder}>
           {cards.map((c, index) => {
             return (

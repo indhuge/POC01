@@ -48,6 +48,14 @@
           "placeholder": ""
         }
       },
+      "categoty": {
+        "type": "Link",
+        "config": {
+          "label": "category",
+          "select": "document",
+          "customtypes": ["category"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
