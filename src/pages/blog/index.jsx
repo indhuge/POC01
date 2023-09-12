@@ -15,6 +15,16 @@ async function getTags() {
   return client.getAllByType("category");
 }
 
+function _onClick() {
+  const _body = {
+    message: "tekjhfgksdgf",
+  };
+  fetch("/api/comment", {
+    body: JSON.stringify(_body),
+    method: "POST",
+  });
+}
+
 export default function Blog() {
   const [isLoading, setIsLoading] = useState(true);
   const [pages, setPages] = useState();
@@ -51,6 +61,7 @@ export default function Blog() {
       <Page>
         <div className={Styles.wrapper}>
           <div className={Styles.content}>
+            <button onClick={_onClick}>API TESTE</button>
             <BlogNewPost post={pages[0]} />
             <div>
               {category.map((c, index) => {

@@ -1,6 +1,6 @@
 const fun = async () => {
   const database = require("./db");
-  const user = require("./user");
+  const user = require("./model/user");
 
   const resultado = await user.create({
     Nome: "Teste",
@@ -12,7 +12,7 @@ const fun = async () => {
 
 const syncDB = async () => {
   const database = require("./db");
-  const user = require("./user");
+  const user = require("./model/user");
   const comment = require("./comment");
   try {
     const resultado = await database.sync({ force: true });
