@@ -1,3 +1,4 @@
+"use client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
@@ -11,8 +12,14 @@ export async function getStaticProps({ params }) {
   const client = createClient();
   const page = await client.getByUID("blog_post", params.id);
 
+  const metadata = {
+    meta_description: page.data.meta_description,
+    meta_image: page.data.meta_image,
+    meta_title: page.data.meta_title,
+  };
+
   return {
-    props: { page },
+    props: { page, metadata },
   };
 }
 
@@ -26,12 +33,13 @@ export async function getStaticPaths() {
   };
 }
 
-export default function BlogPage({ page }) {
+export default function BlogPage({ page, metadata }) {
   //TODO: Add a loading state
+  console.log(metadata);
   return !page ? (
     <h1>404</h1>
   ) : (
-    <Page>
+    <Page metaData={metadata}>
       <div className={Styles.wrapper}>
         <div className={Styles.heroImage}>
           <PrismicNextImage field={page?.data?.main_image} />

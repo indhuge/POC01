@@ -2,8 +2,9 @@ import Header from "./header";
 import Footer from "./footer";
 import { StaticContent, setContentAndReturnPage } from "@/utils/StaticContent";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
-export default function Page({ children }) {
+export default function Page({ metaData, children }) {
   const [rrnd, reqRrnd] = useState(false);
 
   if (StaticContent === null) {
@@ -15,6 +16,11 @@ export default function Page({ children }) {
 
   return (
     <main className="page">
+      <Head>
+        <title>{metaData?.meta_title}</title>
+        <meta name="description" content={metaData?.meta_description} />
+        <meta property="og:image" content={metaData?.meta_image.url} />
+      </Head>
       <Header
         logoUrl={StaticContent?.logo?.url}
         callToActionText={StaticContent?.call_to_action_text}
