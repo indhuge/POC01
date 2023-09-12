@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Page({ children }) {
   const [rrnd, reqRrnd] = useState(false);
 
-  if (!rrnd) {
+  if (StaticContent === null) {
     setContentAndReturnPage().then((p) => {
       console.log(StaticContent);
       reqRrnd(!rrnd);
