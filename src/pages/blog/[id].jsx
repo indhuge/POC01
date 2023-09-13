@@ -7,6 +7,7 @@ import Styles from "./BlogPost.module.scss";
 import * as prismic from "@prismicio/client";
 import Page from "@/components/page";
 import StaticContent from "@/utils/StaticContent";
+import BlogComments from "../components/BlogComments";
 
 export async function getStaticProps({ params }) {
   const client = createClient();
@@ -57,6 +58,7 @@ export default function BlogPage({ page, metadata }) {
             <div className={Styles.sliceZone}>
               <SliceZone slices={page?.data?.slices} components={components} />
             </div>
+            <BlogComments post_id={page?.uid} />
           </div>
         </div>
       </div>
