@@ -7,3 +7,12 @@ export async function addComment(text, postId) {
 
   return result;
 }
+
+export async function getCommentsByPostId(postId) {
+  const model = require("../model/comment");
+  return await model.findAll({
+    where: {
+      post_id: postId,
+    },
+  });
+}
