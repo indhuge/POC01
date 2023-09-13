@@ -15,7 +15,7 @@
   p,
   li {
     font-family: $font-family;
-    color: black;
+    color: white;
   }
   .heroImage {
     height: 20rem;
@@ -27,7 +27,7 @@
       grid-area: 1/ 1 / 2 / 2;
     }
     .heroCover {
-      background: linear-gradient(180deg, transparent, rgb(255, 255, 255));
+      background: linear-gradient(180deg, transparent, $blue-color);
       grid-area: 1 / 1 / 2 / 2;
       width: 100%;
       height: 20rem;
@@ -37,7 +37,7 @@
 }
 
 .contentContainer {
-  background-color: white;
+  background-color: $blue-color;
   width: 100%;
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@
 
 .title {
   h1 {
-    color: $blue-color;
+    color: white;
     padding: 0.5em 0;
   }
   span {
