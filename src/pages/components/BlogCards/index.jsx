@@ -1,12 +1,16 @@
 import { PrismicNextImage } from "@prismicio/next";
 import Styles from "./BlogCards.module.scss";
+import { useRouter } from "next/router";
 
-function _onClick(id) {
+function _onClick(id, router) {
   console.log(id);
-  window.location.href = window.location.href + `/${id}`;
+  //window.location.href = window.location.href + `/${id}`;
+  router.push(`/blog/${id}`);
 }
 
 export default function Component({ category, cards }) {
+  const router = useRouter();
+
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.content}>
@@ -17,7 +21,7 @@ export default function Component({ category, cards }) {
               <div
                 className={Styles.card}
                 key={index}
-                onClick={() => _onClick(c.uid)}
+                onClick={() => _onClick(c.uid, router)}
               >
                 <div className={Styles.cardText}>
                   <h2>{c.data.post_title}</h2>
