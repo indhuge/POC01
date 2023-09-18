@@ -6,8 +6,15 @@ import Contato from './components/contato'
 import Footer from './components/footer'
 import Newsletter from './components/Newsletter'
 import { useEffect } from "react";
+import button from './components/button'
 
 export default function Home() {
+
+  function cookies() {
+    var _hsp = window._hsp = window._hsp || [];
+    _hsp.push(['showBanner']);
+  }
+
   useEffect(() => {
     async function loadBotpress() {
       await window.botpressWebChat.init({
@@ -23,6 +30,7 @@ export default function Home() {
     loadBotpress();
   });
 
+
   return (
 
     <div className={styles.description}>
@@ -32,8 +40,20 @@ export default function Home() {
       <Newsletter />
       <Contato />
       <Footer />
-      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
-      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
-    </div>
+
+      <button type="button" id="hs_show_banner_button"
+        style={{
+          backgroundColor: '#425b76', border: '1px solid #425b76',
+          borderRadius: '3px', padding: '10px 16px', textDecoration: 'none', color: '#fff',
+          fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', lineHeight: 'inherit',
+          textAlign: 'left', textShadow: 'none'
+        }}
+        onClick={cookies}
+      >
+        Configurações de cookies
+      </button>
+
+
+    </div >
   );
 }

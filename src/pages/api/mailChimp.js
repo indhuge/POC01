@@ -21,7 +21,7 @@ const footerContactInfo = {
 
 const campaignDefaults = {
   from_name: "Gettin' Together",
-  from_email: "indhuge@gmail.com",
+  from_email: "poc01.indhuge@gmail.com",
   subject: "Newsletter",
   language: "PT_BR",
 };
@@ -36,9 +36,9 @@ export default async function addContact(req, res) {
         status: "pending",
       }
     );
-    res.status(201).json({id: response.id})
+    res.status(201).json({ id: response.id })
   } catch (err) {
-      res.status(500).json(JSON.parse(err.response.text));
+    res.status(500).json(JSON.parse(err.response.text));
   }
 }
 
