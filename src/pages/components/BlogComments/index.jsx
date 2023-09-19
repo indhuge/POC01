@@ -56,7 +56,7 @@ export default function BlogComments({ post_id }) {
           return (
             <li key={index}>
               <div className={Styles.card}>
-                <p>{c.cmt}</p>
+                <p>{c?.cmt}</p>
               </div>
             </li>
           );

@@ -16,7 +16,7 @@ export default function Component({ category, cards }) {
       <div className={Styles.content}>
         <h1>{category}</h1>
         <div className={Styles.cardHolder}>
-          {cards.map((c, index) => {
+          {cards?.map((c, index) => {
             return (
               <div
                 className={Styles.card}
@@ -24,11 +24,11 @@ export default function Component({ category, cards }) {
                 onClick={() => _onClick(c.uid, router)}
               >
                 <div className={Styles.cardText}>
-                  <h2>{c.data.post_title}</h2>
-                  <p>{c.data.post_description}</p>
+                  <h2>{c?.data.post_title}</h2>
+                  <p>{c?.data.post_description}</p>
                 </div>
                 <div className={Styles.imageContainer}>
-                  <PrismicNextImage field={c.data.main_image} />
+                  <PrismicNextImage field={c?.data.main_image} />
                 </div>
               </div>
             );
