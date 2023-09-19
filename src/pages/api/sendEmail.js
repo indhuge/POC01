@@ -2,7 +2,7 @@ const { emailHandler } = require("../../utils/emailHandler");
 
 export default async function handler(req, res) {
   const contactInfo = req.body;
-
+  if (req.method === "POST") {
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
