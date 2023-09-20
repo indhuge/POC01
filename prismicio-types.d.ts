@@ -187,12 +187,12 @@ export interface HomepageDocumentDataMenuitensItem {
   /**
    * link field in *homepage → menuItens*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: homepage.menuitens[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  link: prismic.LinkField;
+  link: prismic.KeyTextField;
 }
 
 /**
@@ -212,12 +212,12 @@ export interface HomepageDocumentDataContentMenuOptionsItem {
   /**
    * Link field in *homepage → Content Menu Options*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: homepage.content_menu_options[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  link: prismic.LinkField;
+  link: prismic.KeyTextField;
 }
 
 /**

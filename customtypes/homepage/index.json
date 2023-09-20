@@ -33,12 +33,10 @@
               }
             },
             "link": {
-              "type": "Link",
+              "type": "Text",
               "config": {
                 "label": "link",
-                "placeholder": "",
-                "allowTargetBlank": false,
-                "select": null
+                "placeholder": ""
               }
             }
           }
@@ -82,12 +80,10 @@
               }
             },
             "link": {
-              "type": "Link",
+              "type": "Text",
               "config": {
                 "label": "Link",
-                "placeholder": "",
-                "allowTargetBlank": false,
-                "select": null
+                "placeholder": ""
               }
             }
           }

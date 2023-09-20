@@ -35,7 +35,11 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
         </div>
         <div className={Styles.menu} id="menu">
           {navLinks?.map((n, index) => {
-            return <Link key={index} href={n.link.url}>{n.link_title}</Link>;
+            return (
+              <Link key={index} href={n.link}>
+                {n.link_title}
+              </Link>
+            );
           })}
           <Button
             title={callToActionText}
@@ -44,7 +48,12 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
             }}
           />
         </div>
-        <Image alt="Menu Icon" className={Styles.icon} src={menuIcon} onClick={toggleMenu} />
+        <Image
+          alt="Menu Icon"
+          className={Styles.icon}
+          src={menuIcon}
+          onClick={toggleMenu}
+        />
       </div>
     </div>
   );
