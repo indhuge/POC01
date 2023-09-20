@@ -1,0 +1,82 @@
+@import "../../styles/mixins/padding.scss";
+@import "../../styles/mixins/fonts.scss";
+@import "../../styles/mixins/colors.scss";
+@import "../../styles/mixins/size.scss";
+
+.main {
+      background-color: $darkBlue-color;
+      margin: 0 0 2rem 0;
+}
+
+.content {
+      @include Padding;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: stretch;
+      justify-content: stretch;
+
+      h1 {
+            font-family: $font-family-roboto;
+            padding: 0 2rem;
+            color: $accent-color;
+            align-self: center;
+      }
+
+      form {
+            width: calc(29rem + 32px);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            justify-content: flex-end;
+            justify-self: flex-end;
+            gap: 1.5rem;
+      }
+
+      input[type=email] {
+            @include Size;
+            margin: 1rem 0;
+            color: black;
+            background-color: #dfdfdf;
+            transition: all 0.3s ease;
+
+            &:hover,
+            &:focus {
+                  transform: scale(1.05);
+                  box-shadow: 0 0 10px $gear-color;
+                  outline: none;
+            }
+
+            @media(max-width: 600px) {
+                  font-size: 1rem;
+            }
+      }
+
+      input[type=submit] {
+            @include Size;
+            background-color: $white-color;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                  background-color: $accent-color;
+                  color: $white-color;
+                  transform: scale(1.1);
+            }
+      }
+
+      @media (max-width: 920px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+
+            h1 {
+                  text-align: center;
+                  margin: 1rem 0;
+            }
+
+            form {
+                  justify-self: center;
+            }
+      }
+}

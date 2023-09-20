@@ -1,0 +1,14 @@
+@import "../../styles/mixins/padding.scss";
+.imageHolder {
+  padding: 2em 0;
+  width: $blog-content-size;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  p {
+    font-size: 1em;
+    padding: 0.5em 0;
+  }
+}

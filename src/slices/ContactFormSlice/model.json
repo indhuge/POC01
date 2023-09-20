@@ -1,0 +1,109 @@
+{
+  "id": "contact_form_slice",
+  "type": "SharedSlice",
+  "name": "ContactFormSlice",
+  "description": "ContactFormSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "actionTitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titulo de Ação",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        },
+        "main_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        },
+        "text_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "forms_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Forms Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        },
+        "name_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Name Placeholder",
+            "placeholder": ""
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Placeholder",
+            "placeholder": ""
+          }
+        },
+        "phone_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Placeholder",
+            "placeholder": ""
+          }
+        },
+        "message_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Message Placeholder",
+            "placeholder": ""
+          }
+        },
+        "contact_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Options Placeholder",
+            "placeholder": ""
+          }
+        },
+        "contact_options": {
+          "type": "Select",
+          "config": {
+            "label": "Contact Options",
+            "placeholder": "",
+            "options": [
+              "small_company",
+              "medium_company",
+              "big_company"
+            ]
+          }
+        },
+        "send_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Send Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

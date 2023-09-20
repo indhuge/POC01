@@ -1,0 +1,64 @@
+{
+  "id": "cards",
+  "type": "SharedSlice",
+  "name": "Cards",
+  "description": "Cards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "maintitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "mainTitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+          }
+        },
+        "maintext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "mainText",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {
+        "cardicon": {
+          "type": "Image",
+          "config": {
+            "label": "cardIcon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "cardtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "cardTitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+          }
+        },
+        "cardtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "cardText",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      }
+    }
+  ]
+}
