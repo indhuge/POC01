@@ -1,16 +1,24 @@
-import styles from './Home.module.scss'
-import Header from './components/header'
-import Welcome from './components/header/welcome'
-import Features from './components/features'
-import Contato from './components/contato'
-import Footer from './components/footer'
-import Newsletter from './components/Newsletter'
-import { useEffect } from "react";
+import styles from "./Home.module.scss";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { useEffect, useState } from "react";
+import { createClient } from "@/prismicio";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
+import Page from "@/components/page";
+
+function queryContent() {
+  const client = createClient();
+  return client.getSingle("homepage");
+}
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState();
+
   useEffect(() => {
     async function loadBotpress() {
-      await window.botpressWebChat.init({
+      await window.botpressWebChat?.init({
         composerPlaceholder: "Chat with IndHelp",
         botConversationDescription: "Tire suas duvidas",
         botId: "a65625bb-64c9-4a57-b4db-a7bd2aa1270b",
@@ -23,17 +31,32 @@ export default function Home() {
     loadBotpress();
   });
 
-  return (
+  if (!page) {
+    queryContent().then((p) => {
+      setIsLoading(false);
+      setPage(p);
+    });
+  }
 
-    <div className={styles.description}>
-      <Header />
-      <Welcome />
-      <Features />
-      <Newsletter />
-      <Contato />
-      <Footer />
-      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43719883.js"></script>
-      <script src="https://cdn.botpress.cloud/webchat/v0/inject.js" async></script>
-    </div>
+  if (isLoading) {
+    return (
+      <>
+        <script
+          src="https://cdn.botpress.cloud/webchat/v0/inject.js"
+          async
+        ></script>
+        <div className={styles.Loading}>
+          <h1>Carregando</h1>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <Page>
+      <div className={styles.description}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+    </Page>
   );
 }

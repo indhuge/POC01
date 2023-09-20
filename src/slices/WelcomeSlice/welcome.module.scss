@@ -1,0 +1,52 @@
+@import "./src/styles/mixins/padding.scss";
+@import "./src/styles/mixins/fonts.scss";
+
+
+.container {
+    @include Padding;
+    height: 100%;
+    padding: 30px;
+    background-image: url("/estilizado.svg");
+    background-size: 129%;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 900px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+}
+
+.text {
+
+
+    h1 {
+        font-weight: bold;
+        font-size: 40px;
+        font-family: $font-family-roboto;
+    }
+
+    p {
+        font-family: $font-family-roboto;
+        font-size: 20px;
+        opacity: 0.7;
+    }
+}
+
+.image {
+    
+    img {
+        width: 75%;
+    }
+
+    text-align: end;
+    @media (max-width: 900px) {
+        width: 30rem;
+    }
+    @media (max-width: 600px) {
+        width: 20rem;
+    }
+}
