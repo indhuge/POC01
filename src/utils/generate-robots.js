@@ -1,5 +1,8 @@
+import { host } from "@/pages/sitemap.xml";
+
 const robots_content = `User-agent: *
 Disallow: 
+sitemap: ${host}/sitemap.xml
 `;
 function generate_robots() {
   const fs = require("fs");

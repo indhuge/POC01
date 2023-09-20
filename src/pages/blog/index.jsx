@@ -38,7 +38,6 @@ export default function Blog() {
 
     getTags().then((o) => {
       setCategories(o);
-      console.log(o);
     });
   }
 
