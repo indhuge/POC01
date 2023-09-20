@@ -1,6 +1,5 @@
 import { createClient } from "@/prismicio";
-
-export const host = "http://localhost:8080/";
+import { host } from "@/utils/SiteProps";
 
 function compileSitemap(pages) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -14,7 +13,7 @@ function compileSitemap(pages) {
     </url>
     ${pages.map(({ url, date }) => {
       return `<url>
-                <loc>${`${host}/${url}`}</loc>
+                <loc>${`${host}${url}`}</loc>
                 <lastmod>${date}</lastmod>
             </url>`;
     })}

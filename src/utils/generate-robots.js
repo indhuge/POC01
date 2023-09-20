@@ -1,7 +1,8 @@
-import { host } from "@/pages/sitemap.xml";
+const { host } = require("./SiteProps");
 
 const robots_content = `User-agent: *
 Disallow: 
+
 sitemap: ${host}/sitemap.xml
 `;
 function generate_robots() {
