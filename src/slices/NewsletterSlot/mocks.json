@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"maintext": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis duis ad cillum ex aliquip nisi veniam. Proident esse magna dolore elit est. Nisi mollit voluptate culpa veniam non aliquip est laborum culpa laboris laboris velit esse laborum."
+						}
+					}
+				]
+			},
+			"placeholdertext": {
+				"__TYPE__": "FieldContent",
+				"value": "rush",
+				"type": "Text"
+			},
+			"buttontext": {
+				"__TYPE__": "FieldContent",
+				"value": "ice",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

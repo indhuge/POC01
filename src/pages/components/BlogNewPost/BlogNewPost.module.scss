@@ -1,0 +1,28 @@
+@import "../../../styles/mixins/fonts.scss";
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5em;
+
+  h1,
+  p {
+    font-family: $font-family;
+    text-align: justify;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+  }
+
+  @media (max-width: 915px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+
+    img {
+      order: -1;
+    }
+  }
+}

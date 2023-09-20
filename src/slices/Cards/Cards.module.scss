@@ -1,0 +1,85 @@
+@import "src/styles/mixins/colors.scss";
+@import "src/styles/mixins/fonts.scss";
+
+$gap: 2em;
+$card_gap: 0.7em;
+$font_weight: 300;
+
+.container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 2em 0 5em 0;
+      background-color: $blue-color;
+}
+
+.main {
+      width: 50rem;
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+
+      p,
+      h1 {
+            font-family: $font-family-roboto;
+            text-align: center;
+            font-weight: $font_weight;
+            margin: 0;
+      }
+
+      @media (max-width: 900px) {
+            width: 25rem;
+      }
+
+      @media (max-width: 600px) {
+            width: 18rem;
+      }
+}
+
+
+.cardHolder {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: $card_gap;
+      filter: drop-shadow(0 0 50px black);
+
+      @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+      }
+
+}
+
+.card {
+      border-radius: 5px;
+      background: #FFF;
+      padding: 0.7em;
+      transition: 0.5s cubic-bezier(0.18, 0.89, 0.6, 1.59);
+      ;
+
+      p,
+      h1 {
+            color: black;
+            font-family: $font-family-roboto;
+            text-align: left;
+            font-weight: 500;
+            font-size: 2rem;
+      }
+
+      p {
+            font-size: 1.3rem;
+            padding: 0.5em 0 0 0;
+            opacity: 0.75;
+      }
+
+      img {
+            width: 5em;
+            height: auto;
+      }
+}
+
+.card:hover {
+      box-shadow: 0px 0px 50px 0px $gear-color;
+      transform: scale(1.1);
+}

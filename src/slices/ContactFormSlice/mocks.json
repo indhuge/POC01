@@ -1,0 +1,88 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"actionTitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Disease"
+						}
+					}
+				]
+			},
+			"main_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Little"
+						}
+					}
+				]
+			},
+			"text_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum id duis nisi velit consectetur in Lorem. Velit tempor ex eu ipsum quis eu."
+						}
+					}
+				]
+			},
+			"forms_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Money"
+						}
+					}
+				]
+			},
+			"name_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "strength",
+				"type": "Text"
+			},
+			"email_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "bear",
+				"type": "Text"
+			},
+			"phone_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "eventually",
+				"type": "Text"
+			},
+			"message_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "done",
+				"type": "Text"
+			},
+			"contact_options": {
+				"__TYPE__": "FieldContent",
+				"value": "small_company",
+				"type": "Select"
+			},
+			"send_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "basket",
+				"type": "Text"
+			},
+			"contact_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "worried",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
