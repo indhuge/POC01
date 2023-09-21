@@ -15,37 +15,19 @@ async function getTags() {
   return client.getAllByType("category");
 }
 
-export default function Blog() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [pages, setPages] = useState();
-  const [category, setCategories] = useState();
+export async function getServerSideProps() {
+  const category = getTags();
+  const pages = getBlogContent();
 
-  useEffect(
-    () => {
-      if (pages && category) {
-        setIsLoading(false);
-      }
+  return {
+    props: {
+      category: await category,
+      pages: await pages,
     },
-    pages,
-    category
-  );
+  };
+}
 
-  if (!pages) {
-    getBlogContent().then((o) => {
-      setPages(o);
-      console.log(o);
-    });
-
-    getTags().then((o) => {
-      setCategories(o);
-      console.log(o);
-    });
-  }
-
-  if (isLoading) {
-    return <h1>Carregando</h1>;
-  }
-
+export default function Blog({ category, pages }) {
   if (pages) {
     return (
       <Page>
