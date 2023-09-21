@@ -27,7 +27,7 @@ const Footer = ({
     <div className={Styles.container} id="footer">
       <div className={`${Styles.column} ${Styles.columnPrincipal}`}>
         <Link href="/">
-          <img src={logoUrl} alt="Logo" />
+          <img src={logoUrl} alt="Logo" width="316px" height="276px" />
         </Link>
         <h1 className={Styles.title}>{prismic.asText(phoneNumber)}</h1>
         <PrismicRichText field={email} />

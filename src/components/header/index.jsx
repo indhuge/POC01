@@ -31,7 +31,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
-          <img src={logoUrl} />
+          <img src={logoUrl} alt="IndHuge logo" width="316px" height="276px" />
         </div>
         <div className={Styles.menu} id="menu">
           {navLinks?.map((n, index) => {

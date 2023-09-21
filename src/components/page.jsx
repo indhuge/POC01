@@ -7,13 +7,6 @@ import Head from "next/head";
 export default function Page({ metaData, children }) {
   const [rrnd, reqRrnd] = useState(false);
 
-  // if (!StaticContent) {
-  //   setContentAndReturnPage().then((p) => {
-  //     console.log(StaticContent);
-  //     reqRrnd(!rrnd);
-  //   });
-  // }
-
   useEffect(() => {
     if (!StaticContent) {
       setContentAndReturnPage().then((p) => {
