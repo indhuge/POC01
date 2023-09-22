@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prebuild": "node ./src/utils/generate-robots.js",
-    "dev": "next dev",
+    "dev": "npm run prebuild & next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
