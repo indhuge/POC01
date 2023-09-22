@@ -20,6 +20,10 @@ export default function Page({ metaData, children }) {
     <main className="page">
       <Head>
         <title>{metaData?.meta_title}</title>
+        <link
+          rel="canonical"
+          href={`http://localhost:3000${metaData?.meta_url}`}
+        />
         <meta name="description" content={metaData?.meta_description} />
         <meta property="og:image" content={metaData?.meta_image.url} />
       </Head>
