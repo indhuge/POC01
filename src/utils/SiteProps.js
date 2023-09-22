@@ -1,3 +1,6 @@
 module.exports = {
-  host: "http://localhost:3000",
+  host:
+    process.env.ENV_TYPE == "prod"
+      ? "https://poc-01-sand.vercel.app"
+      : "http://localhost:3000",
 };
