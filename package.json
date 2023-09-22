@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node ./src/utils/generate-robots.js",
-    "dev": "cross-env ENV_TYPE=dev npm run prebuild & next dev",
-    "build": "cross-env ENV_TYPE=prod next build",
+    "_prebuild": "node ./src/utils/generate-robots.js",
+    "dev": "cross-env ENV_TYPE=dev npm run _prebuild & next dev",
+    "build": "cross-env ENV_TYPE=prod npm run _prebuild & next build",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
