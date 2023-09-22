@@ -1,6 +1,4 @@
 import styles from "./Home.module.scss";
-import Header from "../components/header";
-import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
@@ -12,9 +10,29 @@ function queryContent() {
   return client.getSingle("homepage");
 }
 
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState();
+export async function getStaticProps() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
+
+  const metadata = {
+    meta_description: page.data.meta_description,
+    meta_image: page.data.meta_image,
+    meta_title: page.data.meta_title,
+    /// TODO: Check compatibility to commit: bedf52541aa4051a40016b03ebc919a2f40b8007
+    meta_url: page.url,
+  };
+
+  return {
+    props: {
+      page,
+      metadata,
+    },
+  };
+}
+
+export default function Home({ page, metadata }) {
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [page, setPage] = useState();
 
   useEffect(() => {
     async function loadBotpress() {
@@ -31,29 +49,29 @@ export default function Home() {
     loadBotpress();
   });
 
-  if (!page) {
-    queryContent().then((p) => {
-      setIsLoading(false);
-      setPage(p);
-    });
-  }
+  // if (!page) {
+  //   queryContent().then((p) => {
+  //     setIsLoading(false);
+  //     setPage(p);
+  //   });
+  // }
 
-  if (isLoading) {
-    return (
-      <>
-        <script
-          src="https://cdn.botpress.cloud/webchat/v0/inject.js"
-          async
-        ></script>
-        <div className={styles.Loading}>
-          <h1>Carregando</h1>
-        </div>
-      </>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <script
+  //         src="https://cdn.botpress.cloud/webchat/v0/inject.js"
+  //         async
+  //       ></script>
+  //       <div className={styles.Loading}>
+  //         <h1>Carregando</h1>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   return (
-    <Page>
+    <Page metaData={metadata}>
       <div className={styles.description}>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
