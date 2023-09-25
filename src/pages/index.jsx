@@ -16,6 +16,11 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState();
 
+  function cookies() {
+    var _hsp = window._hsp = window._hsp || [];
+    _hsp.push(['showBanner']);
+  }
+
   useEffect(() => {
     async function loadBotpress() {
       await window.botpressWebChat?.init({
@@ -56,6 +61,20 @@ export default function Home() {
     <Page>
       <div className={styles.description}>
         <SliceZone slices={page.data.slices} components={components} />
+
+
+        <button type="button" id="hs_show_banner_button"
+          style={{
+            backgroundColor: '#425b76', border: '1px solid #425b76',
+            borderRadius: '3px', padding: '10px 16px', textDecoration: 'none', color: '#fff',
+            fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', lineHeight: 'inherit',
+            textAlign: 'left', textShadow: 'none'
+          }}
+          onClick={cookies}
+        >
+          Configurações de cookies
+        </button>
+        
       </div>
     </Page>
   );
