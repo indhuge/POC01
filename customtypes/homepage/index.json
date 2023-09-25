@@ -163,6 +163,9 @@
             },
             "contact_form_slice": {
               "type": "SharedSlice"
+            },
+            "iframe_card_slice": {
+              "type": "SharedSlice"
             }
           }
         }
