@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "_prebuild": "node ./src/utils/generate-robots.js",
+    "dev": "cross-env ENV_TYPE=dev npm run _prebuild & next dev",
+    "build": "cross-env ENV_TYPE=prod npm run _prebuild & next build",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
@@ -15,6 +16,7 @@
     "@prismicio/next": "^1.3.4",
     "@prismicio/react": "^2.7.1",
     "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
     "emailjs": "^4.0.2",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
