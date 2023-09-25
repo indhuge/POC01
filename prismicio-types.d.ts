@@ -4,6 +4,60 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Blog Home documents
+ */
+interface BlogHomeDocumentData {
+  /**
+   * Meta Description field in *Blog Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_home.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_home.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog Home document from Prismic
+ *
+ * - **API ID**: `blog_home`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogHomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogHomeDocumentData>,
+    "blog_home",
+    Lang
+  >;
+
 type BlogPostDocumentDataSlicesSlice =
   | PostTitleSliceSlice
   | PostImageSliceSlice;
@@ -442,6 +496,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | BlogHomeDocument
   | BlogPostDocument
   | CategoryDocument
   | HomepageDocument;
@@ -990,6 +1045,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogHomeDocument,
+      BlogHomeDocumentData,
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,

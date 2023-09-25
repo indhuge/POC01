@@ -1,15 +1,30 @@
 import { PrismicNextImage } from "@prismicio/next";
 import Styles from "./BlogCards.module.scss";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function _onClick(id, router) {
   console.log(id);
-  //window.location.href = window.location.href + `/${id}`;
-  router.push(`/blog/${id}`);
+  router.push(`/blog/${id}`, null, {
+    shallow: true,
+  });
 }
+
+const prefetchPath = (id, router) => {
+  router.prefetch(`/blog/${id}`);
+};
 
 export default function Component({ category, cards }) {
   const router = useRouter();
+
+  useEffect(() => {
+    cards?.map(
+      (c) => {
+        prefetchPath(c.uid, router);
+      },
+      [router]
+    );
+  });
 
   return (
     <div className={Styles.wrapper}>
