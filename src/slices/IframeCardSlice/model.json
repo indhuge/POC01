@@ -1,0 +1,26 @@
+{
+  "id": "iframe_card_slice",
+  "type": "SharedSlice",
+  "name": "IframeCardSlice",
+  "description": "IframeCardSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "iframe": {
+          "type": "Embed",
+          "config": {
+            "label": "Iframe",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
