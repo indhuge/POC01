@@ -3,6 +3,8 @@ import Footer from "./footer";
 import { StaticContent, setContentAndReturnPage } from "@/utils/StaticContent";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import TestimonialsSection from 'src/components/depoimentos/testimonials-section.jsx';
+import ClientLogosSection from 'src/components/logos_clientes/index.jsx';
 
 export default function Page({ metaData, children }) {
   const [rrnd, reqRrnd] = useState(false);
@@ -26,6 +28,8 @@ export default function Page({ metaData, children }) {
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
+      <TestimonialsSection /> {/* Adicione esta linha */}
+      <ClientLogosSection />
       {children}
       <Footer
         logoUrl={StaticContent?.logo?.url}

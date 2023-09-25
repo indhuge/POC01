@@ -4,6 +4,7 @@ import Styles from "./header.module.scss";
 import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
 
+
 var isOpen = false;
 var inMobile = false;
 
