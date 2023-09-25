@@ -249,7 +249,8 @@ type HomepageDocumentDataSlicesSlice =
   | WelcomeSliceSlice
   | CardsSlice
   | NewsletterSlotSlice
-  | ContactFormSliceSlice;
+  | ContactFormSliceSlice
+  | IframeCardSliceSlice;
 
 /**
  * Content for homepage documents
@@ -680,6 +681,51 @@ export type ContactFormSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *IframeCardSlice → Primary*
+ */
+export interface IframeCardSliceSliceDefaultPrimary {
+  /**
+   * Iframe field in *IframeCardSlice → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe_card_slice.primary.iframe
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  iframe: prismic.EmbedField;
+}
+
+/**
+ * Default variation for IframeCardSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeCardSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IframeCardSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IframeCardSlice*
+ */
+type IframeCardSliceSliceVariation = IframeCardSliceSliceDefault;
+
+/**
+ * IframeCardSlice Shared Slice
+ *
+ * - **API ID**: `iframe_card_slice`
+ * - **Description**: IframeCardSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeCardSliceSlice = prismic.SharedSlice<
+  "iframe_card_slice",
+  IframeCardSliceSliceVariation
+>;
+
+/**
  * Primary content in *NewsletterSlot → Primary*
  */
 export interface NewsletterSlotSliceDefaultPrimary {
@@ -959,6 +1005,9 @@ declare module "@prismicio/client" {
       ContactFormSliceSlice,
       ContactFormSliceSliceVariation,
       ContactFormSliceSliceDefault,
+      IframeCardSliceSlice,
+      IframeCardSliceSliceVariation,
+      IframeCardSliceSliceDefault,
       NewsletterSlotSlice,
       NewsletterSlotSliceVariation,
       NewsletterSlotSliceDefault,
