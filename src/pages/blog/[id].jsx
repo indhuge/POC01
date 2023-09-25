@@ -1,4 +1,3 @@
-"use client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
@@ -7,7 +6,7 @@ import Styles from "./BlogPost.module.scss";
 import * as prismic from "@prismicio/client";
 import Page from "@/components/page";
 import StaticContent from "@/utils/StaticContent";
-import BlogComments from "../components/BlogComments";
+import BlogComments from "../../components/BlogComments";
 
 export async function getStaticProps({ params }) {
   const client = createClient();
@@ -17,6 +16,7 @@ export async function getStaticProps({ params }) {
     meta_description: page.data.meta_description,
     meta_image: page.data.meta_image,
     meta_title: page.data.meta_title,
+    meta_url: page.url,
   };
 
   return {

@@ -1,6 +1,6 @@
 import Styles from "./Blog.module.scss";
-import BlogNewPost from "../components/BlogNewPost";
-import BlogCards from "../components/BlogCards";
+import BlogNewPost from "../../components/BlogNewPost";
+import BlogCards from "../../components/BlogCards";
 import { createClient } from "@/prismicio";
 import { useEffect, useState } from "react";
 import Page from "@/components/page";

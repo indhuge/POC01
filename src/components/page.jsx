@@ -7,17 +7,23 @@ import Head from "next/head";
 export default function Page({ metaData, children }) {
   const [rrnd, reqRrnd] = useState(false);
 
-  if (StaticContent === null) {
-    setContentAndReturnPage().then((p) => {
-      console.log(StaticContent);
-      reqRrnd(!rrnd);
-    });
-  }
+  useEffect(() => {
+    if (!StaticContent) {
+      setContentAndReturnPage().then((p) => {
+        console.log("Header content", StaticContent);
+        reqRrnd(!rrnd);
+      });
+    }
+  }, []);
 
   return (
     <main className="page">
       <Head>
         <title>{metaData?.meta_title}</title>
+        <link
+          rel="canonical"
+          href={`http://localhost:3000${metaData?.meta_url}`}
+        />
         <meta name="description" content={metaData?.meta_description} />
         <meta property="og:image" content={metaData?.meta_image.url} />
       </Head>
@@ -26,7 +32,7 @@ export default function Page({ metaData, children }) {
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
-      {children}
+      <div>{children}</div>
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}
