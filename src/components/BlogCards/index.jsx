@@ -43,7 +43,12 @@ export default function Component({ category, cards }) {
                   <p>{c?.data.post_description}</p>
                 </div>
                 <div className={Styles.imageContainer}>
-                  <PrismicNextImage field={c?.data.main_image} />
+                  <PrismicNextImage
+                    width={530}
+                    height={298.13}
+                    sizes={1.6}
+                    field={c?.data.main_image}
+                  />
                 </div>
               </div>
             );

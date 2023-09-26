@@ -28,7 +28,7 @@ export default function Page({ metaData, children }) {
         <meta property="og:image" content={metaData?.meta_image.url} />
       </Head>
       <Header
-        logoUrl={StaticContent?.logo?.url}
+        logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
