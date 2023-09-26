@@ -67,6 +67,18 @@ type BlogPostDocumentDataSlicesSlice =
  */
 interface BlogPostDocumentData {
   /**
+   * Allow indexing field in *Blog Post*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_post.allow_indexing
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  allow_indexing: prismic.BooleanField;
+
+  /**
    * Main Image field in *Blog Post*
    *
    * - **Field Type**: Image

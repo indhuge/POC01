@@ -12,6 +12,15 @@
         },
         "type": "UID"
       },
+      "allow_indexing": {
+        "type": "Boolean",
+        "config": {
+          "label": "Allow indexing",
+          "placeholder_false": "Disallow",
+          "placeholder_true": "Allow",
+          "default_value": true
+        }
+      },
       "main_image": {
         "type": "Image",
         "config": {
