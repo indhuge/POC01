@@ -1,23 +1,30 @@
 import { createClient } from "@/prismicio";
 import { host } from "@/utils/SiteProps";
 
-const robots_content = (disallowUrls) => `User-agent: *
-Allow: /
-${disallowUrls.map((u) => `Disallow: ${u}/\n`)}
-sitemap: ${host}/sitemap.xml
-`;
+const robots_content = (disallowUrls) => {
+  let base = `User-agent: *
+Allow: /\n`;
 
+  disallowUrls.forEach((element) => {
+    base = base.concat(`Disallow: ${element}/\n`);
+  });
+
+  base = base.concat(`\nsitemap: ${host}/sitemap.xml`);
+
+  return base;
+};
 export async function getServerSideProps({ res }) {
   const client = createClient();
   const pages = await client.getAllByTag("disallow");
+  const pages_url = pages.map((e) => e.url);
 
   res.setHeader("Content-Type", "text/plain");
-  res.write(robots_content(pages.map((e) => e.url)));
+  res.write(robots_content(pages_url));
   res.end();
 
   return {
-    props: {},
+    props: { pages_url },
   };
 }
 
-export default function Robots() {}
+export default function Robots({ pages_url }) {}
