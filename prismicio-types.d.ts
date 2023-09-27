@@ -304,7 +304,8 @@ type HomepageDocumentDataSlicesSlice =
   | CardsSlice
   | NewsletterSlotSlice
   | ContactFormSliceSlice
-  | IframeCardSliceSlice;
+  | IframeCardSliceSlice
+  | SocialTriggersSliceSlice;
 
 /**
  * Content for homepage documents
@@ -961,6 +962,76 @@ export type PostTitleSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SocialTriggersSlice → Primary*
+ */
+export interface SocialTriggersSliceSliceDefaultPrimary {
+  /**
+   * SocialTriggersSectionTitle field in *SocialTriggersSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.primary.socialtriggerssectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  socialtriggerssectiontitle: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SocialTriggersSlice → Items*
+ */
+export interface SocialTriggersSliceSliceDefaultItem {
+  /**
+   * SocialTriggerNumber field in *SocialTriggersSlice → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.items[].socialtriggernumber
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  socialtriggernumber: prismic.NumberField;
+
+  /**
+   * SocialTriggerDescription field in *SocialTriggersSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.items[].socialtriggerdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  socialtriggerdescription: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SocialTriggersSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialTriggersSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SocialTriggersSliceSliceDefaultPrimary>,
+  Simplify<SocialTriggersSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SocialTriggersSlice*
+ */
+type SocialTriggersSliceSliceVariation = SocialTriggersSliceSliceDefault;
+
+/**
+ * SocialTriggersSlice Shared Slice
+ *
+ * - **API ID**: `social_triggers_slice`
+ * - **Description**: SocialTriggersSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialTriggersSliceSlice = prismic.SharedSlice<
+  "social_triggers_slice",
+  SocialTriggersSliceSliceVariation
+>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -1074,6 +1145,9 @@ declare module "@prismicio/client" {
       PostTitleSliceSlice,
       PostTitleSliceSliceVariation,
       PostTitleSliceSliceDefault,
+      SocialTriggersSliceSlice,
+      SocialTriggersSliceSliceVariation,
+      SocialTriggersSliceSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceVariation,
       WelcomeSliceSliceDefault,
