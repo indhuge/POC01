@@ -3,15 +3,15 @@ import Styles from "./BlogCards.module.scss";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function _onClick(id, router) {
+function _onClick(id, category, router) {
   console.log(id);
-  router.push(`/blog/${id}`, null, {
+  router.push(`/blog/${category}/${id}`, null, {
     shallow: true,
   });
 }
 
-const prefetchPath = (id, router) => {
-  router.prefetch(`/blog/${id}`);
+const prefetchPath = (id, category, router) => {
+  router.prefetch(`/blog/${category}/${id}`);
 };
 
 export default function Component({ category, cards }) {
@@ -20,7 +20,7 @@ export default function Component({ category, cards }) {
   useEffect(() => {
     cards?.map(
       (c) => {
-        prefetchPath(c.uid, router);
+        prefetchPath(c.uid, c.data.categoty.uid, router);
       },
       [router]
     );
@@ -36,7 +36,7 @@ export default function Component({ category, cards }) {
               <div
                 className={Styles.card}
                 key={index}
-                onClick={() => _onClick(c.uid, router)}
+                onClick={() => _onClick(c.uid, c.data.categoty.uid, router)}
               >
                 <div className={Styles.cardText}>
                   <h2>{c?.data.post_title}</h2>

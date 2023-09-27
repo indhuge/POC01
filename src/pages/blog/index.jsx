@@ -30,6 +30,7 @@ export async function getServerSideProps() {
 
 export default function Blog({ category, pages, meta_data }) {
   if (pages) {
+    console.log(pages.map((e) => e.url));
     return (
       <Page metaData={meta_data}>
         <div className={Styles.wrapper}>

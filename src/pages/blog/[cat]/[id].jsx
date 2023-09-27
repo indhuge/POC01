@@ -6,9 +6,10 @@ import Styles from "./BlogPost.module.scss";
 import * as prismic from "@prismicio/client";
 import Page from "@/components/page";
 import StaticContent from "@/utils/StaticContent";
-import BlogComments from "../../components/BlogComments";
+import BlogComments from "../../../components/BlogComments";
 
 export async function getStaticProps({ params }) {
+  console.log(params);
   const client = createClient();
   const page = await client.getByUID("blog_post", params.id);
 
