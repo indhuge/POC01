@@ -29,15 +29,12 @@ export default function Component({ category, cards, Key }) {
 
   const slideLeft = () => {
     var slider = document.getElementById(`blog_card_holder-${Key}`);
-    console.log(slider.scrollLeft);
-    slider.scrollLeft -= 500;
+    slider.scrollLeft -= window.innerWidth / 2;
   };
 
   const slideRight = () => {
     var slider = document.getElementById(`blog_card_holder-${Key}`);
-    console.log(slider.scrollLeft);
-    slider.scrollLeft += 500;
-    console.log(slider.scrollLeft);
+    slider.scrollLeft += window.innerWidth / 2;
   };
 
   return (
@@ -45,7 +42,11 @@ export default function Component({ category, cards, Key }) {
       <div className={Styles.content}>
         <h1>{category}</h1>
         <div className={Styles.slideWrapper}>
-          <MdChevronLeft onClick={slideLeft} size={40} />
+          <MdChevronLeft
+            className={Styles.arrow}
+            onClick={slideLeft}
+            size={40}
+          />
           <div className={Styles.cardHolder} id={`blog_card_holder-${Key}`}>
             {cards?.map((c, index) => {
               return (
@@ -65,7 +66,11 @@ export default function Component({ category, cards, Key }) {
               );
             })}
           </div>
-          <MdChevronRight onClick={slideRight} size={40} />
+          <MdChevronRight
+            className={Styles.arrow}
+            onClick={slideRight}
+            size={40}
+          />
         </div>
       </div>
     </div>
