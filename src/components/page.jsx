@@ -1,21 +1,9 @@
 import Header from "./header";
 import Footer from "./footer";
-import { StaticContent, setContentAndReturnPage } from "@/utils/StaticContent";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-export default function Page({ metaData, children }) {
-  const [rrnd, reqRrnd] = useState(false);
-
-  useEffect(() => {
-    if (!StaticContent) {
-      setContentAndReturnPage().then((p) => {
-        console.log("Header content", StaticContent);
-        reqRrnd(!rrnd);
-      });
-    }
-  }, []);
-
+export default function Page({ metaData, children, StaticContent }) {
   return (
     <main className="page">
       <Head>
