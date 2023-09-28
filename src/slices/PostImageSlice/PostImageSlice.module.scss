@@ -1,7 +1,9 @@
 @import "../../styles/mixins/padding.scss";
+
 .imageHolder {
   padding: 2em 0;
-  width: $blog-content-size;
+  width: 100%;
+
   img {
     width: 100%;
     height: auto;
