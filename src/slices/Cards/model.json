@@ -18,7 +18,7 @@
             "label": "mainTitle",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+            "single": "heading2"
           }
         },
         "maintext": {
@@ -27,7 +27,7 @@
             "label": "mainText",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "single": "paragraph,strong"
           }
         }
       },
@@ -46,7 +46,7 @@
             "label": "cardTitle",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+            "single": "heading2"
           }
         },
         "cardtext": {
@@ -55,7 +55,7 @@
             "label": "cardText",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "single": "paragraph,strong"
           }
         }
       }

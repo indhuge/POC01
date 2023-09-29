@@ -29,7 +29,7 @@ export default function Component({ category, cards }) {
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.content}>
-        <h1>{category}</h1>
+        <h2>{category}</h2>
         <div className={Styles.cardHolder}>
           {cards?.map((c, index) => {
             return (
@@ -39,7 +39,7 @@ export default function Component({ category, cards }) {
                 onClick={() => _onClick(c.uid, c.data.categoty.uid, router)}
               >
                 <div className={Styles.cardText}>
-                  <h2>{c?.data.post_title}</h2>
+                  <h3>{c?.data.post_title}</h3>
                   <p>{c?.data.post_description}</p>
                 </div>
                 <div className={Styles.imageContainer}>

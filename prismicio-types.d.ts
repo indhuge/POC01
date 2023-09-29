@@ -509,12 +509,12 @@ export interface CardsSliceDefaultPrimary {
   /**
    * mainTitle field in *Cards → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: cards.primary.maintitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  maintitle: prismic.RichTextField;
+  maintitle: prismic.TitleField;
 
   /**
    * mainText field in *Cards → Primary*
@@ -544,12 +544,12 @@ export interface CardsSliceDefaultItem {
   /**
    * cardTitle field in *Cards → Items*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: cards.items[].cardtitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  cardtitle: prismic.RichTextField;
+  cardtitle: prismic.TitleField;
 
   /**
    * cardText field in *Cards → Items*
@@ -596,22 +596,22 @@ export interface ContactFormSliceSliceDefaultPrimary {
   /**
    * Titulo de Ação field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.actionTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  actionTitle: prismic.RichTextField;
+  actionTitle: prismic.TitleField;
 
   /**
    * Main Title field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.main_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  main_title: prismic.RichTextField;
+  main_title: prismic.TitleField;
 
   /**
    * Text Body field in *ContactFormSlice → Primary*
@@ -626,12 +626,12 @@ export interface ContactFormSliceSliceDefaultPrimary {
   /**
    * Forms Title field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.forms_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  forms_title: prismic.RichTextField;
+  forms_title: prismic.TitleField;
 
   /**
    * Name Placeholder field in *ContactFormSlice → Primary*
@@ -788,12 +788,12 @@ export interface NewsletterSlotSliceDefaultPrimary {
   /**
    * mainText field in *NewsletterSlot → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: newsletter_slot.primary.maintext
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  maintext: prismic.RichTextField;
+  maintext: prismic.TitleField;
 
   /**
    * placeholderText field in *NewsletterSlot → Primary*

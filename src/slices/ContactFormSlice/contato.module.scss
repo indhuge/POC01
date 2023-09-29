@@ -16,7 +16,7 @@
     padding: 2rem;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     display: block;
   }
 }
@@ -38,13 +38,11 @@
     gap: 5rem;
     align-items: center;
     flex-direction: column;
-
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     font-size: small;
   }
-
 }
 
 .texts {
@@ -61,7 +59,8 @@
     text-transform: uppercase;
   }
 
-  h1 {
+  h1,
+  h2 {
     font-size: 1.5rem;
     font-weight: bold;
     color: $whitesmoke-color;
@@ -73,7 +72,7 @@
     color: $whitesmoke-color;
   }
 
-  @media(max-width: 1051px) {
+  @media (max-width: 1051px) {
     align-items: center;
     text-align: left;
     padding: 0;
@@ -82,7 +81,8 @@
       font-size: 1rem;
     }
 
-    h1 {
+    h1,
+    h2 {
       font-size: 1.5rem;
     }
 
@@ -91,7 +91,8 @@
     }
   }
 
-  @media(max-width: 600px) {}
+  @media (max-width: 600px) {
+  }
 }
 
 .forms {
@@ -103,19 +104,19 @@
   border-radius: 10px;
   width: 29rem;
 
-  h1 {
+  h1,
+  h2 {
     font-size: 2rem;
     font-weight: bold;
     color: $accent-color;
     padding: 0 0 1rem 0;
     margin: 0;
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
       font-size: 1.5rem;
       padding: 0;
     }
   }
-
 
   form {
     display: flex;
@@ -137,7 +138,7 @@
       }
     }
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
       margin: 0;
     }
   }
@@ -149,10 +150,9 @@
     width: min-content;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 15rem;
   }
-
 }
 
 .particles {
