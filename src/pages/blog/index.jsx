@@ -43,6 +43,7 @@ export default function Blog({ category, pages, meta_data, staticContent }) {
                 return (
                   <BlogCards
                     key={index}
+                    Key={index}
                     category={c.data.name}
                     cards={pages.filter((p) => p.data.categoty.uid == c.uid)}
                   />
