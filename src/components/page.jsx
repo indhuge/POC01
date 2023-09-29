@@ -14,6 +14,10 @@ export default function Page({ metaData, children, StaticContent }) {
         />
         <meta name="description" content={metaData?.meta_description} />
         <meta property="og:image" content={metaData?.meta_image.url} />
+        <meta
+          name="robots"
+          content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
+        />
       </Head>
       <Header
         logoUrl={StaticContent?.logo}
