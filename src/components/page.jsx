@@ -28,9 +28,11 @@ export default function Page({ metaData, children }) {
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
+
+      {children}
+
       <TestimonialsSection /> {/* Adicione esta linha */}
       <ClientLogosSection />
-      {children}
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}
