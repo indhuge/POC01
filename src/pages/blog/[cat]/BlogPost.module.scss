@@ -1,6 +1,8 @@
-@import "../../styles/mixins/fonts.scss";
-@import "../../styles/mixins/colors.scss";
-@import "../../styles/mixins/padding.scss";
+@import "../../../styles/mixins/fonts.scss";
+@import "../../../styles/mixins/colors.scss";
+@import "../../../styles/mixins/padding.scss";
+@import "../../../styles/mixins/responsive.scss";
+
 .wrapper {
   width: 100vw;
   * {
@@ -46,6 +48,10 @@
 
 .content {
   width: $blog-content-size;
+
+  @include Phone {
+    width: 90%;
+  }
 }
 
 .title {

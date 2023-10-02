@@ -1,21 +1,9 @@
 import Header from "./header";
 import Footer from "./footer";
-import { StaticContent, setContentAndReturnPage } from "@/utils/StaticContent";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-export default function Page({ metaData, children }) {
-  const [rrnd, reqRrnd] = useState(false);
-
-  useEffect(() => {
-    if (!StaticContent) {
-      setContentAndReturnPage().then((p) => {
-        console.log("Header content", StaticContent);
-        reqRrnd(!rrnd);
-      });
-    }
-  }, []);
-
+export default function Page({ metaData, children, StaticContent }) {
   return (
     <main className="page">
       <Head>
@@ -26,9 +14,13 @@ export default function Page({ metaData, children }) {
         />
         <meta name="description" content={metaData?.meta_description} />
         <meta property="og:image" content={metaData?.meta_image.url} />
+        <meta
+          name="robots"
+          content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
+        />
       </Head>
       <Header
-        logoUrl={StaticContent?.logo?.url}
+        logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />

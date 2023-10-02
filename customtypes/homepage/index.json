@@ -95,7 +95,7 @@
           "label": "Phone Number",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "heading1"
+          "single": "heading2"
         }
       },
       "email": {

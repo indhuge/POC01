@@ -4,15 +4,15 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-function _onClick(id, router) {
+function _onClick(id, category, router) {
   console.log(id);
-  router.push(`/blog/${id}`, null, {
+  router.push(`/blog/${category}/${id}`, null, {
     shallow: true,
   });
 }
 
-const prefetchPath = (id, router) => {
-  router.prefetch(`/blog/${id}`);
+const prefetchPath = (id, category, router) => {
+  router.prefetch(`/blog/${category}/${id}`);
 };
 
 export default function Component({ category, cards, Key }) {
@@ -21,7 +21,7 @@ export default function Component({ category, cards, Key }) {
   useEffect(() => {
     cards?.map(
       (c) => {
-        prefetchPath(c.uid, router);
+        prefetchPath(c.uid, c.data.categoty.uid, router);
       },
       [router]
     );

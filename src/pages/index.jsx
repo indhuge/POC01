@@ -4,6 +4,8 @@ import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import Page from "@/components/page";
+import Header from "@/components/header";
+import { ToStaticContent, getStaticContent } from "@/utils/StaticContent";
 
 export async function getStaticProps() {
   const client = createClient();
@@ -20,11 +22,12 @@ export async function getStaticProps() {
     props: {
       page,
       metadata,
+      staticContent: ToStaticContent(page),
     },
   };
 }
 
-export default function Home({ page, metadata }) {
+export default function Home({ page, metadata, staticContent }) {
   function cookies() {
     var _hsp = (window._hsp = window._hsp || []);
     _hsp.push(["showBanner"]);
@@ -46,7 +49,7 @@ export default function Home({ page, metadata }) {
   });
 
   return (
-    <Page metaData={metadata}>
+    <Page metaData={metadata} StaticContent={staticContent}>
       <div className={styles.description}>
         <SliceZone slices={page.data.slices} components={components} />
 
