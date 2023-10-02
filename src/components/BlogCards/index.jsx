@@ -98,7 +98,7 @@ export default function Component({ category, cards, Key }) {
                 <div
                   className={Styles.card}
                   key={index}
-                  onClick={() => _onClick(c.uid, router)}
+                  onClick={() => _onClick(c.uid, c.data.categoty.uid, router)}
                 >
                   <div className={Styles.cardText}>
                     <h2>{c?.data.post_title}</h2>
