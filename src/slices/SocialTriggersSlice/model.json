@@ -1,0 +1,41 @@
+{
+  "id": "social_triggers_slice",
+  "type": "SharedSlice",
+  "name": "SocialTriggersSlice",
+  "description": "SocialTriggersSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "socialtriggerssectiontitle": {
+          "type": "Text",
+          "config": {
+            "label": "SocialTriggersSectionTitle",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "socialtriggernumber": {
+          "type": "Number",
+          "config": {
+            "label": "SocialTriggerNumber",
+            "placeholder": ""
+          }
+        },
+        "socialtriggerdescription": {
+          "type": "Text",
+          "config": {
+            "label": "SocialTriggerDescription",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}
