@@ -4,6 +4,60 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Blog Home documents
+ */
+interface BlogHomeDocumentData {
+  /**
+   * Meta Description field in *Blog Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_home.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_home.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog Home document from Prismic
+ *
+ * - **API ID**: `blog_home`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogHomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogHomeDocumentData>,
+    "blog_home",
+    Lang
+  >;
+
 type BlogPostDocumentDataSlicesSlice =
   | PostTitleSliceSlice
   | PostImageSliceSlice;
@@ -249,7 +303,9 @@ type HomepageDocumentDataSlicesSlice =
   | WelcomeSliceSlice
   | CardsSlice
   | NewsletterSlotSlice
-  | ContactFormSliceSlice;
+  | ContactFormSliceSlice
+  | IframeCardSliceSlice
+  | SocialTriggersSliceSlice;
 
 /**
  * Content for homepage documents
@@ -441,6 +497,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | BlogHomeDocument
   | BlogPostDocument
   | CategoryDocument
   | HomepageDocument;
@@ -452,12 +509,12 @@ export interface CardsSliceDefaultPrimary {
   /**
    * mainTitle field in *Cards → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: cards.primary.maintitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  maintitle: prismic.RichTextField;
+  maintitle: prismic.TitleField;
 
   /**
    * mainText field in *Cards → Primary*
@@ -487,12 +544,12 @@ export interface CardsSliceDefaultItem {
   /**
    * cardTitle field in *Cards → Items*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: cards.items[].cardtitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  cardtitle: prismic.RichTextField;
+  cardtitle: prismic.TitleField;
 
   /**
    * cardText field in *Cards → Items*
@@ -539,22 +596,22 @@ export interface ContactFormSliceSliceDefaultPrimary {
   /**
    * Titulo de Ação field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.actionTitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  actionTitle: prismic.RichTextField;
+  actionTitle: prismic.TitleField;
 
   /**
    * Main Title field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.main_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  main_title: prismic.RichTextField;
+  main_title: prismic.TitleField;
 
   /**
    * Text Body field in *ContactFormSlice → Primary*
@@ -569,12 +626,12 @@ export interface ContactFormSliceSliceDefaultPrimary {
   /**
    * Forms Title field in *ContactFormSlice → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: contact_form_slice.primary.forms_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  forms_title: prismic.RichTextField;
+  forms_title: prismic.TitleField;
 
   /**
    * Name Placeholder field in *ContactFormSlice → Primary*
@@ -680,18 +737,63 @@ export type ContactFormSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *IframeCardSlice → Primary*
+ */
+export interface IframeCardSliceSliceDefaultPrimary {
+  /**
+   * Iframe field in *IframeCardSlice → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe_card_slice.primary.iframe
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  iframe: prismic.EmbedField;
+}
+
+/**
+ * Default variation for IframeCardSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeCardSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IframeCardSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IframeCardSlice*
+ */
+type IframeCardSliceSliceVariation = IframeCardSliceSliceDefault;
+
+/**
+ * IframeCardSlice Shared Slice
+ *
+ * - **API ID**: `iframe_card_slice`
+ * - **Description**: IframeCardSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeCardSliceSlice = prismic.SharedSlice<
+  "iframe_card_slice",
+  IframeCardSliceSliceVariation
+>;
+
+/**
  * Primary content in *NewsletterSlot → Primary*
  */
 export interface NewsletterSlotSliceDefaultPrimary {
   /**
    * mainText field in *NewsletterSlot → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: newsletter_slot.primary.maintext
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  maintext: prismic.RichTextField;
+  maintext: prismic.TitleField;
 
   /**
    * placeholderText field in *NewsletterSlot → Primary*
@@ -860,6 +962,76 @@ export type PostTitleSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SocialTriggersSlice → Primary*
+ */
+export interface SocialTriggersSliceSliceDefaultPrimary {
+  /**
+   * SocialTriggersSectionTitle field in *SocialTriggersSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.primary.socialtriggerssectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  socialtriggerssectiontitle: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SocialTriggersSlice → Items*
+ */
+export interface SocialTriggersSliceSliceDefaultItem {
+  /**
+   * SocialTriggerNumber field in *SocialTriggersSlice → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.items[].socialtriggernumber
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  socialtriggernumber: prismic.NumberField;
+
+  /**
+   * SocialTriggerDescription field in *SocialTriggersSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_triggers_slice.items[].socialtriggerdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  socialtriggerdescription: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SocialTriggersSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialTriggersSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SocialTriggersSliceSliceDefaultPrimary>,
+  Simplify<SocialTriggersSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SocialTriggersSlice*
+ */
+type SocialTriggersSliceSliceVariation = SocialTriggersSliceSliceDefault;
+
+/**
+ * SocialTriggersSlice Shared Slice
+ *
+ * - **API ID**: `social_triggers_slice`
+ * - **Description**: SocialTriggersSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialTriggersSliceSlice = prismic.SharedSlice<
+  "social_triggers_slice",
+  SocialTriggersSliceSliceVariation
+>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -944,6 +1116,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogHomeDocument,
+      BlogHomeDocumentData,
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
@@ -959,6 +1133,9 @@ declare module "@prismicio/client" {
       ContactFormSliceSlice,
       ContactFormSliceSliceVariation,
       ContactFormSliceSliceDefault,
+      IframeCardSliceSlice,
+      IframeCardSliceSliceVariation,
+      IframeCardSliceSliceDefault,
       NewsletterSlotSlice,
       NewsletterSlotSliceVariation,
       NewsletterSlotSliceDefault,
@@ -968,6 +1145,9 @@ declare module "@prismicio/client" {
       PostTitleSliceSlice,
       PostTitleSliceSliceVariation,
       PostTitleSliceSliceDefault,
+      SocialTriggersSliceSlice,
+      SocialTriggersSliceSliceVariation,
+      SocialTriggersSliceSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceVariation,
       WelcomeSliceSliceDefault,

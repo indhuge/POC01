@@ -7,9 +7,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Pilot"
+							"text": "Dinner"
 						}
 					}
 				]
@@ -20,7 +20,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Ea ullamco esse do laboris consectetur sunt fugiat qui eiusmod ullamco. Sit aliquip cillum consectetur esse esse nulla aute voluptate in amet cillum."
+							"text": "Excepteur in aute velit incididunt occaecat. In ipsum commodo nisi nulla tempor reprehenderit ex magna velit do. Non magna nisi duis mollit consequat esse irure ea fugiat ad ut duis."
 						}
 					}
 				]
@@ -62,9 +62,9 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "heading1",
+									"type": "heading2",
 									"content": {
-										"text": "Chicken"
+										"text": "Owner"
 									}
 								}
 							]
@@ -78,7 +78,7 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Voluptate laboris Lorem dolor occaecat sit exercitation qui qui magna nostrud. Id laboris velit sint consectetur in consequat aliqua magna."
+										"text": "Duis sit irure ex."
 									}
 								}
 							]

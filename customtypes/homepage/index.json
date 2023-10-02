@@ -95,7 +95,7 @@
           "label": "Phone Number",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "heading1"
+          "single": "heading2"
         }
       },
       "email": {
@@ -162,6 +162,12 @@
               "type": "SharedSlice"
             },
             "contact_form_slice": {
+              "type": "SharedSlice"
+            },
+            "iframe_card_slice": {
+              "type": "SharedSlice"
+            },
+            "social_triggers_slice": {
               "type": "SharedSlice"
             }
           }

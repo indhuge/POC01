@@ -18,7 +18,7 @@
             "label": "Titulo de Ação",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+            "single": "heading2"
           }
         },
         "main_title": {
@@ -27,7 +27,7 @@
             "label": "Main Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+            "single": "heading2"
           }
         },
         "text_body": {
@@ -36,7 +36,7 @@
             "label": "Text Body",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "multi": "paragraph,strong"
           }
         },
         "forms_title": {
@@ -45,7 +45,7 @@
             "label": "Forms Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+            "single": "heading2"
           }
         },
         "name_placeholder": {

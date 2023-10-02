@@ -7,9 +7,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Disease"
+							"text": "Victory"
 						}
 					}
 				]
@@ -18,9 +18,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Little"
+							"text": "Definition"
 						}
 					}
 				]
@@ -31,7 +31,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Cillum id duis nisi velit consectetur in Lorem. Velit tempor ex eu ipsum quis eu."
+							"text": "Amet culpa officia Lorem."
 						}
 					}
 				]
@@ -40,9 +40,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "heading2",
 						"content": {
-							"text": "Money"
+							"text": "Quite"
 						}
 					}
 				]

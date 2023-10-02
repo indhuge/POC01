@@ -3,6 +3,8 @@ import Link from "next/link";
 import Styles from "./header.module.scss";
 import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
+import { PrismicNextImage } from "@prismicio/next";
+
 
 var isOpen = false;
 var inMobile = false;
@@ -31,12 +33,19 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
-          <img src={logoUrl} />
+          <Link href={"/"} prefetch={true} shallow={true}>
+            <PrismicNextImage
+              field={logoUrl}
+              alt="IndHuge logo"
+              width={160}
+              height={160}
+            />
+          </Link>
         </div>
         <div className={Styles.menu} id="menu">
           {navLinks?.map((n, index) => {
             return (
-              <Link key={index} href={n.link}>
+              <Link key={index} href={n.link} prefetch={true} shallow={true}>
                 {n.link_title}
               </Link>
             );

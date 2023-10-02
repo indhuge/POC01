@@ -29,7 +29,8 @@
     color: $white-color;
   }
 
-  h1 {
+  h1,
+  h2 {
     color: $accent-color;
   }
 
@@ -54,13 +55,13 @@
       flex-direction: column;
     }
   }
-  .nav_links{
+  .nav_links {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
-    &:hover{
-        color: $accent-color;
+    &:hover {
+      color: $accent-color;
     }
   }
 }

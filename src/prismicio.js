@@ -22,7 +22,18 @@ const routes = [
   },
   {
     type: "blog_post",
-    path: "/blog/:uid",
+    resolvers: {
+      categoty: "categoty",
+    },
+    path: "/blog/:categoty/:uid",
+  },
+  {
+    type: "blog_home",
+    path: "/blog",
+  },
+  {
+    type: "blog_home",
+    path: "/blog",
   },
 ];
 
