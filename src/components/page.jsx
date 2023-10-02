@@ -2,6 +2,8 @@ import Header from "./header";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import TestimonialsSection from 'src/components/depoimentos/testimonials-section.jsx';
+import ClientLogosSection from 'src/components/logos_clientes/index.jsx';
 
 export default function Page({ metaData, children, StaticContent }) {
   return (
@@ -24,7 +26,11 @@ export default function Page({ metaData, children, StaticContent }) {
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
-      <div>{children}</div>
+
+      {children}
+
+      <TestimonialsSection /> {/* Adicione esta linha */}
+      <ClientLogosSection />
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}

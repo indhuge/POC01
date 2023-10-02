@@ -5,6 +5,7 @@ import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
 import { PrismicNextImage } from "@prismicio/next";
 
+
 var isOpen = false;
 var inMobile = false;
 
