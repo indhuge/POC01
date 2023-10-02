@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"socialtriggerssectiontitle": {
+				"__TYPE__": "FieldContent",
+				"value": "top",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"socialtriggernumber",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "14",
+							"type": "Number"
+						}
+					],
+					[
+						"socialtriggerdescription",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "went",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

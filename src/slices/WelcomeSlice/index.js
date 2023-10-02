@@ -16,12 +16,8 @@ const WelcomeSlice = ({ slice }) => {
       <div className={Styles.wrapper}>
         <div className={Styles.container}>
           <div className={Styles.text}>
-            <h1>
-              <PrismicRichText field={slice.primary.title} />
-            </h1>
-            <p>
-              <PrismicRichText field={slice.primary.text} />
-            </p>
+            <PrismicRichText field={slice.primary.title} />
+            <PrismicRichText field={slice.primary.text} />
             <Button
               title="Saber Mais"
               kind="secundary"

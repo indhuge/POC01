@@ -1,54 +1,37 @@
 import Styles from "./Blog.module.scss";
-import BlogNewPost from "../components/BlogNewPost";
-import BlogCards from "../components/BlogCards";
+import BlogNewPost from "../../components/BlogNewPost";
+import BlogCards from "../../components/BlogCards";
 import { createClient } from "@/prismicio";
 import { useEffect, useState } from "react";
 import Page from "@/components/page";
 
-async function getBlogContent() {
+export async function getServerSideProps() {
   const client = createClient();
-  return client.getAllByType("blog_post");
-}
 
-async function getTags() {
-  const client = createClient();
-  return client.getAllByType("category");
-}
+  const category = client.getAllByType("category");
+  const pages = client.getAllByType("blog_post");
+  const rMeta = await client.getSingle("blog_home");
 
-export default function Blog() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [pages, setPages] = useState();
-  const [category, setCategories] = useState();
+  const meta_data = {
+    meta_description: rMeta.data.meta_description,
+    meta_image: rMeta.data.meta_image,
+    meta_title: rMeta.data.meta_title,
+    meta_url: rMeta.url,
+  };
 
-  useEffect(
-    () => {
-      if (pages && category) {
-        setIsLoading(false);
-      }
+  return {
+    props: {
+      category: await category,
+      pages: await pages,
+      meta_data,
     },
-    pages,
-    category
-  );
+  };
+}
 
-  if (!pages) {
-    getBlogContent().then((o) => {
-      setPages(o);
-      console.log(o);
-    });
-
-    getTags().then((o) => {
-      setCategories(o);
-      console.log(o);
-    });
-  }
-
-  if (isLoading) {
-    return <h1>Carregando</h1>;
-  }
-
+export default function Blog({ category, pages, meta_data }) {
   if (pages) {
     return (
-      <Page>
+      <Page metaData={meta_data}>
         <div className={Styles.wrapper}>
           <div className={Styles.content}>
             <BlogNewPost post={pages[0]} />
@@ -57,6 +40,7 @@ export default function Blog() {
                 return (
                   <BlogCards
                     key={index}
+                    Key={index}
                     category={c.data.name}
                     cards={pages.filter((p) => p.data.categoty.uid == c.uid)}
                   />
