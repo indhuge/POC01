@@ -4,7 +4,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 
-import test from './joao.jpeg'
+import styles from './TestimonialsSection.module.scss';
+
+import test from './empresa.jpeg'
 import test2 from './workers.jpeg'
 
 const TestimonialsSection = () => {
@@ -28,44 +30,17 @@ const TestimonialsSection = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
     };
 
     return (
-        <section className="testimonials-section">
-            <style jsx>{`
-                .testimonials-section {
-                    text-align: center;
-                }
-
-                .slick-slide {
-                    text-align: center; /* Centralizar o conteúdo dentro do slide */
-                }
-
-                .testimonial {
-                    background-color: #ffffff;
-                    color: #000; 
-                    padding: 10px; /* Reduzir o padding para tornar o depoimento um pouco menor */
-                    border-radius: 10px;
-                    display: inline-block; /* Centralizar o depoimento */
-                    max-width: 48%; /* Reduzir a largura do depoimento */
-                    margin: 0 auto; /* Centralizar o depoimento na página */
-                }
-
-                .testimonial-image {
-                    max-width: 100%;
-                    max-height: 400px;
-                    display: flex;
-                    justify-content: center;
-                }
-
-            `}</style>
+        <section className={styles['testimonials-section']}>
             <h2>Histórias de sucesso</h2>
             <Slider {...settings}>
                 {testimonials.map((testimonial, index) => (
                     <div key={testimonial.id}>
-                        <div className="testimonial">
-                            <div className="testimonial-image">
+                        <div className={styles['testimonial']}>
+                            <div className={styles['testimonial-image']}>
                                 <Image
                                     src={index === 0 ? test : test2}
                                     style={{ maxWidth: '100%', width: '350px', height: '300px' }}

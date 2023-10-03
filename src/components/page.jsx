@@ -29,7 +29,7 @@ export default function Page({ metaData, children, StaticContent }) {
 
       {children}
 
-      <TestimonialsSection /> {/* Adicione esta linha */}
+      <TestimonialsSection />
       <ClientLogosSection />
 
       <Footer

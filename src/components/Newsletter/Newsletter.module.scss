@@ -24,7 +24,8 @@
   }
 
   form {
-    width: calc(29rem + 32px);
+    width: 100%;
+    /* Largura do formulário ocupando toda a largura disponível */
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
@@ -48,7 +49,8 @@
     }
 
     @media (max-width: 600px) {
-      font-size: 1rem;
+      font-size: 0.9rem;
+      /* Tamanho de fonte um pouco menor para telas estreitas */
     }
   }
 
