@@ -19,6 +19,7 @@ export async function getStaticProps({ params }) {
     meta_image: page.data.meta_image,
     meta_title: page.data.meta_title,
     meta_url: page.url,
+    meta_tags: page.tags.filter((e) => e != "robots.disallow"),
   };
 
   return {

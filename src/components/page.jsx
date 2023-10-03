@@ -2,8 +2,16 @@ import Header from "./header";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import TestimonialsSection from 'src/components/depoimentos/testimonials-section.jsx';
-import ClientLogosSection from 'src/components/logos_clientes/index.jsx';
+import TestimonialsSection from "src/components/depoimentos/testimonials-section.jsx";
+import ClientLogosSection from "src/components/logos_clientes/index.jsx";
+
+function processTags(tags) {
+  let s = "";
+  tags.forEach((e, index) => {
+    s = s.concat(index == tags.lenght ? `${e}` : `${e},`);
+  });
+  return s;
+}
 
 export default function Page({ metaData, children, StaticContent }) {
   return (
@@ -20,15 +28,14 @@ export default function Page({ metaData, children, StaticContent }) {
           name="robots"
           content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
         />
+        <meta name="keywords" content={processTags(metaData?.meta_tags)} />
       </Head>
       <Header
         logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
       />
-
       {children}
-
       <TestimonialsSection /> {/* Adicione esta linha */}
       <ClientLogosSection />
       <Footer
