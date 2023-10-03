@@ -29,8 +29,10 @@ export default function Page({ metaData, children, StaticContent }) {
 
       {children}
 
+
       <TestimonialsSection />
       <ClientLogosSection />
+
 
       <Footer
         logoUrl={StaticContent?.logo?.url}

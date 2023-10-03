@@ -7,6 +7,7 @@ import Image from 'next/image';
 import styles from './TestimonialsSection.module.scss';
 
 import test from './empresa.jpeg'
+
 import test2 from './workers.jpeg'
 
 const TestimonialsSection = () => {
@@ -30,17 +31,21 @@ const TestimonialsSection = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+
         autoplaySpeed: 3000,
     };
 
     return (
         <section className={styles['testimonials-section']}>
+
             <h2>Histórias de sucesso</h2>
             <Slider {...settings}>
                 {testimonials.map((testimonial, index) => (
                     <div key={testimonial.id}>
+
                         <div className={styles['testimonial']}>
                             <div className={styles['testimonial-image']}>
+
                                 <Image
                                     src={index === 0 ? test : test2}
                                     style={{ maxWidth: '100%', width: '350px', height: '300px' }}
@@ -56,4 +61,6 @@ const TestimonialsSection = () => {
     );
 }
 
+
 export default TestimonialsSection;
+

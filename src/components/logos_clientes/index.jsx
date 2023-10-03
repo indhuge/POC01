@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -10,6 +11,7 @@ import logo4 from './mercadolivre.png';
 
 const ClientLogosSection = () => {
     return (
+
         <section className={styles['client-logos-section']}>
             <div className={styles['logo-container']}>
                 <Image src={logo1} alt="Logo Cliente 1" width={150} height={75} />
@@ -21,6 +23,7 @@ const ClientLogosSection = () => {
                 <Image src={logo3} alt="Logo Cliente 3" width={150} height={75} />
             </div>
             <div className={styles['logo-container']}>
+
                 <Image src={logo4} alt="Logo Cliente 4" width={150} height={75} />
             </div>
         </section>
