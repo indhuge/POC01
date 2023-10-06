@@ -5,6 +5,7 @@ import { createClient } from "@/prismicio";
 import { useEffect, useState } from "react";
 import Page from "@/components/page";
 import { getStaticContent } from "@/utils/StaticContent";
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const client = createClient();
