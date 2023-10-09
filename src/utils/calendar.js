@@ -1,7 +1,19 @@
 const { google } = require("googleapis");
 const util = require("util");
+const { groupBy } = require("lodash");
 
-function toIsoString(date) {
+export function unionByDay(list) {
+  const g = groupBy(list, ({ day, mouth }) => `${day}/${mouth}`);
+  return Object.keys(g).map((d) => {
+    const hours = [];
+    g[d].forEach((o) => {
+      hours.push(o.hour);
+    });
+    return { day: d, hours: hours };
+  });
+}
+
+export function toIsoString(date) {
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? "+" : "-",
     pad = function (num) {
