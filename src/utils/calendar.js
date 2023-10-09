@@ -26,7 +26,7 @@ function toIsoString(date) {
   );
 }
 
-export default function createEvent(eventName, eventDate) {
+export default async function createEvent(eventName, eventDate) {
   const endDate = new Date();
   endDate.setTime(eventDate.getTime());
   endDate.setHours(eventDate.getHours() + 1);
@@ -70,6 +70,7 @@ export default function createEvent(eventName, eventDate) {
     (err, res) => {
       console.log(err);
       console.log(res);
+      return { err: err, res: res };
     }
   );
 }

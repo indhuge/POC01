@@ -1,3 +1,5 @@
+const Appointment = require("./model/appointment");
+
 const fun = async () => {
   const database = require("./db");
   const user = require("./model/user");
@@ -13,13 +15,14 @@ const fun = async () => {
 const syncDB = async () => {
   const database = require("./db");
   const user = require("./model/user");
-  const comment = require("./comment");
+  const comment = require("./model/comment");
   try {
     const resultado = await database.sync({ force: true });
     const resultado2 = await user.sync({ force: true });
     const resultado3 = await comment.sync({ force: true });
+    const resultado4 = await Appointment.sync({ force: true });
   } catch (err) {
     console.log(err);
   }
 };
-//syncDB();
+syncDB();
