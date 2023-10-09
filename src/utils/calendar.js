@@ -1,4 +1,5 @@
 const { google } = require("googleapis");
+const util = require("util");
 
 function toIsoString(date) {
   var tzo = -date.getTimezoneOffset(),
@@ -77,6 +78,27 @@ export async function createEvent(id, eventName, eventDate, company) {
       return { err: err, res: res };
     }
   );
+}
+
+export async function getEvents(dateMin, dateMax) {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "./gapi_key.json",
+    scopes: ["https://www.googleapis.com/auth/calendar"],
+  });
+  const calendar = google.calendar({ version: "v3", auth: auth });
+  const calendarId =
+    "67b3b4f08d6954fdde290336a149e18d7f4e849d047e051bd9a8b563f07a9dbc@group.calendar.google.com";
+
+  var result = await calendar.events.list({
+    calendarId: calendarId,
+    timeMax: toIsoString(dateMax),
+    timeMin: toIsoString(dateMin),
+  });
+  var result_map = result.data.items.map((e) => {
+    return e.start.dateTime.split("T")[1].slice(0, 2);
+  });
+  // .start.dateTime.split("T")[1].slice(0, 2)
+  return result_map;
 }
 
 export async function addMeet() {
