@@ -26,7 +26,7 @@ function toIsoString(date) {
   );
 }
 
-export default async function createEvent(eventName, eventDate, company) {
+export async function createEvent(id, eventName, eventDate, company) {
   const endDate = new Date();
   endDate.setTime(eventDate.getTime());
   endDate.setHours(eventDate.getHours() + 1);
@@ -46,6 +46,10 @@ export default async function createEvent(eventName, eventDate, company) {
     summary: eventName,
     // location: "800 Howard St., San Francisco, CA 94103",
     description: `Demonstração para a ${company}`,
+    conferenceData: {
+      createRequest: { requestId: `HUGEConference-${id}` },
+      conferenceSolutionKey: { type: "hangoutsMeet" },
+    },
     start: {
       dateTime: toIsoString(eventDate),
       timeZone: "America/Sao_Paulo",
@@ -71,6 +75,39 @@ export default async function createEvent(eventName, eventDate, company) {
       console.log(err);
       console.log(res);
       return { err: err, res: res };
+    }
+  );
+}
+
+export async function addMeet() {
+  // d0gvs8f2u9mk20v9g44m435kf0
+
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "./gapi_key.json",
+    scopes: [
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/calendar",
+    ],
+  });
+  const calendar = google.calendar({ version: "v3", auth: auth });
+  const calendarId =
+    "67b3b4f08d6954fdde290336a149e18d7f4e849d047e051bd9a8b563f07a9dbc@group.calendar.google.com";
+
+  calendar.events.patch(
+    {
+      calendarId: calendarId,
+      eventId: "d0gvs8f2u9mk20v9g44m435kf0",
+      resource: {
+        conferenceData: {
+          createRequest: { requestId: "7qxalsvy0e" },
+          conferenceSolutionKey: { type: "hangoutsMeet" },
+        },
+      },
+      conferenceDataVersion: 1,
+    },
+    function (err, res) {
+      console.log(res);
+      console.log(err);
     }
   );
 }
