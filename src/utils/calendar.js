@@ -95,9 +95,14 @@ export async function getEvents(dateMin, dateMax) {
     timeMin: toIsoString(dateMin),
   });
   var result_map = result.data.items.map((e) => {
-    return e.start.dateTime.split("T")[1].slice(0, 2);
+    const s = e.start.dateTime.split("T");
+    return {
+      mouth: s[0].slice(5, 7),
+      day: s[0].slice(8, 10),
+      hour: s[1].slice(0, 2),
+    };
   });
-  // .start.dateTime.split("T")[1].slice(0, 2)
+
   return result_map;
 }
 
