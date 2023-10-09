@@ -26,7 +26,7 @@ function toIsoString(date) {
   );
 }
 
-export default async function createEvent(eventName, eventDate) {
+export default async function createEvent(eventName, eventDate, company) {
   const endDate = new Date();
   endDate.setTime(eventDate.getTime());
   endDate.setHours(eventDate.getHours() + 1);
@@ -45,7 +45,7 @@ export default async function createEvent(eventName, eventDate) {
   var event = {
     summary: eventName,
     // location: "800 Howard St., San Francisco, CA 94103",
-    description: "Testando a API do google",
+    description: `Demonstração para a ${company}`,
     start: {
       dateTime: toIsoString(eventDate),
       timeZone: "America/Sao_Paulo",
