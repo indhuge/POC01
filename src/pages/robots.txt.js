@@ -3,6 +3,7 @@ import { host } from "@/utils/SiteProps";
 
 const robots_content = (disallowUrls) => {
   let base = `User-agent: *
+Disallow: /api/
 Allow: /\n`;
 
   disallowUrls.forEach((element) => {

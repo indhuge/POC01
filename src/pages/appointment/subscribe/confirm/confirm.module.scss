@@ -1,0 +1,45 @@
+@import "../../../../styles/mixins/fonts.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 70%;
+  font-family: $font-family;
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 5rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li a {
+    width: 10rem;
+    height: 5rem;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 300ms cubic-bezier(0, 0, 0, 1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
