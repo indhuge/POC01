@@ -13,9 +13,10 @@ function subCompoent(date, busy, router) {
       <h3 className={Style.date}>{`${date.getDate()}/${
         date.getMonth() + 1
       }`}</h3>
-      {times.map((e) => {
+      {times.map((e, i) => {
         return (
           <DateCard
+            key={i}
             day={date.getDate()}
             month={date.getMonth() + 1}
             hour={e}
