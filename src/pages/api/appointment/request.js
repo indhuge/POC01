@@ -1,5 +1,4 @@
 import { addAppointment } from "@/DataBase/Controller/appointmentController";
-import { getEvents, unionByDay } from "@/utils/calendar";
 
 export default async function handle(req, res) {
   if (req.method == "POST") {
@@ -10,13 +9,5 @@ export default async function handle(req, res) {
     if (result.dataValues.id)
       res.status(200).json({ id: result.dataValues.id });
     else res.status(200).json({ error: "Error" });
-  } else {
-    var dateMin = new Date();
-    var dateMax = new Date();
-    dateMax.setDate(dateMin.getDate() + 5);
-    getEvents(dateMin, dateMax).then((e) => {
-      const f = unionByDay(e);
-      res.status(200).json(f);
-    });
   }
 }
