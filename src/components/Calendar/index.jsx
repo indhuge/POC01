@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
 import Style from "./Calendar.module.scss";
 import { host } from "@/utils/SiteProps";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import DateCard from "../DateCard";
+import { useRouter } from "next/router";
 
 const times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
-function subCompoent(date, busy) {
-  console.log(busy?.hours);
-
+function subCompoent(date, busy, router) {
   return (
     <div className={Style.column}>
       <h3 className={Style.date}>{`${date.getDate()}/${
         date.getMonth() + 1
       }`}</h3>
       {times.map((e) => {
-        if (!busy?.hours.includes(e))
-          return <div className={Style.timeCards}>{`${e}:00`}</div>;
-        else
-          return (
-            <div
-              className={Style.timeCards}
-              style={{ backgroundColor: "red" }}
-            >{`${e}:00`}</div>
-          );
+        return (
+          <DateCard
+            day={date.getDate()}
+            month={date.getMonth() + 1}
+            hour={e}
+            year={date.getFullYear()}
+            isAvailable={!busy?.hours.includes(e)}
+            onClick={(day, month, hour, year) => {
+              router.push(
+                `/appointment/subscribe/?day=${day}&month=${month}&hour=${hour}&year=${year}`
+              );
+            }}
+          />
+        );
       })}
     </div>
   );
@@ -30,6 +36,8 @@ export default function Calendar() {
   const [date, setDate] = useState(new Date());
   const [array, setArray] = useState([]);
   const today = new Date();
+
+  const router = useRouter();
 
   const loop30 = async (date) => {
     const local_array = [];
@@ -53,7 +61,8 @@ export default function Calendar() {
           date,
           resp.filter(
             (v) => v.day == `${date.getDate()}/${date.getMonth() + 1}`
-          )[0]
+          )[0],
+          router
         )
       );
       date.setDate(date.getDate() + 1);
@@ -73,23 +82,25 @@ export default function Calendar() {
   };
 
   return (
-    <div className={Style.main}>
-      <button
-        onClick={() => {
-          changeDate(0);
-        }}
-      >
-        Click me +
-      </button>
-      <button
-        onClick={() => {
-          changeDate(-10);
-        }}
-        style={{ top: 10 }}
-      >
-        Click me -
-      </button>
-      <div className={Style.wrapper}>{array.map((e) => e)}</div>
+    <div className={Style.container}>
+      <div className={Style.main}>
+        <div className={Style.arrowWrapper}>
+          <MdChevronLeft
+            className={Style.arrow}
+            onClick={() => {
+              changeDate(-10);
+            }}
+          />
+          <MdChevronRight
+            className={Style.arrow}
+            onClick={() => {
+              changeDate(0);
+            }}
+          />
+        </div>
+
+        <div className={Style.wrapper}>{array.map((e) => e)}</div>
+      </div>
     </div>
   );
 }

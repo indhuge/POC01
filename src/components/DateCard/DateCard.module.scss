@@ -1,0 +1,24 @@
+.timeCards {
+  padding: 1em 1.5em;
+  margin: 1em;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 1;
+  background-color: rgb(33, 96, 113);
+  cursor: pointer;
+
+  transition: transform 500ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.busy {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &:hover {
+    transform: none;
+  }
+}
