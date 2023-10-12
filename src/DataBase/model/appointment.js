@@ -15,6 +15,13 @@ const Appointment = db.define("Appointment", {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  Email: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
+  Reserved: {
+    type: Sequelize.BOOLEAN,
+  },
   Date: {
     type: Sequelize.DATE,
     allowNull: false,

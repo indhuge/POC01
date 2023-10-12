@@ -1,22 +1,24 @@
 const { emailHandler } = require("../../utils/emailHandler");
+import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   const contactInfo = req.body;
-  if (req.method === "POST") {
-    const transporter = nodemailer.createTransport({
-      service: "Gmail",
-      auth: {
-        user: "poc01.indhuge@gmail.com",
-        pass: "mzdmkcdqxfiskmbw",
-      },
-    });
 
-    const mailOptions = {
-      from: "poc01.indhuge@gmail.com",
-      to: "poc01.indhuge@gmail.com",
-      subject: "Novo formulário de contato",
-      text: `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nMensagem: ${message}\nOrcamento: ${budget}`,
-    };
+  if (req.method === "POST") {
+    // const transporter = nodemailer.createTransport({
+    //   service: "Gmail",
+    //   auth: {
+    //     user: "poc01.indhuge@gmail.com",
+    //     pass: "mzdmkcdqxfiskmbw",
+    //   },
+    // });
+
+    // const mailOptions = {
+    //   from: "poc01.indhuge@gmail.com",
+    //   to: "poc01.indhuge@gmail.com",
+    //   subject: "Novo formulário de contato",
+    //   text: `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nMensagem: ${message}\nOrcamento: ${budget}`,
+    // };
 
     try {
       const response = await emailHandler(contactInfo);

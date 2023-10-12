@@ -55,6 +55,7 @@ export default function Subscribe() {
         name: state.name,
         date: date.toISOString(),
         company: state.company,
+        email: state.email,
       }),
     });
     var res = await req.json();

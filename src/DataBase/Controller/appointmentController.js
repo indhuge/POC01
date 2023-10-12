@@ -1,4 +1,4 @@
-export async function addAppointment(name, date, company) {
+export async function addAppointment(name, date, email, company) {
   const model = require("../model/appointment");
   console.log(date);
   const result = await model.create({
@@ -6,6 +6,8 @@ export async function addAppointment(name, date, company) {
     Company: company,
     Date: date,
     Confirmed: false,
+    Email: email,
+    Reserved: true,
   });
   return result;
 }
