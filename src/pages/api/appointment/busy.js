@@ -6,8 +6,13 @@ export default async function handle(req, res) {
   var dateMin = new Date(_min);
   var dateMax = new Date(_max);
 
-  getEvents(dateMin, dateMax).then((e) => {
-    var f = unionByDay(e);
-    res.status(200).json(f);
-  });
+  // getEvents(dateMin, dateMax).then((e) => {
+  //   var f = unionByDay(e);
+  //   res.status(200).json(f);
+  // });
+
+  res.status(200).json([
+    { day: "18/10", hours: ["15", "17"] },
+    { day: "20/10", hours: ["14"] },
+  ]);
 }

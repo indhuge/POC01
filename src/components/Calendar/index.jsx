@@ -5,7 +5,6 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import DateCard from "../DateCard";
 import { useRouter } from "next/router";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 const times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
@@ -35,65 +34,61 @@ function subCompoent(date, busy, router) {
     </div>
   );
 }
-export default function Calendar_() {
-  const [date, setDate] = useState(new Date());
+export default function Calendar_({ busy }) {
   const [array, setArray] = useState([]);
-  const today = new Date();
+  const date = new Date();
 
-  const [dPicker, setdPicker] = useState(new Date());
+  do {
+    date.setDate(date.getDate() + 1);
+  } while (date.getDay() == 0 || date.getDay() == 6);
+
+  const [dPicker, setdPicker] = useState(new Date().setDate(date.getDate()));
 
   const router = useRouter();
 
-  const loop30 = async (date) => {
-    const local_array = [];
-    var dateMax = new Date();
-    dateMax.setDate(date.getDate() + 4);
-
-    var request = await fetch(`${host}/api/appointment/busy`, {
-      method: "POST",
-      body: JSON.stringify({
-        dateMin: date.toISOString(),
-        dateMax: dateMax.toISOString(),
-      }),
-    });
-    var resp = await request.json();
-
-    console.log(resp);
-
-    for (let x = 0; x < 5; x++) {
+  const generateTimeCards = (value) => {
+    let local_array = [];
+    let l_date = new Date();
+    l_date.setMonth(value.getMonth());
+    l_date.setDate(value.getDate() - (value.getDay() - 1));
+    // console.log(l_date.getDate());
+    for (let i = 0; i < 5; i++) {
       local_array.push(
         subCompoent(
-          date,
-          resp.filter(
-            (v) => v.day == `${date.getDate()}/${date.getMonth() + 1}`
+          l_date,
+          busy.filter(
+            (v) => v.day == `${l_date.getDate()}/${l_date.getMonth() + 1}`
           )[0],
           router
         )
       );
-      date.setDate(date.getDate() + 1);
+      l_date.setDate(l_date.getDate() + 1);
     }
     setArray(local_array);
   };
 
-  useEffect(() => {
-    loop30(date);
-  }, [date]);
-
-  const changeDate = (offset) => {
-    if (offset < 0 && today.getDate() >= date.getDate() - 5) return;
-    let _date = new Date();
-    _date.setDate(date.getDate() + offset);
-    setDate(_date);
+  const onDateChanged = (value, event) => {
+    setdPicker(value);
+    console.log(value);
+    generateTimeCards(value);
   };
+
+  useEffect(() => {
+    generateTimeCards(date);
+  }, []);
 
   return (
     <div className={Style.container}>
       <div className={Style.main}>
         <Calendar
-          onChange={setdPicker}
+          onChange={onDateChanged}
           value={dPicker}
           locale="pt-BR"
-          className={Style.react_calendar}
+          tileDisabled={({ activeStartDate, date, view }) =>
+            date.getDay() === 0 || date.getDay() === 6
+          }
+          view="month"
+          minDate={date}
         />
         <div className={Style.wrapper}>{array.map((e) => e)}</div>
       </div>

@@ -3,23 +3,36 @@ import Styles from "./appointment.module.scss";
 import Page from "@/components/page";
 import { createClient } from "@/prismicio";
 import { getStaticContent } from "@/utils/StaticContent";
+import { host } from "@/utils/SiteProps";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = createClient();
-  const staticContent = await getStaticContent(client);
+  const staticContent = getStaticContent(client);
+
+  var date = new Date();
+  var dateMax = new Date();
+  dateMax.setFullYear(date.getFullYear() + 1);
+  var request = await fetch(`${host}/api/appointment/busy`, {
+    method: "POST",
+    body: JSON.stringify({
+      dateMin: date.toISOString(),
+      dateMax: dateMax.toISOString(),
+    }),
+  });
+  var busy = request.json();
   return {
-    props: { staticContent },
+    props: { busy: await busy, staticContent: await staticContent },
   };
 }
 
-export default function Appointment({ staticContent }) {
+export default function Appointment({ staticContent, busy }) {
   return (
     <Page StaticContent={staticContent}>
       <div className={Styles.wrapper}>
         <div className={Styles.content}>
           <h1>Agende uma demosntração</h1>
           <h2>Escolha uma data: </h2>
-          <Calendar_ />
+          <Calendar_ busy={busy} />
         </div>
       </div>
     </Page>
