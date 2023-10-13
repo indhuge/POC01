@@ -17,6 +17,6 @@ export default async function handle(req, res) {
     date.setTime(Date.parse(ap.Date));
     var result = await createEvent(id, ap.Name, date);
 
-    res.status(200).json(result);
+    res.status(200).json({ result });
   }
 }

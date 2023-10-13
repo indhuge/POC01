@@ -16,7 +16,7 @@ export default async function handle(req, res) {
       name: name,
       company: company,
       email: email,
-      link: `${host}/api/appointment/${result.dataValues.id}`,
+      link: `${host}/appointment/subscribe/confirm/conclude?id=${result.dataValues.id}`,
     }).then((e) => console.log(e));
     if (result.dataValues.id)
       res.status(200).json({ id: result.dataValues.id });

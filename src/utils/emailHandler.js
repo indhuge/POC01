@@ -85,7 +85,7 @@ async function sendAppointmentConfirmationEmail(info) {
   const mailOptions = {
     from: "poc01.indhuge@gmail.com",
     to: email,
-    subject: "Novo formulário de contato",
+    subject: "Confirme seu agendamento",
     html: formatEmail(name, day, month, year, hour, company, link),
   };
 
