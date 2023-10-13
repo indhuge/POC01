@@ -6,8 +6,18 @@ import { useSearchParams } from "next/navigation";
 import { host } from "@/utils/SiteProps";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { createClient } from "@/prismicio";
+import { getStaticContent } from "@/utils/StaticContent";
 
-export default function Subscribe() {
+export async function getStaticProps() {
+  const client = createClient();
+  const staticContent = await getStaticContent(client);
+  return {
+    props: { staticContent },
+  };
+}
+
+export default function Subscribe({ staticContent }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -66,7 +76,7 @@ export default function Subscribe() {
   };
 
   return (
-    <Page>
+    <Page StaticContent={staticContent}>
       <div className={Styles.wrapper}>
         <div className={Styles.content}>
           <h1>Preencha seus dados:</h1>

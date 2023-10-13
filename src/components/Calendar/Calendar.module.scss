@@ -1,12 +1,19 @@
 @import "../../styles/mixins/colors.scss";
 
 .main {
+  display: flex;
+  flex-direction: row;
+}
+
+.react_calendar {
+  width: 100%;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  width: 100%;
+  width: 50%;
+  float: right;
 }
 
 .date {

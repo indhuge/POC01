@@ -4,6 +4,8 @@ import { host } from "@/utils/SiteProps";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import DateCard from "../DateCard";
 import { useRouter } from "next/router";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
@@ -33,10 +35,12 @@ function subCompoent(date, busy, router) {
     </div>
   );
 }
-export default function Calendar() {
+export default function Calendar_() {
   const [date, setDate] = useState(new Date());
   const [array, setArray] = useState([]);
   const today = new Date();
+
+  const [dPicker, setdPicker] = useState(new Date());
 
   const router = useRouter();
 
@@ -85,21 +89,12 @@ export default function Calendar() {
   return (
     <div className={Style.container}>
       <div className={Style.main}>
-        <div className={Style.arrowWrapper}>
-          <MdChevronLeft
-            className={Style.arrow}
-            onClick={() => {
-              changeDate(-10);
-            }}
-          />
-          <MdChevronRight
-            className={Style.arrow}
-            onClick={() => {
-              changeDate(0);
-            }}
-          />
-        </div>
-
+        <Calendar
+          onChange={setdPicker}
+          value={dPicker}
+          locale="pt-BR"
+          className={Style.react_calendar}
+        />
         <div className={Style.wrapper}>{array.map((e) => e)}</div>
       </div>
     </div>

@@ -1,9 +1,19 @@
 import Page from "@/components/page";
 import Styles from "./confirm.module.scss";
+import { createClient } from "@/prismicio";
+import { getStaticContent } from "@/utils/StaticContent";
 
-export default function Confirmation() {
+export async function getStaticProps() {
+  const client = createClient();
+  const staticContent = await getStaticContent(client);
+  return {
+    props: { staticContent },
+  };
+}
+
+export default function Confirmation({ staticContent }) {
   return (
-    <Page>
+    <Page StaticContent={staticContent}>
       <div className={Styles.wrapper}>
         <div className={Styles.content}>
           <h1>Confime seu agendamento</h1>
