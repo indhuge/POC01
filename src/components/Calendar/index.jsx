@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useState } from "react";
 import Style from "./Calendar.module.scss";
 import { host } from "@/utils/SiteProps";
@@ -38,6 +39,11 @@ export default function Calendar_({ busy }) {
   const [array, setArray] = useState([]);
   const date = new Date();
 
+  do {
+    date.setDate(date.getDate() + 1);
+  } while (date.getDay() == 0 || date.getDay() == 6);
+
+  const [dPicker, setdPicker] = useState(new Date().setDate(date.getDate()));
   const router = useRouter();
 
   const generateTimeCards = (value) => {
@@ -68,15 +74,9 @@ export default function Calendar_({ busy }) {
     generateTimeCards(value);
   };
 
-  do {
-    date.setDate(date.getDate() + 1);
-  } while (date.getDay() == 0 || date.getDay() == 6);
-
-  const [dPicker, setdPicker] = useState(new Date().setDate(date.getDate()));
-
   useEffect(() => {
     generateTimeCards(date);
-  }, [generateTimeCards]);
+  }, []);
 
   return (
     <div className={Style.container}>
