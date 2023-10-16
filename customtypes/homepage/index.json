@@ -147,6 +147,37 @@
           "placeholder": ""
         }
       },
+      "popuptitle": {
+        "type": "Text",
+        "config": {
+          "label": "PopUpTitle",
+          "placeholder": ""
+        }
+      },
+      "popuptext": {
+        "type": "StructuredText",
+        "config": {
+          "label": "PopUpText",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "popupimage": {
+        "type": "Image",
+        "config": {
+          "label": "PopUpImage",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "popupclosetext": {
+        "type": "Text",
+        "config": {
+          "label": "PopUpCloseText",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

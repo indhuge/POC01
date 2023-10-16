@@ -45,7 +45,7 @@ export default function BlogPage({ page, metadata, staticContent }) {
     <Page metaData={metadata} StaticContent={staticContent}>
       <div className={Styles.wrapper}>
         <div className={Styles.heroImage}>
-          <PrismicNextImage field={page?.data?.main_image} />
+          <PrismicNextImage field={page?.data?.main_image} alt=""/>
           <div className={Styles.heroCover}></div>
         </div>
         <div className={Styles.contentContainer}>

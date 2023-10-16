@@ -4,10 +4,17 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import TestimonialsSection from 'src/components/depoimentos/testimonials-section.jsx';
 import ClientLogosSection from 'src/components/logos_clientes/index.jsx';
+import Popup from "@/components/PopUpComponent";
 
 export default function Page({ metaData, children, StaticContent }) {
   return (
     <main className="page">
+      <Popup
+        header={StaticContent?.popuptitle}
+        text={StaticContent.popuptext}
+        image={StaticContent?.popupimage}
+        closeText={StaticContent?.popupclosetext}
+      />
       <Head>
         <title>{metaData?.meta_title}</title>
         <link

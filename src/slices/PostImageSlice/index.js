@@ -15,7 +15,7 @@ const PostImageSlice = ({ slice }) => {
       {slice.items.map((e, index) => {
         return (
           <div key={index} className={Styles.imageHolder}>
-            <PrismicNextImage field={e.image} />
+            <PrismicNextImage field={e.image} alt=""/>
             <p>{e.image_legend}</p>
           </div>
         );

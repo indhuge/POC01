@@ -118,7 +118,7 @@ export default function Component({ category, cards, Key }) {
                     <p>{c?.data.post_description}</p>
                   </div>
                   <div className={Styles.imageContainer}>
-                    <PrismicNextImage field={c?.data.main_image} />
+                    <PrismicNextImage field={c?.data.main_image} alt=""/>
                   </div>
                 </div>
               );
