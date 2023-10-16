@@ -45,7 +45,8 @@ export async function createEvent(id, eventName, eventDate, company) {
   endDate.setHours(eventDate.getHours() + 1);
 
   const auth = new google.auth.GoogleAuth({
-    keyFile: "./gapi_key.json",
+    credentials: JSON.parse(process.env.gapi_key),
+    // keyFile: "./gapi_key.json",
     scopes: [
       "https://www.googleapis.com/auth/calendar.events",
       "https://www.googleapis.com/auth/calendar",
