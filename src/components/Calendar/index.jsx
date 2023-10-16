@@ -9,7 +9,7 @@ import Calendar from "react-calendar";
 
 const times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
-function subCompoent(date, busy, router) {
+function subCompoent(date, busy, router, today_date) {
   return (
     <div className={Style.column}>
       <h3 className={Style.date}>{`${date.getDate()}/${
@@ -23,7 +23,9 @@ function subCompoent(date, busy, router) {
             month={date.getMonth() + 1}
             hour={e}
             year={date.getFullYear()}
-            isAvailable={!busy?.hours.includes(e)}
+            isAvailable={
+              new Date().getTime() < date.getTime() && !busy?.hours.includes(e)
+            }
             onClick={(day, month, hour, year) => {
               router.push(
                 `/appointment/subscribe/?day=${day}&month=${month}&hour=${hour}&year=${year}`

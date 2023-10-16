@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import TestimonialsSection from "src/components/depoimentos/testimonials-section.jsx";
 import ClientLogosSection from "src/components/logos_clientes/index.jsx";
+import { useRouter } from "next/router";
 
 export default function Page({ metaData, children, StaticContent }) {
+  const router = useRouter();
+
   return (
     <main className="page">
       <Head>
@@ -25,6 +28,9 @@ export default function Page({ metaData, children, StaticContent }) {
         logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
+        onCallToActionClicked={() => {
+          router.push("/appointment");
+        }}
       />
 
       {children}

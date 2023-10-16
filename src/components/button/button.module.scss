@@ -5,6 +5,7 @@
   border-radius: 5px;
   font-weight: bold;
   border: none;
+  transition: all 300ms ease;
 
   &.primary {
     background-color: $blue-color;
@@ -12,7 +13,7 @@
   }
 
   &.secundary {
-    background-color: #00171F;
+    background-color: #00171f;
     color: $white-color;
   }
 
@@ -24,7 +25,11 @@
     color: white;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     font-size: 0.5rem;
+  }
+
+  &:hover {
+    background-color: $accent-color;
   }
 }

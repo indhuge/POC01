@@ -5,7 +5,6 @@ import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
 import { PrismicNextImage } from "@prismicio/next";
 
-
 var isOpen = false;
 var inMobile = false;
 
@@ -28,7 +27,12 @@ function toggleMenu() {
 
 var captalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-const Header = ({ logoUrl, callToActionText, navLinks }) => {
+const Header = ({
+  logoUrl,
+  callToActionText,
+  navLinks,
+  onCallToActionClicked,
+}) => {
   return (
     <div className={Styles.main} id="main">
       <div className={Styles.container}>
@@ -53,7 +57,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
           <Button
             title={callToActionText}
             onClick={() => {
-              location.href = "#form";
+              onCallToActionClicked();
             }}
           />
         </div>
