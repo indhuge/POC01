@@ -6,9 +6,9 @@ import Image from 'next/image';
 
 import styles from './TestimonialsSection.module.scss';
 
-import test from './empresa.jpeg'
+import test from 'public/images/demo/empresa.jpeg'
 
-import test2 from './workers.jpeg'
+import test2 from 'public/images/demo/workers.jpeg'
 
 const TestimonialsSection = () => {
     const testimonials = [

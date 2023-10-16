@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 import styles from './ClientLogosSection.module.scss'; // Importando o arquivo SCSS
 
-import logo1 from './JLL.png';
-import logo2 from './logo.png';
-import logo3 from './mcdonalds.png';
-import logo4 from './mercadolivre.png';
+import logo1 from 'public/images/demo/JLL.png';
+import logo2 from 'public/images/demo/logo.png';
+import logo3 from 'public/images/demo/mcdonalds.png';
+import logo4 from 'public/images/demo/workers.jpeg';
 
 const ClientLogosSection = () => {
     return (
