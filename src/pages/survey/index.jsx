@@ -35,7 +35,7 @@ export async function getStaticProps() {
 
   const mapped = surveypage.data.questions.map((q, index) => {
     return {
-      name: index,
+      name: index.toString(),
       type: "checkbox",
       title: q.question,
       isRequired: true,
@@ -53,15 +53,30 @@ export async function getStaticProps() {
   mapped.forEach((e) => surveyJson.elements.push(e));
 
   return {
-    props: { surveyJson },
+    props: { surveyJson, mapped },
   };
 }
 
-export default function SurveyPage({ surveyJson }) {
-  console.log(surveyJson);
+export default function SurveyPage({ surveyJson, mapped }) {
   const survey = new Model(surveyJson);
-  const getResults = useCallback((s) => {
-    console.log(s.data);
+  const getResults = useCallback(async (s) => {
+    const data = s.data;
+    const name = data.name;
+    const _birth = data.birth;
+    const email = data.email;
+    delete data.name;
+    delete data.birth;
+    delete data.email;
+    console.log(data);
+    const req = await fetch("/api/survey", {
+      method: "POST",
+      body: JSON.stringify({
+        name: s.data.name,
+        _birth: s.data.birth,
+        _answer: data,
+      }),
+    });
+    console.log(await req.json());
   });
   survey.onComplete.add(getResults);
 

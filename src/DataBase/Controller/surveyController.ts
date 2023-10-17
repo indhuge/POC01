@@ -2,7 +2,7 @@ export async function addAnswer(
   name: string,
   email: string,
   birth: Date,
-  answer: string
+  answer: number
 ): Promise<any> {
   const model = require("../model/survey_answer");
   const result = await model.create({
