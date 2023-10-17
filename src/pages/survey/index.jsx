@@ -33,9 +33,9 @@ export async function getStaticProps() {
     ],
   };
 
-  const mapped = surveypage.data.questions.map((q) => {
+  const mapped = surveypage.data.questions.map((q, index) => {
     return {
-      name: q.question_id,
+      name: index,
       type: "checkbox",
       title: q.question,
       isRequired: true,
