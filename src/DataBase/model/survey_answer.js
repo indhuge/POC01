@@ -20,7 +20,7 @@ const Survey_answer = db.define("Survey_answer", {
     allowNull: true,
   },
   answer: {
-    type: Sequelize.TEXT,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 });
