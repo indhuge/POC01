@@ -32,10 +32,12 @@
     "sass": "^1.65.1",
     "sequelize": "^6.33.0",
     "slick-carousel": "^1.8.1",
+    "survey-core": "^1.9.113",
+    "survey-react-ui": "^1.9.113",
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.12",
-    "slice-machine-ui": "^1.10.0"
+    "@slicemachine/adapter-next": "^0.3.20",
+    "slice-machine-ui": "^1.17.0"
   }
 }
