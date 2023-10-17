@@ -6,6 +6,56 @@
   "status": true,
   "json": {
     "Main": {
+      "questions": {
+        "type": "Group",
+        "config": {
+          "label": "Questions",
+          "fields": {
+            "question_id": {
+              "type": "Text",
+              "config": {
+                "label": "question Id",
+                "placeholder": ""
+              }
+            },
+            "question": {
+              "type": "Text",
+              "config": {
+                "label": "Question",
+                "placeholder": ""
+              }
+            },
+            "option_a": {
+              "type": "Text",
+              "config": {
+                "label": "Option A",
+                "placeholder": ""
+              }
+            },
+            "option_b": {
+              "type": "Text",
+              "config": {
+                "label": "Option B",
+                "placeholder": ""
+              }
+            },
+            "option_c": {
+              "type": "Text",
+              "config": {
+                "label": "Option C",
+                "placeholder": ""
+              }
+            },
+            "option_d": {
+              "type": "Text",
+              "config": {
+                "label": "Option D",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

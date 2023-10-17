@@ -540,12 +540,88 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Survey → Questions*
+ */
+export interface SurveyDocumentDataQuestionsItem {
+  /**
+   * question Id field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].question_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question_id: prismic.KeyTextField;
+
+  /**
+   * Question field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Option A field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].option_a
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  option_a: prismic.KeyTextField;
+
+  /**
+   * Option B field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].option_b
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  option_b: prismic.KeyTextField;
+
+  /**
+   * Option C field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].option_c
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  option_c: prismic.KeyTextField;
+
+  /**
+   * Option D field in *Survey → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[].option_d
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  option_d: prismic.KeyTextField;
+}
+
 type SurveyDocumentDataSlicesSlice = never;
 
 /**
  * Content for Survey documents
  */
 interface SurveyDocumentData {
+  /**
+   * Questions field in *Survey*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.questions[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  questions: prismic.GroupField<Simplify<SurveyDocumentDataQuestionsItem>>;
+
   /**
    * Slice Zone field in *Survey*
    *
