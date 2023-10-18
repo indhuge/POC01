@@ -67,12 +67,12 @@ export default function SurveyPage({ surveyJson, mapped }) {
     delete data.name;
     delete data.birth;
     delete data.email;
-    console.log(data);
     const req = await fetch("/api/survey", {
       method: "POST",
       body: JSON.stringify({
-        name: s.data.name,
-        _birth: s.data.birth,
+        name: name,
+        _birth: _birth,
+        email: email,
         _answer: data,
       }),
     });
