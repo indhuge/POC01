@@ -8,7 +8,7 @@ export async function addAnswer(
   const result = await model.create({
     name: name,
     email: email,
-    birth: birth.toISOString(),
+    birth: birth?.toISOString(),
     answer: answer,
   });
   return result;

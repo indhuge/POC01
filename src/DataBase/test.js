@@ -24,4 +24,4 @@ const syncDB = async () => {
     console.log(err);
   }
 };
-// syncDB();
+syncDB();
