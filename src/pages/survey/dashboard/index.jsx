@@ -59,7 +59,7 @@ export default function DashboardPage({ chartdata, staticContent, count }) {
         <h1 className="text-xl text-blue font-bold">Resultados da pesquisa</h1>
         <p className="text-base">{`Total de respostas registradas: ${count}`}</p>
       </div>
-      <div className="container mx-auto px-4 grid gap-4 grid-cols-2">
+      <div className="container mx-auto px-4 grid gap-4 lg:grid-cols-2 grid-cols-1">
         {chartdata[0].map((c, i) => {
           return (
             <Card className="" key={i}>
