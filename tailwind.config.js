@@ -5,6 +5,11 @@ module.exports = {
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontSize: {
+      base: "1rem",
+      lg: "1.5rem",
+      xl: "2rem",
+    },
     transparent: "transparent",
     current: "currentColor",
     extend: {

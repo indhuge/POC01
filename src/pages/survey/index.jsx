@@ -3,9 +3,12 @@ import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import { createClient } from "@/prismicio";
 import { useCallback } from "react";
+import { getStaticContent } from "@/utils/StaticContent";
+import Page from "@/components/page";
 
 export async function getStaticProps() {
   const client = createClient();
+  const staticContent = getStaticContent(client);
   const surveypage = await client.getSingle("survey");
 
   const surveyJson = {
@@ -53,11 +56,11 @@ export async function getStaticProps() {
   mapped.forEach((e) => surveyJson.elements.push(e));
 
   return {
-    props: { surveyJson, mapped },
+    props: { surveyJson, mapped, staticContent: await staticContent },
   };
 }
 
-export default function SurveyPage({ surveyJson, mapped }) {
+export default function SurveyPage({ surveyJson, mapped, staticContent }) {
   const survey = new Model(surveyJson);
   const getResults = useCallback(async (s) => {
     const data = s.data;
@@ -80,5 +83,9 @@ export default function SurveyPage({ surveyJson, mapped }) {
   });
   survey.onComplete.add(getResults);
 
-  return <Survey model={survey} />;
+  return (
+    <Page StaticContent={staticContent}>
+      <Survey model={survey} />;
+    </Page>
+  );
 }

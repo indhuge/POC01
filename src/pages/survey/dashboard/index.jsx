@@ -2,9 +2,12 @@ import { createClient } from "@/prismicio";
 import { host } from "@/utils/SiteProps";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import QuestionConverter from "@/utils/QuestionsConverter";
+import Page from "@/components/page";
+import { getStaticContent } from "@/utils/StaticContent";
 
 export async function getServerSideProps() {
   const client = createClient();
+  const staticContent = getStaticContent(client);
   const survey_data = await client.getSingle("survey");
 
   const req = await fetch(`${host}/api/survey`, { method: "GET" });
@@ -30,6 +33,7 @@ export async function getServerSideProps() {
   return {
     props: {
       chartdata,
+      staticContent: await staticContent,
     },
   };
 }
@@ -45,22 +49,28 @@ export async function getServerSideProps() {
 //   },
 // ];
 
-export default function DashboardPage({ chartdata }) {
+export default function DashboardPage({ chartdata, staticContent }) {
   return (
-    <div>
-      {chartdata[0].map((c) => {
-        return (
-          <Card>
-            <Title>{c.chart_name}</Title>
-            <BarChart
-              data={c.data}
-              index="name"
-              categories={["respostas"]}
-              yAxisWidth={48}
-            />
-          </Card>
-        );
-      })}
-    </div>
+    <Page StaticContent={staticContent}>
+      <div className="container mx-auto px-4 py-5">
+        <h1 className="text-xl text-blue font-bold">Resultados da pesquisa</h1>
+        <p className="text-base">Total de respostas registradas:</p>
+      </div>
+      <div className="container mx-auto px-4 grid gap-4 grid-cols-2">
+        {chartdata[0].map((c) => {
+          return (
+            <Card className="">
+              <Title>{c.chart_name}</Title>
+              <BarChart
+                data={c.data}
+                index="name"
+                categories={["respostas"]}
+                yAxisWidth={48}
+              />
+            </Card>
+          );
+        })}
+      </div>
+    </Page>
   );
 }
