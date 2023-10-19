@@ -300,6 +300,8 @@ export interface HomepageDocumentDataSocialLinksItem {
 }
 
 type HomepageDocumentDataSlicesSlice =
+  | CustomerLogosSlice
+  | TestimonialsSliceSlice
   | WelcomeSliceSlice
   | CardsSlice
   | NewsletterSlotSlice
@@ -924,6 +926,51 @@ export type ContactFormSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *CustomerLogos → Items*
+ */
+export interface CustomerLogosSliceDefaultItem {
+  /**
+   * image field in *CustomerLogos → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CustomerLogos Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerLogosSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<CustomerLogosSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CustomerLogos*
+ */
+type CustomerLogosSliceVariation = CustomerLogosSliceDefault;
+
+/**
+ * CustomerLogos Shared Slice
+ *
+ * - **API ID**: `customer_logos`
+ * - **Description**: CustomerLogos
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerLogosSlice = prismic.SharedSlice<
+  "customer_logos",
+  CustomerLogosSliceVariation
+>;
+
+/**
  * Primary content in *IframeCardSlice → Primary*
  */
 export interface IframeCardSliceSliceDefaultPrimary {
@@ -1219,6 +1266,71 @@ export type SocialTriggersSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestimonialsSlice → Items*
+ */
+export interface TestimonialsSliceSliceDefaultItem {
+  /**
+   * customerImage field in *TestimonialsSlice → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.items[].customerimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  customerimage: prismic.ImageField<never>;
+
+  /**
+   * Company Name field in *TestimonialsSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.items[].company_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company_name: prismic.KeyTextField;
+
+  /**
+   * content field in *TestimonialsSlice → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TestimonialsSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<TestimonialsSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *TestimonialsSlice*
+ */
+type TestimonialsSliceSliceVariation = TestimonialsSliceSliceDefault;
+
+/**
+ * TestimonialsSlice Shared Slice
+ *
+ * - **API ID**: `testimonials_slice`
+ * - **Description**: TestimonialsSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSlice = prismic.SharedSlice<
+  "testimonials_slice",
+  TestimonialsSliceSliceVariation
+>;
+
+/**
  * Primary content in *WelcomeSlice → Primary*
  */
 export interface WelcomeSliceSliceDefaultPrimary {
@@ -1312,9 +1424,13 @@ declare module "@prismicio/client" {
       CategoryDocumentData,
       HomepageDocument,
       HomepageDocumentData,
+      HomepageDocumentDataMenuitensItem,
+      HomepageDocumentDataContentMenuOptionsItem,
+      HomepageDocumentDataSocialLinksItem,
       HomepageDocumentDataSlicesSlice,
       SurveyDocument,
       SurveyDocumentData,
+      SurveyDocumentDataQuestionsItem,
       SurveyDocumentDataSlicesSlice,
       AllDocumentTypes,
       CardsSlice,
@@ -1326,6 +1442,10 @@ declare module "@prismicio/client" {
       ContactFormSliceSliceDefaultPrimary,
       ContactFormSliceSliceVariation,
       ContactFormSliceSliceDefault,
+      CustomerLogosSlice,
+      CustomerLogosSliceDefaultItem,
+      CustomerLogosSliceVariation,
+      CustomerLogosSliceDefault,
       IframeCardSliceSlice,
       IframeCardSliceSliceDefaultPrimary,
       IframeCardSliceSliceVariation,
@@ -1348,6 +1468,10 @@ declare module "@prismicio/client" {
       SocialTriggersSliceSliceDefaultItem,
       SocialTriggersSliceSliceVariation,
       SocialTriggersSliceSliceDefault,
+      TestimonialsSliceSlice,
+      TestimonialsSliceSliceDefaultItem,
+      TestimonialsSliceSliceVariation,
+      TestimonialsSliceSliceDefault,
       WelcomeSliceSlice,
       WelcomeSliceSliceDefaultPrimary,
       WelcomeSliceSliceVariation,
