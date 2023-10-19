@@ -12,6 +12,8 @@ export async function getServerSideProps() {
 
   const req = await fetch(`${host}/api/survey`, { method: "GET" });
   const _data = await req.json();
+  const count = _data.count;
+  delete _data.count;
 
   const chartdata = [];
 
@@ -34,6 +36,7 @@ export async function getServerSideProps() {
     props: {
       chartdata,
       staticContent: await staticContent,
+      count: count,
     },
   };
 }
@@ -49,12 +52,12 @@ export async function getServerSideProps() {
 //   },
 // ];
 
-export default function DashboardPage({ chartdata, staticContent }) {
+export default function DashboardPage({ chartdata, staticContent, count }) {
   return (
     <Page StaticContent={staticContent}>
       <div className="container mx-auto px-4 py-5">
         <h1 className="text-xl text-blue font-bold">Resultados da pesquisa</h1>
-        <p className="text-base">Total de respostas registradas:</p>
+        <p className="text-base">{`Total de respostas registradas: ${count}`}</p>
       </div>
       <div className="container mx-auto px-4 grid gap-4 grid-cols-2">
         {chartdata[0].map((c, i) => {
