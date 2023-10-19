@@ -14,12 +14,14 @@ export async function getServerSideProps() {
 
   const qC = new QuestionConverter(survey_data);
 
+  const resps = [1, 2, 3, 4];
+
   chartdata.push(
     Object.keys(_data).map((p) => {
       return {
         chart_name: qC.getQuestionByIndex(p),
-        data: Object.keys(_data[p]).map((r) => {
-          return { name: qC.getAnswerById(p, r), respostas: _data[p][r] };
+        data: resps.map((r) => {
+          return { name: qC.getAnswerById(p, r), respostas: _data[p][r] ?? 0 };
         }),
       };
     })
@@ -44,7 +46,6 @@ export async function getServerSideProps() {
 // ];
 
 export default function DashboardPage({ chartdata }) {
-  console.log(chartdata);
   return (
     <div>
       {chartdata[0].map((c) => {

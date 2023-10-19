@@ -6,7 +6,7 @@ import {
 export default async function handler(req, res) {
   if (req.method == "GET") {
     const response = await getAllAnswers();
-    const length = response[0].answer.toString().length;
+    const length = response[0]?.answer.toString().length;
     const wrapper = {};
     for (var x = 0; x < length; x++) wrapper[x] = [];
     response.forEach((element) => {
