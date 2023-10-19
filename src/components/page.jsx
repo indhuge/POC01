@@ -19,7 +19,7 @@ export default function Page({ metaData, children, StaticContent }) {
     <main className="page">
       <Popup
         header={StaticContent?.popuptitle}
-        text={StaticContent.popuptext}
+        text={StaticContent?.popuptext}
         image={StaticContent?.popupimage}
         closeText={StaticContent?.popupclosetext}
       />
@@ -35,7 +35,10 @@ export default function Page({ metaData, children, StaticContent }) {
           name="robots"
           content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
         />
-        <meta name="keywords" content={processTags(metaData?.meta_tags)} />
+        <meta
+          name="keywords"
+          content={processTags(metaData?.meta_tags ?? [])}
+        />
       </Head>
       <Header
         logoUrl={StaticContent?.logo}
