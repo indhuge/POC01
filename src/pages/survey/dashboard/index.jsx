@@ -57,9 +57,9 @@ export default function DashboardPage({ chartdata, staticContent }) {
         <p className="text-base">Total de respostas registradas:</p>
       </div>
       <div className="container mx-auto px-4 grid gap-4 grid-cols-2">
-        {chartdata[0].map((c) => {
+        {chartdata[0].map((c, i) => {
           return (
-            <Card className="">
+            <Card className="" key={i}>
               <Title>{c.chart_name}</Title>
               <BarChart
                 data={c.data}
