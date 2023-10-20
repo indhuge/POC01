@@ -4,24 +4,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
-import test from "./joao.jpeg";
-import test2 from "./workers.jpeg";
+import { PrismicNextImage } from "@prismicio/next";
 
-const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      id: 1,
-      name: "Empresa Agrozil",
-      content:
-        "Estamos incrivelmente satisfeitos com a IndHUGE. Sua tecnologia inovadora tem sido fundamental para prevenir danos em nossos equipamentos. Agora, podemos operar com confiança sabendo que temos a melhor proteção disponível.",
-    },
-    {
-      id: 2,
-      name: "Empresa TrigoTech",
-      content:
-        "A abordagem inovadora da IndHUGE para a prevenção de danos em equipamentos é verdadeiramente impressionante. Sua tecnologia avançada tem se mostrado uma solução eficaz para proteger nossos ativos valiosos.",
-    },
-  ];
+const TestimonialsSection = ({ testimonials }) => {
+  // const testimonials = [
+  //   {
+  //     id: 1,
+  //     name: "Empresa Agrozil",
+  //     content:
+  //       "Estamos incrivelmente satisfeitos com a IndHUGE. Sua tecnologia inovadora tem sido fundamental para prevenir danos em nossos equipamentos. Agora, podemos operar com confiança sabendo que temos a melhor proteção disponível.",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Empresa TrigoTech",
+  //     content:
+  //       "A abordagem inovadora da IndHUGE para a prevenção de danos em equipamentos é verdadeiramente impressionante. Sua tecnologia avançada tem se mostrado uma solução eficaz para proteger nossos ativos valiosos.",
+  //   },
+  // ];
 
   const settings = {
     dots: true,
@@ -67,8 +66,8 @@ const TestimonialsSection = () => {
           <div key={testimonial.id}>
             <div className="testimonial">
               <div className="testimonial-image">
-                <Image
-                  src={index === 0 ? test : test2}
+                <PrismicNextImage
+                  field={testimonial.image}
                   style={{ maxWidth: "100%", width: "350px", height: "300px" }}
                   alt="Testimonial owner image"
                 />

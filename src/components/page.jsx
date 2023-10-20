@@ -46,8 +46,6 @@ export default function Page({ metaData, children, StaticContent }) {
         navLinks={StaticContent?.menuitens}
       />
       {children}
-      <TestimonialsSection /> {/* Adicione esta linha */}
-      <ClientLogosSection />
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}
