@@ -183,6 +183,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "customer_logos": {
+              "type": "SharedSlice"
+            },
+            "testimonials_slice": {
+              "type": "SharedSlice"
+            },
             "welcome_slice": {
               "type": "SharedSlice"
             },
