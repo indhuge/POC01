@@ -1,0 +1,43 @@
+{
+  "id": "call_to_survey",
+  "type": "SharedSlice",
+  "name": "CallToSurvey",
+  "description": "CallToSurvey",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "call_to_action": {
+          "type": "Text",
+          "config": {
+            "label": "Call To Action",
+            "placeholder": ""
+          }
+        },
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
