@@ -80,11 +80,17 @@ export async function createEvent(id, eventName, eventDate, company) {
         { method: "popup", minutes: 10 },
       ],
     },
+    conferenceData: {
+      createRequest: {
+        requestId: "abcde",
+        conferenceSolutionKey: { type: "hangoutsMeet" },
+      },
+    },
     // attendees: [{ email: "luanf2003@gmail.com" }],
   };
 
   calendar.events.insert(
-    { calendarId: calendarId, resource: event },
+    { calendarId: calendarId, resource: event, conferenceDataVersion: 1 },
     (err, res) => {
       console.log(err);
       console.log(res);
@@ -95,7 +101,8 @@ export async function createEvent(id, eventName, eventDate, company) {
 
 export async function getEvents(dateMin, dateMax) {
   const auth = new google.auth.GoogleAuth({
-    keyFile: "./gapi_key.json",
+    credentials: JSON.parse(process.env.gapi_key),
+    //keyFile: "./gapi_key.json",
     scopes: ["https://www.googleapis.com/auth/calendar"],
   });
   const calendar = google.calendar({ version: "v3", auth: auth });
