@@ -22,6 +22,7 @@ module.exports = {
       },
       colors: {
         // light mode
+        ascent: "#00A8E8",
         tremor: {
           brand: {
             faint: "#eff6ff", // blue-50
