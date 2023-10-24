@@ -543,6 +543,68 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type QuizDocumentDataSlicesSlice = QuizQustionSliceSlice;
+
+/**
+ * Content for Quiz documents
+ */
+interface QuizDocumentData {
+  /**
+   * Slice Zone field in *Quiz*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<QuizDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: quiz.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Quiz*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Quiz*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: quiz.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Quiz document from Prismic
+ *
+ * - **API ID**: `quiz`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QuizDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<QuizDocumentData>, "quiz", Lang>;
+
 /**
  * Item in *Survey → Questions*
  */
@@ -690,6 +752,7 @@ export type AllDocumentTypes =
   | BlogPostDocument
   | CategoryDocument
   | HomepageDocument
+  | QuizDocument
   | SurveyDocument;
 
 /**
@@ -1262,6 +1325,96 @@ export type PostTitleSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *QuizQustionSlice → Primary*
+ */
+export interface QuizQustionSliceSliceDefaultPrimary {
+  /**
+   * Question field in *QuizQustionSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz_qustion_slice.primary.question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * questionId field in *QuizQustionSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz_qustion_slice.primary.questionid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  questionid: prismic.KeyTextField;
+
+  /**
+   * Action field in *QuizQustionSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz_qustion_slice.primary.action
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  action: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *QuizQustionSlice → Items*
+ */
+export interface QuizQustionSliceSliceDefaultItem {
+  /**
+   * Anwser field in *QuizQustionSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz_qustion_slice.items[].anwser
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  anwser: prismic.KeyTextField;
+
+  /**
+   * Path field in *QuizQustionSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quiz_qustion_slice.items[].path
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  path: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for QuizQustionSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuizQustionSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuizQustionSliceSliceDefaultPrimary>,
+  Simplify<QuizQustionSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *QuizQustionSlice*
+ */
+type QuizQustionSliceSliceVariation = QuizQustionSliceSliceDefault;
+
+/**
+ * QuizQustionSlice Shared Slice
+ *
+ * - **API ID**: `quiz_qustion_slice`
+ * - **Description**: QuizQustionSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuizQustionSliceSlice = prismic.SharedSlice<
+  "quiz_qustion_slice",
+  QuizQustionSliceSliceVariation
+>;
+
+/**
  * Primary content in *SocialTriggersSlice → Primary*
  */
 export interface SocialTriggersSliceSliceDefaultPrimary {
@@ -1494,6 +1647,9 @@ declare module "@prismicio/client" {
       HomepageDocumentDataContentMenuOptionsItem,
       HomepageDocumentDataSocialLinksItem,
       HomepageDocumentDataSlicesSlice,
+      QuizDocument,
+      QuizDocumentData,
+      QuizDocumentDataSlicesSlice,
       SurveyDocument,
       SurveyDocumentData,
       SurveyDocumentDataQuestionsItem,
@@ -1533,6 +1689,11 @@ declare module "@prismicio/client" {
       PostTitleSliceSliceDefaultItem,
       PostTitleSliceSliceVariation,
       PostTitleSliceSliceDefault,
+      QuizQustionSliceSlice,
+      QuizQustionSliceSliceDefaultPrimary,
+      QuizQustionSliceSliceDefaultItem,
+      QuizQustionSliceSliceVariation,
+      QuizQustionSliceSliceDefault,
       SocialTriggersSliceSlice,
       SocialTriggersSliceSliceDefaultPrimary,
       SocialTriggersSliceSliceDefaultItem,
