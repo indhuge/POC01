@@ -17,7 +17,7 @@
 
 .triggerCardContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-content: center;
   margin-top: 20px;
@@ -53,6 +53,12 @@
   color: #666;
   font-size: 1.5rem;
   overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 1100px) {
+  .triggerCardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 768px) {
