@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  call_to_survey: dynamic(() => import("./CallToSurvey")),
   cards: dynamic(() => import("./Cards")),
   contact_form_slice: dynamic(() => import("./ContactFormSlice")),
   customer_logos: dynamic(() => import("./CustomerLogos")),

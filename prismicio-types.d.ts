@@ -300,6 +300,7 @@ export interface HomepageDocumentDataSocialLinksItem {
 }
 
 type HomepageDocumentDataSlicesSlice =
+  | CallToSurveySlice
   | CustomerLogosSlice
   | TestimonialsSliceSlice
   | WelcomeSliceSlice
@@ -690,6 +691,71 @@ export type AllDocumentTypes =
   | CategoryDocument
   | HomepageDocument
   | SurveyDocument;
+
+/**
+ * Primary content in *CallToSurvey → Primary*
+ */
+export interface CallToSurveySliceDefaultPrimary {
+  /**
+   * Title field in *CallToSurvey → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_survey.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Call To Action field in *CallToSurvey → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_survey.primary.call_to_action
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_to_action: prismic.KeyTextField;
+
+  /**
+   * background field in *CallToSurvey → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_survey.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CallToSurvey Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToSurveySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CallToSurveySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CallToSurvey*
+ */
+type CallToSurveySliceVariation = CallToSurveySliceDefault;
+
+/**
+ * CallToSurvey Shared Slice
+ *
+ * - **API ID**: `call_to_survey`
+ * - **Description**: CallToSurvey
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToSurveySlice = prismic.SharedSlice<
+  "call_to_survey",
+  CallToSurveySliceVariation
+>;
 
 /**
  * Primary content in *Cards → Primary*
@@ -1433,6 +1499,10 @@ declare module "@prismicio/client" {
       SurveyDocumentDataQuestionsItem,
       SurveyDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CallToSurveySlice,
+      CallToSurveySliceDefaultPrimary,
+      CallToSurveySliceVariation,
+      CallToSurveySliceDefault,
       CardsSlice,
       CardsSliceDefaultPrimary,
       CardsSliceDefaultItem,

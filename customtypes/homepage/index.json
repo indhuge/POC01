@@ -183,6 +183,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "call_to_survey": {
+              "type": "SharedSlice"
+            },
             "customer_logos": {
               "type": "SharedSlice"
             },
