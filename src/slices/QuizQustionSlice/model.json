@@ -1,0 +1,55 @@
+{
+  "id": "quiz_qustion_slice",
+  "type": "SharedSlice",
+  "name": "QuizQustionSlice",
+  "description": "QuizQustionSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "question": {
+          "type": "Text",
+          "config": {
+            "label": "Question",
+            "placeholder": ""
+          }
+        },
+        "questionid": {
+          "type": "Text",
+          "config": {
+            "label": "questionId",
+            "placeholder": ""
+          }
+        },
+        "action": {
+          "type": "Text",
+          "config": {
+            "label": "Action",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "anwser": {
+          "type": "Text",
+          "config": {
+            "label": "Anwser",
+            "placeholder": ""
+          }
+        },
+        "path": {
+          "type": "Text",
+          "config": {
+            "label": "Path",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}
