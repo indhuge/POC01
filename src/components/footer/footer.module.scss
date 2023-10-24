@@ -9,6 +9,8 @@
   background-color: $blue-color;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  position: absolute;
+  z-index: 3;
 
   @include Phone {
     grid-template-columns: 1fr;
