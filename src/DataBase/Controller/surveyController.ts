@@ -18,3 +18,8 @@ export async function getAllAnswers(): Promise<any> {
   const model = require("../model/survey_answer");
   return await model.findAll();
 }
+
+export async function count(): Promise<number> {
+  const model = require("../model/survey_answer");
+  return await model.count();
+}

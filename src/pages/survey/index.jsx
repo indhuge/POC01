@@ -25,6 +25,12 @@ export async function getStaticProps() {
             type: "text",
           },
           {
+            name: "email",
+            title: "Email",
+            type: "text",
+            inputType: "email",
+          },
+          {
             name: "birth",
             title: "Data de Nascimento",
             type: "text",
