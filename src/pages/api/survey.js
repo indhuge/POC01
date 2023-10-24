@@ -1,10 +1,12 @@
 import {
   addAnswer,
   getAllAnswers,
+  count,
 } from "@/DataBase/Controller/surveyController";
 
 export default async function handler(req, res) {
   if (req.method == "GET") {
+    const _count = count();
     const response = await getAllAnswers();
     const length = response[0]?.answer.toString().length;
     const wrapper = {};
@@ -24,7 +26,7 @@ export default async function handler(req, res) {
         };
       }, {});
     }
-
+    finalObj.count = await _count;
     res.status(200).json(finalObj);
   } else if (req.method == "POST") {
     const { name, email, _birth, _answer } = JSON.parse(req.body);
