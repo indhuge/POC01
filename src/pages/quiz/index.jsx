@@ -32,61 +32,49 @@ export async function getStaticProps() {
   };
 }
 
-const data = {
-  p1: {
-    question: "Pergunta inicial",
-    answers: [
-      { text: "a", path: "p1a" },
-      { text: "b", path: "p1b" },
-    ],
-  },
-  p1a: {
-    question: "Pergunta A",
-    answers: [
-      { text: "a", path: "END_AA" },
-      { text: "b", path: "END_AB" },
-    ],
-  },
-  p1b: {
-    question: "Pergunta B",
-    answers: [
-      { text: "a", path: "END_BA" },
-      { text: "b", path: "END_BB" },
-    ],
-  },
-  END_AA: {
-    question: "Final AA",
-  },
-};
-
-function executeAction(_action, router) {
-  if (_action == null || _action == undefined || _action == "none") return;
-
-  const arr_action = _action.slice(1).split("=");
-  const action = arr_action[0];
-  const param = arr_action[1];
-
-  switch (action) {
-    case "alert": {
-      alert(param);
-      break;
-    }
-    case "redirect": {
-      router.push(param);
-      break;
-    }
-    case "log": {
-      console.log(param);
-      break;
-    }
-  }
-}
-
 export default function QuizPage({ staticContent, quiz_data: data }) {
   const router = useRouter();
-
   const [question, setQuestion] = useState(data.p1.question);
   const [answers, setAnswers] = useState(data.p1.answers);
+
+  const reset = () => {
+    setQuestion(data.p1.question);
+    setAnswers(data.p1.answers);
+  };
+
+  const executeAction = (_action, router) => {
+    if (_action == null || _action == undefined || _action == "none") return;
+
+    const all = _action.split("&&");
+
+    all.forEach((a) => {
+      const arr_action = a.slice(1).split("=");
+      const action = arr_action[0];
+      const param = arr_action[1];
+
+      switch (action) {
+        case "alert": {
+          alert(param);
+          break;
+        }
+        case "redirect": {
+          router.push(param);
+          break;
+        }
+        case "log": {
+          console.log(param);
+          break;
+        }
+        case "reset": {
+          reset();
+          break;
+        }
+        case "path": {
+          onOptionClicked(param);
+        }
+      }
+    });
+  };
 
   const onOptionClicked = (path) => {
     if (path.charAt(0) == "!") {
@@ -118,14 +106,14 @@ export default function QuizPage({ staticContent, quiz_data: data }) {
           },
         }}
       >
-        <div className="container mx-auto h-[50vh] py-5 flex flex-col justify-center align-center">
-          <h2 className="text-lg py-3">{question}</h2>
-          <div className="grid grid-cols-3 gap-1 w-1/2 mt-2">
+        <div className="container mx-10 h-[50vh] py-5 flex flex-col justify-center align-center">
+          <h2 className="text-xl py-3">{question}</h2>
+          <div className="grid  grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 w-1/2 mt-2">
             {answers?.map((e, i) => {
               return (
                 <div
                   key={i}
-                  className="px-2 py-2 rounded border-solid border-[1px] border-ascent hover:bg-ascent transition-all"
+                  className="flex items-center justify-center px-1 py-1 rounded border-solid border-[1px] border-ascent hover:bg-ascent transition-all"
                   onClick={() => onOptionClicked(e.path)}
                 >
                   <p className="text-center">{e.text}</p>
