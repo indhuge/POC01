@@ -4,7 +4,7 @@ import { getStaticContent } from "@/utils/StaticContent";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-
+// Merge
 export async function getStaticProps() {
   const client = createClient();
   const quiz_data = await client.getSingle("quiz");
