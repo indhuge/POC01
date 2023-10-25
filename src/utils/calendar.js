@@ -2,6 +2,8 @@ const { google } = require("googleapis");
 const util = require("util");
 const { groupBy } = require("lodash");
 
+const _credentials = JSON.parse(process.env.gapi_key);
+
 export function unionByDay(list) {
   const g = groupBy(list, ({ day, mouth }) => `${day}/${mouth}`);
   return Object.keys(g).map((d) => {
@@ -41,17 +43,29 @@ export function toIsoString(date) {
 
 export async function createEvent(id, eventName, eventDate, company) {
   const endDate = new Date();
+
   endDate.setTime(eventDate.getTime());
   endDate.setHours(eventDate.getHours() + 1);
 
-  const auth = new google.auth.GoogleAuth({
-    credentials: JSON.parse(process.env.gapi_key),
-    // keyFile: "./gapi_key.json",
+  // const auth = new google.auth.GoogleAuth({
+  //   credentials: JSON.parse(process.env.gapi_key),
+  //   // keyFile: "./gapi_key.json",
+  //   scopes: [
+  //     "https://www.googleapis.com/auth/calendar.events",
+  //     "https://www.googleapis.com/auth/calendar",
+  //   ],
+  // });
+
+  const auth = new google.auth.JWT({
+    email: _credentials.client_email,
+    key: _credentials.private_key_id,
     scopes: [
       "https://www.googleapis.com/auth/calendar.events",
       "https://www.googleapis.com/auth/calendar",
     ],
+    subject: "luanf2003@gmail.com",
   });
+
   const calendar = google.calendar({ version: "v3", auth: auth });
   const calendarId =
     "67b3b4f08d6954fdde290336a149e18d7f4e849d047e051bd9a8b563f07a9dbc@group.calendar.google.com";
@@ -100,10 +114,19 @@ export async function createEvent(id, eventName, eventDate, company) {
 }
 
 export async function getEvents(dateMin, dateMax) {
-  const auth = new google.auth.GoogleAuth({
-    credentials: JSON.parse(process.env.gapi_key),
-    //keyFile: "./gapi_key.json",
-    scopes: ["https://www.googleapis.com/auth/calendar"],
+  // const auth = new google.auth.GoogleAuth({
+  //   credentials: JSON.parse(process.env.gapi_key),
+  //   //keyFile: "./gapi_key.json",
+  //   scopes: ["https://www.googleapis.com/auth/calendar"],
+  // });
+  const auth = new google.auth.JWT({
+    email: _credentials.client_email,
+    key: _credentials.private_key_id,
+    scopes: [
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/calendar",
+    ],
+    subject: "luanf2003@gmail.com",
   });
   const calendar = google.calendar({ version: "v3", auth: auth });
   const calendarId =
