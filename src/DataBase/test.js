@@ -16,7 +16,6 @@ const syncDB = async () => {
   const database = require("./db");
   const user = require("./model/user");
   const comment = require("./model/comment");
-  const comment = require("./model/comment");
   const survey = require("./model/survey_answer");
   try {
     const resultado = await database.sync({ force: true });
@@ -28,4 +27,4 @@ const syncDB = async () => {
     console.log(err);
   }
 };
-syncDB();
+// syncDB();
