@@ -41,7 +41,10 @@ export function toIsoString(date) {
   );
 }
 
-export async function createEvent(id, eventName, eventDate, company) {
+export async function createEvent(
+  { id, eventName, eventDate, company, email },
+  callback
+) {
   const endDate = new Date();
 
   endDate.setTime(eventDate.getTime());
@@ -100,7 +103,7 @@ export async function createEvent(id, eventName, eventDate, company) {
         conferenceSolutionKey: { type: "hangoutsMeet" },
       },
     },
-    // attendees: [{ email: "luanf2003@gmail.com" }],
+    attendees: [{ email: email }],
   };
 
   calendar.events.insert(
@@ -108,6 +111,7 @@ export async function createEvent(id, eventName, eventDate, company) {
     (err, res) => {
       console.log(err);
       console.log(res);
+      callback(res);
       return { err: err, res: res };
     }
   );

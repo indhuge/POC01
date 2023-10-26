@@ -1,4 +1,5 @@
 import { createEvent, addMeet } from "@/utils/calendar";
+import { sendMeetEmail } from "@/utils/emailHandler";
 import {
   confirmAppointment,
   getAppointment,
@@ -15,8 +16,27 @@ export default async function handle(req, res) {
 
     var date = new Date();
     date.setTime(Date.parse(ap.Date));
-    var result = await createEvent(id, ap.Name, date);
-
-    res.status(200).json({ result });
+    console.log(ap.Email);
+    const r = createEvent(
+      {
+        id: id,
+        eventName: ap.Name,
+        eventDate: date,
+        email: ap.Email,
+      },
+      (result) => {
+        sendMeetEmail({
+          name: ap.name,
+          email: ap.Email,
+          day: date.getDate(),
+          month: date.getMonth() + 1,
+          year: date.getFullYear(),
+          hour: date.getHours(),
+          company: ap.Company,
+          link: result.data.hangoutLink,
+        });
+      }
+    );
+    res.status(200).json({ r });
   }
 }

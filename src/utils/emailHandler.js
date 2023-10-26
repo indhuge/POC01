@@ -71,6 +71,74 @@ const formatEmail = (
     </div>
 </div>`;
 
+const formatLinkEmail = (
+  name,
+  day,
+  month,
+  year,
+  hour,
+  company,
+  link
+) => `<div style=" box-sizing: border-box;">
+    <header style="width: 100%; background-color: #003459">
+      <h1 style="color: white; padding: 2rem; margin: 0">IndHUGE</h1>
+    </header>
+    <div class="content" style="padding-left: 2rem;">
+      <h2>Confime seu email</h2>
+      <p style="margin: 0.5rem 0 0.5rem 0; font-size:1rem">
+        Olá ${name}, sua demonstração está confirmada!, seguem os dados:
+      </p>
+      <div class="data"  style="
+          font-size: 1rem;
+          display: grid;
+          grid-template-columns: 7rem auto;
+          margin: 1rem 0 1rem 0;
+      ">
+        <p style="font-size: 1rem; margin: 0">Data:</p>
+        <p style="font-size: 1rem; margin-top: 0;">${day}/${month}/${year}</p>
+        <p style="font-size: 1rem; margin: 0">Horario:</p>
+        <p style="font-size: 1rem; margin-top: 0;">${hour}:00</p>
+        <p style="font-size: 1rem; margin: 0">Empresa:</p>
+        <p style="font-size: 1rem; margin-top: 0;">${company}</p>
+      </div>
+      <a href="${link}" style="
+        text-decoration: none;
+        color: white;
+        width: fit-content;
+        padding: 1rem 1.5rem;
+        background-color: green;
+        border-radius: 10px;
+        margin: 1rem 0 0 0;
+        display: block;
+      " >Acessar conferencia</a>
+    </div>
+</div>`;
+
+async function sendMeetEmail(info) {
+  const { name, email, link, day, month, year, hour, company } = info;
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: "poc01.indhuge@gmail.com",
+      pass: "mzdmkcdqxfiskmbw",
+    },
+  });
+
+  const mailOptions = {
+    from: "poc01.indhuge@gmail.com",
+    to: email,
+    subject: "Agendamento confirmado",
+    html: formatLinkEmail(name, day, month, year, hour, company, link),
+  };
+  try {
+    await transporter.sendMail(mailOptions);
+    return "Email enviado com sucesso!";
+  } catch (error) {
+    console.error(error);
+    return "Ocorreu um erro ao enviar o email.";
+  }
+}
+
 async function sendAppointmentConfirmationEmail(info) {
   const { name, email, link, day, month, year, hour, company } = info;
 
@@ -101,4 +169,5 @@ async function sendAppointmentConfirmationEmail(info) {
 module.exports = {
   emailHandler,
   sendAppointmentConfirmationEmail,
+  sendMeetEmail,
 };
