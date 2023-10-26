@@ -688,6 +688,39 @@ interface SurveyDocumentData {
   questions: prismic.GroupField<Simplify<SurveyDocumentDataQuestionsItem>>;
 
   /**
+   * name field in *Survey*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * email field in *Survey*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * nascimento field in *Survey*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.nascimento
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nascimento: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Survey*
    *
    * - **Field Type**: Slice Zone
@@ -1485,6 +1518,21 @@ export type SocialTriggersSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestimonialsSlice → Primary*
+ */
+export interface TestimonialsSliceSliceDefaultPrimary {
+  /**
+   * maintitle field in *TestimonialsSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.primary.maintitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  maintitle: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *TestimonialsSlice → Items*
  */
 export interface TestimonialsSliceSliceDefaultItem {
@@ -1528,7 +1576,7 @@ export interface TestimonialsSliceSliceDefaultItem {
  */
 export type TestimonialsSliceSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<TestimonialsSliceSliceDefaultPrimary>,
   Simplify<TestimonialsSliceSliceDefaultItem>
 >;
 
@@ -1700,6 +1748,7 @@ declare module "@prismicio/client" {
       SocialTriggersSliceSliceVariation,
       SocialTriggersSliceSliceDefault,
       TestimonialsSliceSlice,
+      TestimonialsSliceSliceDefaultPrimary,
       TestimonialsSliceSliceDefaultItem,
       TestimonialsSliceSliceVariation,
       TestimonialsSliceSliceDefault,
