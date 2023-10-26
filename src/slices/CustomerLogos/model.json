@@ -1,0 +1,27 @@
+{
+  "id": "customer_logos",
+  "type": "SharedSlice",
+  "name": "CustomerLogos",
+  "description": "CustomerLogos",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

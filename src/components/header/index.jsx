@@ -38,9 +38,9 @@ const Header = ({
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
           <Link href={"/"} prefetch={true} shallow={true}>
-            <PrismicNextImage
+            <PrismicNextImage  // PrismicNextImage alt can only be used to declare an image as decorative by passing an empty string (alt="") or a null value (alt={null}.
               field={logoUrl}
-              alt="IndHuge logo"
+              alt="IndHuge logo" // -> alt=""
               width={160}
               height={160}
             />

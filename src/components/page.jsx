@@ -4,13 +4,28 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import TestimonialsSection from "src/components/depoimentos/testimonials-section.jsx";
 import ClientLogosSection from "src/components/logos_clientes/index.jsx";
+import Popup from "@/components/PopUpComponent";
 import { useRouter } from "next/router";
+
+function processTags(tags) {
+  let s = "";
+  tags.forEach((e, index) => {
+    s = s.concat(index == tags.lenght ? `${e}` : `${e},`);
+  });
+  return s;
+}
 
 export default function Page({ metaData, children, StaticContent }) {
   const router = useRouter();
 
   return (
     <main className="page">
+      <Popup
+        header={StaticContent?.popuptitle}
+        text={StaticContent?.popuptext}
+        image={StaticContent?.popupimage}
+        closeText={StaticContent?.popupclosetext}
+      />
       <Head>
         <title>{metaData?.meta_title}</title>
         <link
@@ -23,6 +38,10 @@ export default function Page({ metaData, children, StaticContent }) {
           name="robots"
           content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
         />
+        <meta
+          name="keywords"
+          content={processTags(metaData?.meta_tags ?? [])}
+        />
       </Head>
       <Header
         logoUrl={StaticContent?.logo}
@@ -32,11 +51,7 @@ export default function Page({ metaData, children, StaticContent }) {
           router.push("/appointment");
         }}
       />
-
       {children}
-
-      {/* <TestimonialsSection />
-      <ClientLogosSection /> */}
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}

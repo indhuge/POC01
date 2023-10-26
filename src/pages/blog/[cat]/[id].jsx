@@ -19,6 +19,7 @@ export async function getStaticProps({ params }) {
     meta_image: page.data.meta_image,
     meta_title: page.data.meta_title,
     meta_url: page.url,
+    meta_tags: page.tags.filter((e) => e != "robots.disallow"),
   };
 
   return {
@@ -45,7 +46,7 @@ export default function BlogPage({ page, metadata, staticContent }) {
     <Page metaData={metadata} StaticContent={staticContent}>
       <div className={Styles.wrapper}>
         <div className={Styles.heroImage}>
-          <PrismicNextImage field={page?.data?.main_image} />
+          <PrismicNextImage field={page?.data?.main_image} alt=""/>
           <div className={Styles.heroCover}></div>
         </div>
         <div className={Styles.contentContainer}>

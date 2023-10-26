@@ -1,0 +1,95 @@
+{
+  "id": "survey",
+  "label": "Survey",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "questions": {
+        "type": "Group",
+        "config": {
+          "label": "Questions",
+          "fields": {
+            "question_id": {
+              "type": "Text",
+              "config": {
+                "label": "question Id",
+                "placeholder": ""
+              }
+            },
+            "question": {
+              "type": "Text",
+              "config": {
+                "label": "Question",
+                "placeholder": ""
+              }
+            },
+            "option_a": {
+              "type": "Text",
+              "config": {
+                "label": "Option A",
+                "placeholder": ""
+              }
+            },
+            "option_b": {
+              "type": "Text",
+              "config": {
+                "label": "Option B",
+                "placeholder": ""
+              }
+            },
+            "option_c": {
+              "type": "Text",
+              "config": {
+                "label": "Option C",
+                "placeholder": ""
+              }
+            },
+            "option_d": {
+              "type": "Text",
+              "config": {
+                "label": "Option D",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

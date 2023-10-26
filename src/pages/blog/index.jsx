@@ -19,6 +19,7 @@ export async function getServerSideProps() {
     meta_image: rMeta.data.meta_image,
     meta_title: rMeta.data.meta_title,
     meta_url: rMeta.url,
+    meta_tags: rMeta.tags.filter((e) => e != "robots.disallow"),
   };
 
   return {
