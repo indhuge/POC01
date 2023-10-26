@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"question": {
+				"__TYPE__": "FieldContent",
+				"value": "steel",
+				"type": "Text"
+			},
+			"questionid": {
+				"__TYPE__": "FieldContent",
+				"value": "correctly",
+				"type": "Text"
+			},
+			"action": {
+				"__TYPE__": "FieldContent",
+				"value": "empty",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"anwser",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "broad",
+							"type": "Text"
+						}
+					],
+					[
+						"path",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "popular",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

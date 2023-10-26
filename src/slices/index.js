@@ -11,6 +11,7 @@ export const components = {
   newsletter_slot: dynamic(() => import("./NewsletterSlot")),
   post_image_slice: dynamic(() => import("./PostImageSlice")),
   post_title_slice: dynamic(() => import("./PostContentSlice")),
+  quiz_qustion_slice: dynamic(() => import("./QuizQustionSlice")),
   social_triggers_slice: dynamic(() => import("./SocialTriggersSlice")),
   testimonials_slice: dynamic(() => import("./TestimonialsSlice")),
   welcome_slice: dynamic(() => import("./WelcomeSlice")),
