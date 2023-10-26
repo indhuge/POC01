@@ -17,7 +17,7 @@ export async function getStaticProps({locale}) {
         name: "contact",
         type: "panel",
         state: "collapsed",
-        title: "Dados Pessoais (opcional)",
+        title: surveypage.data.dados_pessoais,
         elements: [
           {
             name: "name",

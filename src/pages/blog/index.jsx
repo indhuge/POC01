@@ -8,7 +8,7 @@ import { getStaticContent } from "@/utils/StaticContent";
 
 export async function getServerSideProps({locale}) {
   const client = createClient();
-  const staticContent = getStaticContent(client);
+  const staticContent = getStaticContent(client,locale);
   const category = client.getAllByType("category",{lang : locale});
   const pages = client.getAllByType("blog_post",{lang : locale});
   const rMeta = await client.getSingle("blog_home",{lang : locale});

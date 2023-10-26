@@ -721,6 +721,17 @@ interface SurveyDocumentData {
   nascimento: prismic.KeyTextField;
 
   /**
+   * dados_pessoais field in *Survey*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: survey.dados_pessoais
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  dados_pessoais: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Survey*
    *
    * - **Field Type**: Slice Zone
@@ -821,6 +832,16 @@ export interface CallToSurveySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background: prismic.ImageField<never>;
+
+  /**
+   * SubTitle field in *CallToSurvey → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_survey.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
 }
 
 /**

@@ -77,6 +77,13 @@
           "placeholder": ""
         }
       },
+      "dados_pessoais": {
+        "type": "Text",
+        "config": {
+          "label": "dados_pessoais",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
