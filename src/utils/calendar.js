@@ -56,14 +56,14 @@ export async function createEvent(id, eventName, eventDate, company) {
   //   ],
   // });
 
-  const auth = new google.auth.JWT({
-    email: _credentials.client_email,
-    key: _credentials.private_key_id,
-    scopes: [
-      "https://www.googleapis.com/auth/calendar.events",
-      "https://www.googleapis.com/auth/calendar",
-    ],
-    subject: "luanf2003@gmail.com",
+  const auth = new google.auth.OAuth2(
+    "588204007950-4lj7991agjc2kh9rtvas51o1shrbkc6l.apps.googleusercontent.com",
+    "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"
+  );
+
+  auth.setCredentials({
+    refresh_token:
+      "1//04p8RzkfsD9F6CgYIARAAGAQSNwF-L9Ir4dYjh5XkJOuJMJUa3ZN5ReAcCkPqCX85XvpgPjWGt0FarH2iRbjItrZyl2aoIPd5AOg",
   });
 
   const calendar = google.calendar({ version: "v3", auth: auth });
@@ -119,15 +119,17 @@ export async function getEvents(dateMin, dateMax) {
   //   //keyFile: "./gapi_key.json",
   //   scopes: ["https://www.googleapis.com/auth/calendar"],
   // });
-  const auth = new google.auth.JWT({
-    email: _credentials.client_email,
-    key: _credentials.private_key_id,
-    scopes: [
-      "https://www.googleapis.com/auth/calendar.events",
-      "https://www.googleapis.com/auth/calendar",
-    ],
-    subject: "luanf2003@gmail.com",
+
+  const auth = new google.auth.OAuth2(
+    "588204007950-4lj7991agjc2kh9rtvas51o1shrbkc6l.apps.googleusercontent.com",
+    "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"
+  );
+
+  auth.setCredentials({
+    refresh_token:
+      "1//04p8RzkfsD9F6CgYIARAAGAQSNwF-L9Ir4dYjh5XkJOuJMJUa3ZN5ReAcCkPqCX85XvpgPjWGt0FarH2iRbjItrZyl2aoIPd5AOg",
   });
+
   const calendar = google.calendar({ version: "v3", auth: auth });
   const calendarId =
     "67b3b4f08d6954fdde290336a149e18d7f4e849d047e051bd9a8b563f07a9dbc@group.calendar.google.com";
