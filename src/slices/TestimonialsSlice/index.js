@@ -20,7 +20,7 @@ const TestimonialsSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <TestimonialsSection testimonials={t} />
+      <TestimonialsSection testimonials={t} mainTitle={slice.primary.maintitle} />
     </section>
   );
 };

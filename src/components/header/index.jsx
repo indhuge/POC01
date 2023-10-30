@@ -4,6 +4,7 @@ import Styles from "./header.module.scss";
 import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
 import { PrismicNextImage } from "@prismicio/next";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 
 var isOpen = false;
@@ -56,6 +57,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
               location.href = "#form";
             }}
           />
+          <LanguageSelector/>
         </div>
         <Image
           alt="Menu Icon"

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { PrismicNextImage } from "@prismicio/next";
 
-const TestimonialsSection = ({ testimonials }) => {
+const TestimonialsSection = ({ testimonials, mainTitle }) => {
   // const testimonials = [
   //   {
   //     id: 1,
@@ -60,7 +60,7 @@ const TestimonialsSection = ({ testimonials }) => {
           justify-content: center;
         }
       `}</style>
-      <h2>Histórias de sucesso</h2>
+      <h2>{mainTitle}</h2>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
           <div key={testimonial.id}>
