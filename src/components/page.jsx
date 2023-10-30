@@ -6,6 +6,11 @@ import TestimonialsSection from "src/components/depoimentos/testimonials-section
 import ClientLogosSection from "src/components/logos_clientes/index.jsx";
 import Popup from "@/components/PopUpComponent";
 import { useRouter } from "next/router";
+import Hotjar from "@hotjar/browser";
+import LanguageSelector from "./LanguageSelector/LanguageSelector";
+
+const siteId = 3706274;
+const hotjarVersion = 6;
 
 function processTags(tags) {
   let s = "";
@@ -64,6 +69,8 @@ export default function Page({ metaData, children, StaticContent }) {
         socialLinks={StaticContent?.social_links}
         copyright={StaticContent?.copyright_text}
       />
+      {Hotjar.init(siteId, hotjarVersion)}
+      {console.log("hotjar")}
     </main>
   );
 }

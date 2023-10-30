@@ -7,6 +7,7 @@ export const components = {
   cards: dynamic(() => import("./Cards")),
   contact_form_slice: dynamic(() => import("./ContactFormSlice")),
   customer_logos: dynamic(() => import("./CustomerLogos")),
+  faq_slice: dynamic(() => import("./FaqSlice")),
   iframe_card_slice: dynamic(() => import("./IframeCardSlice")),
   newsletter_slot: dynamic(() => import("./NewsletterSlot")),
   post_image_slice: dynamic(() => import("./PostImageSlice")),

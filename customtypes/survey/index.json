@@ -56,6 +56,34 @@
           }
         }
       },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "name",
+          "placeholder": ""
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "email",
+          "placeholder": ""
+        }
+      },
+      "nascimento": {
+        "type": "Text",
+        "config": {
+          "label": "nascimento",
+          "placeholder": ""
+        }
+      },
+      "dados_pessoais": {
+        "type": "Text",
+        "config": {
+          "label": "dados_pessoais",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

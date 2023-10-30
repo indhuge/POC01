@@ -11,7 +11,15 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "maintitle": {
+          "type": "Text",
+          "config": {
+            "label": "maintitle",
+            "placeholder": ""
+          }
+        }
+      },
       "items": {
         "customerimage": {
           "type": "Image",
