@@ -7,7 +7,7 @@ import DateCard from "../DateCard";
 import { useRouter } from "next/router";
 import Calendar from "react-calendar";
 
-const times = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+const times = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
 
 function subCompoent(date, busy, router, today_date) {
   return (
