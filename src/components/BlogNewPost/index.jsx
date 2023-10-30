@@ -13,6 +13,7 @@ export default function Page({ post }) {
         height={405}
         field={post?.data.main_image}
         priority={true}
+        alt=""
       />
     </div>
   );

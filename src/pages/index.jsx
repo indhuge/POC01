@@ -7,15 +7,16 @@ import Page from "@/components/page";
 import Header from "@/components/header";
 import { ToStaticContent, getStaticContent } from "@/utils/StaticContent";
 
-export async function getStaticProps() {
+export async function getStaticProps({params,locale}) {
   const client = createClient();
-  const page = await client.getSingle("homepage");
+  const page = await client.getSingle("homepage",{lang:locale});
 
   const metadata = {
     meta_description: page.data.meta_description,
     meta_image: page.data.meta_image,
     meta_title: page.data.meta_title,
     meta_url: page.url,
+    meta_tags: page.tags.filter((e) => e != "robots.disallow"),
   };
 
   return {

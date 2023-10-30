@@ -1,67 +1,51 @@
 .area {
-      width: 100%;
-      height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .circles {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
-.circles li{
-      position: absolute;
-      display: block;
-      list-style: none;
-      width: 20px;
-      height: 20px;
-      //background: rgba(255, 255, 255, 0.2);
-      //background-image: url("/icons/gear.svg");
-      //background-size: contain;
-      animation: animate 20s linear infinite;
-      bottom: -150px;
+.circles li {
+  position: fixed;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  bottom: -150px;
 
-      img {
-            width: inherit;
-            height: inherit;
-            filter: invert(74%) sepia(22%) saturate(1402%) hue-rotate(335deg) brightness(101%) contrast(96%) drop-shadow(0px 0px 50px #faab51a6)
-            
-      }
+  img {
+    width: inherit;
+    height: inherit;
+    filter: invert(74%) sepia(22%) saturate(1402%) hue-rotate(335deg)
+      brightness(101%) contrast(96%) drop-shadow(0px 0px 50px #faab51a6);
+  }
 }
 
-
-@for $i from 1 through 40 {
-      $rand: random(170) - 15+px;
-
-      .circles li:nth-child(#{$i}) {
-            left: percentage(random($limit: 100) / 100);
-            width: $rand;
-            height: $rand;
-            animation-delay: random(20) + s;
-            animation-duration: random(50) + 10 + s;
-      }
-}
-
-@keyframes animate {
-
-      0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-            border-radius: 0;
-      }
-
-      35% {
-            opacity: 1;
-      }
-
-      100% {
-            transform: translateY(-1000px) rotate(720deg);
-            opacity: 0;
-            border-radius: 50%;
-      }
-
+@for $i from 1 through 100 {
+  $rand: random(170) - 15 + px;
+  $left: percentage(
+    random(
+        $limit: 100,
+      ) /
+      100
+  );
+  $top: percentage(
+    random(
+        $limit: 150,
+      ) /
+      100
+  );
+  .circles li:nth-child(#{$i}) {
+    left: $left;
+    top: $top; 
+    width: $rand;
+    height: $rand;
+  }
 }

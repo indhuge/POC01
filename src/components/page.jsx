@@ -2,12 +2,32 @@ import Header from "./header";
 import Footer from "./footer";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import TestimonialsSection from 'src/components/depoimentos/testimonials-section.jsx';
-import ClientLogosSection from 'src/components/logos_clientes/index.jsx';
+import TestimonialsSection from "src/components/depoimentos/testimonials-section.jsx";
+import ClientLogosSection from "src/components/logos_clientes/index.jsx";
+import Popup from "@/components/PopUpComponent";
+import LanguageSelector from "./LanguageSelector/LanguageSelector";
+import Hotjar from "@hotjar/browser";
+
+const siteId = 3706274;
+const hotjarVersion = 6;
+
+function processTags(tags) {
+  let s = "";
+  tags.forEach((e, index) => {
+    s = s.concat(index == tags.lenght ? `${e}` : `${e},`);
+  });
+  return s;
+}
 
 export default function Page({ metaData, children, StaticContent }) {
   return (
     <main className="page">
+      <Popup
+        header={StaticContent?.popuptitle}
+        text={StaticContent?.popuptext}
+        image={StaticContent?.popupimage}
+        closeText={StaticContent?.popupclosetext}
+      />
       <Head>
         <title>{metaData?.meta_title}</title>
         <link
@@ -20,17 +40,17 @@ export default function Page({ metaData, children, StaticContent }) {
           name="robots"
           content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
         />
+        <meta
+          name="keywords"
+          content={processTags(metaData?.meta_tags ?? [])}
+        />
       </Head>
       <Header
         logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
-      />
-
+       />
       {children}
-
-      <TestimonialsSection /> {/* Adicione esta linha */}
-      <ClientLogosSection />
       <Footer
         logoUrl={StaticContent?.logo?.url}
         menuFooterTitle={StaticContent?.menu_footer_title}
@@ -43,6 +63,8 @@ export default function Page({ metaData, children, StaticContent }) {
         socialLinks={StaticContent?.social_links}
         copyright={StaticContent?.copyright_text}
       />
+      {Hotjar.init(siteId, hotjarVersion)}
+      {console.log("hotjar")}
     </main>
   );
 }

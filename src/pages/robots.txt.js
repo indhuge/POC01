@@ -15,7 +15,7 @@ Allow: /\n`;
 };
 export async function getServerSideProps({ res }) {
   const client = createClient();
-  const pages = await client.getAllByTag("disallow");
+  const pages = await client.getAllByTag("robots.disallow");
   const pages_url = pages.map((e) => e.url);
 
   res.setHeader("Content-Type", "text/plain");

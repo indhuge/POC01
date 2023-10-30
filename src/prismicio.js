@@ -18,7 +18,7 @@ export const repositoryName = config.repositoryName;
 const routes = [
   {
     type: "homepage",
-    path: "/",
+    path: "/:lang?",
   },
   {
     type: "blog_post",
@@ -34,6 +34,14 @@ const routes = [
   {
     type: "blog_home",
     path: "/blog",
+  },
+  {
+    type: "survey",
+    path: "/survey",
+  },
+  {
+    type: "faq",
+    path: "/faq",
   },
 ];
 

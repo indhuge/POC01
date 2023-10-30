@@ -4,6 +4,7 @@ import Styles from "./header.module.scss";
 import Button from "../button";
 import menuIcon from "/public/icons/menu-outline.svg";
 import { PrismicNextImage } from "@prismicio/next";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 
 var isOpen = false;
@@ -34,9 +35,9 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
       <div className={Styles.container}>
         <div className={Styles.logotipo}>
           <Link href={"/"} prefetch={true} shallow={true}>
-            <PrismicNextImage
+            <PrismicNextImage  // PrismicNextImage alt can only be used to declare an image as decorative by passing an empty string (alt="") or a null value (alt={null}.
               field={logoUrl}
-              alt="IndHuge logo"
+              alt="IndHuge logo" // -> alt=""
               width={160}
               height={160}
             />
@@ -56,6 +57,7 @@ const Header = ({ logoUrl, callToActionText, navLinks }) => {
               location.href = "#form";
             }}
           />
+          <LanguageSelector/>
         </div>
         <Image
           alt="Menu Icon"

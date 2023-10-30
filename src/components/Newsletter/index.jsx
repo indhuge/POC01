@@ -31,7 +31,7 @@ export default function Newsletter({ mainText, inputPlaceholder, buttonText }) {
     e.preventDefault();
     console.log(state.email);
     await register(state.email);
-    state.email = ""; 
+    state.email = "";
   };
 
 

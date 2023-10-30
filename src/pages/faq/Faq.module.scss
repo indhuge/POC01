@@ -1,0 +1,63 @@
+@import "../../styles/mixins/fonts.scss";
+@import "../../styles/mixins/colors.scss";
+@import "../../styles/mixins/padding.scss";
+@import "../../styles/mixins/responsive.scss";
+
+.faqContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 500px;
+  font-family: $font-family-roboto;
+}
+
+.faqTitle {
+  font-size: 35px;
+  text-align: center;
+  color: $accent-color;
+}
+
+.faqContainer {
+  margin-top: 20px;
+}
+
+.faqCard {
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid $accent-color;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: $whitesmoke-color;
+
+  max-height: 100px;
+  overflow: hidden;
+
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease,
+    text-align 0.3s ease;
+  box-shadow: 0px 4px 54px 0px rgba(0, 0, 0, 0.25);
+  * {
+    color: $blue-color;
+  }
+}
+.faqCard:hover {
+  box-shadow: 0px 0px 25px 0px $gear-color;
+  transform: scale(1.035);
+  transition: 1s cubic-bezier(0.18, 0.89, 0.6, 1.59);
+}
+
+.faqCardExpanded {
+  text-align: left;
+  max-height: 100%;
+  padding: 15px;
+}
+
+.faqQuestion {
+  font-size: 20px;
+  color: $accent-color;
+  margin-bottom: 10px;
+}
+
+.faqAnswer {
+  font-size: 16px;
+  color: black;
+}
