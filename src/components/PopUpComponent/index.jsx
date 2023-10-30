@@ -12,7 +12,7 @@ const Popup = ({header, text, image , closeText}) => {
   };
 
   return (
-    <div className={styles.fundo} style={{ display: isClosed ? "none" : "grid" }}>
+    <div className={styles.fundo} style={{ display: isClosed ? "none" : "flex" }}>
       <div className={styles.container}>
         <div className={styles.header}>
         </div>
