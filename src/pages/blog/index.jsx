@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import Page from "@/components/page";
 import { getStaticContent } from "@/utils/StaticContent";
 
-export async function getServerSideProps() {
+export async function getServerSideProps({locale}) {
   const client = createClient();
-  const staticContent = getStaticContent(client);
-  const category = client.getAllByType("category");
-  const pages = client.getAllByType("blog_post");
-  const rMeta = await client.getSingle("blog_home");
+  const staticContent = getStaticContent(client,locale);
+  const category = client.getAllByType("category",{lang : locale});
+  const pages = client.getAllByType("blog_post",{lang : locale});
+  const rMeta = await client.getSingle("blog_home",{lang : locale});
 
   const meta_data = {
     meta_description: rMeta.data.meta_description,

@@ -1,0 +1,12 @@
+@import "/src/styles/mixins/colors.scss";
+
+.language-selector{
+    padding: 15px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    font-weight: 600;
+    background-color: $blue-color;
+    color: white;
+    border-color: none;
+}

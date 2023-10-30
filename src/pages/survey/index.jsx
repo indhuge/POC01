@@ -6,10 +6,10 @@ import { useCallback } from "react";
 import { getStaticContent } from "@/utils/StaticContent";
 import Page from "@/components/page";
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
   const client = createClient();
-  const staticContent = getStaticContent(client);
-  const surveypage = await client.getSingle("survey");
+  const staticContent = getStaticContent(client,locale);
+  const surveypage = await client.getSingle("survey",{lang:locale});
 
   const surveyJson = {
     elements: [
@@ -17,22 +17,22 @@ export async function getStaticProps() {
         name: "contact",
         type: "panel",
         state: "collapsed",
-        title: "Dados Pessoais (opcional)",
+        title: surveypage.data.dados_pessoais,
         elements: [
           {
             name: "name",
-            title: "Escreva seu nome",
+            title: surveypage.data.name,
             type: "text",
           },
           {
             name: "email",
-            title: "Email",
+            title: surveypage.data.email,
             type: "text",
             inputType: "email",
           },
           {
             name: "birth",
-            title: "Data de Nascimento",
+            title: surveypage.data.nascimento,
             type: "text",
             inputType: "date",
             maxValueExpression: "today()",

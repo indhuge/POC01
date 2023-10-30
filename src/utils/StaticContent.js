@@ -10,8 +10,8 @@
 //   return page;
 // }
 
-export async function getStaticContent(prismicClient) {
-  const page = await prismicClient.getSingle("homepage");
+export async function getStaticContent(prismicClient,locale) {
+  const page = await prismicClient.getSingle("homepage",{lang:locale});
   return page.data;
 }
 

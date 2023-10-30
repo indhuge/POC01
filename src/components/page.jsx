@@ -5,6 +5,7 @@ import Head from "next/head";
 import TestimonialsSection from "src/components/depoimentos/testimonials-section.jsx";
 import ClientLogosSection from "src/components/logos_clientes/index.jsx";
 import Popup from "@/components/PopUpComponent";
+import LanguageSelector from "./LanguageSelector/LanguageSelector";
 import Hotjar from "@hotjar/browser";
 
 const siteId = 3706274;
@@ -48,7 +49,7 @@ export default function Page({ metaData, children, StaticContent }) {
         logoUrl={StaticContent?.logo}
         callToActionText={StaticContent?.call_to_action_text}
         navLinks={StaticContent?.menuitens}
-      />
+       />
       {children}
       <Footer
         logoUrl={StaticContent?.logo?.url}

@@ -35,6 +35,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "SubTitle",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

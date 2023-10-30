@@ -33,7 +33,7 @@ const CallToSurvey = ({ slice }) => {
               {asText(slice.primary.title)}
             </h2>
             <p className="text-black text-[1.3rem]">
-              Ajude-nos a continuar crescendo
+              {slice.primary.subtitle}
             </p>
           </div>
 
