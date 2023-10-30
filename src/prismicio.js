@@ -39,6 +39,10 @@ const routes = [
     type: "survey",
     path: "/survey",
   },
+  {
+    type: "faq",
+    path: "/faq",
+  },
 ];
 
 /**

@@ -1,0 +1,16 @@
+{
+  "id": "faq_slice",
+  "type": "SharedSlice",
+  "name": "FaqSlice",
+  "description": "FaqSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
