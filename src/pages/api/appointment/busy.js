@@ -7,6 +7,10 @@ export default async function handle(req, res) {
   var dateMax = new Date(_max);
 
   getEvents(dateMin, dateMax).then((e) => {
+    if (e.erro != undefined) {
+      console.log(e.erro);
+      res.status(500).json(e);
+    }
     var f = unionByDay(e);
     res.status(200).json(f);
   });

@@ -38,6 +38,20 @@ function subCompoent(date, busy, router, today_date) {
   );
 }
 export default function Calendar_({ busy }) {
+  const sendLog = async (log) => {
+    const req = fetch("/api/log", {
+      method: "POST",
+      body: JSON.stringify({
+        log: log,
+      }),
+    });
+  };
+
+  if (busy.erro) {
+    sendLog(JSON.stringify(busy.erro));
+    return <p>Ocorreu um erro</p>;
+  }
+
   const [array, setArray] = useState([]);
   const date = new Date();
 
@@ -72,7 +86,6 @@ export default function Calendar_({ busy }) {
 
   const onDateChanged = (value, event) => {
     setdPicker(value);
-    console.log(value);
     generateTimeCards(value);
   };
 

@@ -60,18 +60,16 @@ export async function createEvent(
   // });
 
   const auth = new google.auth.OAuth2(
-    "588204007950-4lj7991agjc2kh9rtvas51o1shrbkc6l.apps.googleusercontent.com",
-    "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"
+    process.env.GAPI_CLIENT_ID,
+    process.env.GAPI_CLIENT_SECRET
   );
 
   auth.setCredentials({
-    refresh_token:
-      "1//04p8RzkfsD9F6CgYIARAAGAQSNwF-L9Ir4dYjh5XkJOuJMJUa3ZN5ReAcCkPqCX85XvpgPjWGt0FarH2iRbjItrZyl2aoIPd5AOg",
+    refresh_token: process.env.GAPI_REFRESH_TOKEN,
   });
 
   const calendar = google.calendar({ version: "v3", auth: auth });
-  const calendarId =
-    "67b3b4f08d6954fdde290336a149e18d7f4e849d047e051bd9a8b563f07a9dbc@group.calendar.google.com";
+  const calendarId = process.env.GAPI_CALENDAR_ID;
 
   var event = {
     summary: eventName,
@@ -124,33 +122,42 @@ export async function getEvents(dateMin, dateMax) {
   //   scopes: ["https://www.googleapis.com/auth/calendar"],
   // });
 
-  const auth = new google.auth.OAuth2(
-    process.env.GAPI_CLIENT_ID,
-    process.env.GAPI_CLIENT_SECRET
-  );
+  try {
+    const auth = new google.auth.OAuth2(
+      process.env.GAPI_CLIENT_ID,
+      process.env.GAPI_CLIENT_SECRET
+    );
 
-  auth.setCredentials({
-    refresh_token: process.env.GAPI_REFRESH_TOKEN,
-  });
+    auth.setCredentials({
+      refresh_token: process.env.GAPI_REFRESH_TOKEN,
+    });
 
-  const calendar = google.calendar({ version: "v3", auth: auth });
-  const calendarId = process.env.GAPI_CALENDAR_ID;
+    const calendar = google.calendar({ version: "v3", auth: auth });
+    const calendarId = process.env.GAPI_CALENDAR_ID;
 
-  var result = await calendar.events.list({
-    calendarId: calendarId,
-    timeMax: toIsoString(dateMax),
-    timeMin: toIsoString(dateMin),
-  });
-  var result_map = result.data.items.map((e) => {
-    const s = e.start.dateTime.split("T");
-    return {
-      mouth: s[0].slice(5, 7),
-      day: s[0].slice(8, 10),
-      hour: s[1].slice(0, 2),
-    };
-  });
+    var result = await calendar.events.list({
+      calendarId: calendarId,
+      timeMax: toIsoString(dateMax),
+      timeMin: toIsoString(dateMin),
+    });
 
-  return result_map;
+    if (result.status != 200) {
+      return { erro: result };
+    }
+
+    var result_map = result.data.items.map((e) => {
+      const s = e.start.dateTime.split("T");
+      return {
+        mouth: s[0].slice(5, 7),
+        day: s[0].slice(8, 10),
+        hour: s[1].slice(0, 2),
+      };
+    });
+
+    return result_map;
+  } catch (ex) {
+    return { erro: ex };
+  }
 }
 
 export async function addMeet() {

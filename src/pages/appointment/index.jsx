@@ -4,6 +4,7 @@ import Page from "@/components/page";
 import { createClient } from "@/prismicio";
 import { getStaticContent } from "@/utils/StaticContent";
 import { host } from "@/utils/SiteProps";
+import { conforms } from "lodash";
 
 export async function getServerSideProps() {
   const client = createClient();
@@ -19,9 +20,9 @@ export async function getServerSideProps() {
       dateMax: dateMax.toISOString(),
     }),
   });
-  var busy = request.json();
+  var busy = await request.json();
   return {
-    props: { busy: await busy, staticContent: await staticContent },
+    props: { busy, staticContent: await staticContent },
   };
 }
 
