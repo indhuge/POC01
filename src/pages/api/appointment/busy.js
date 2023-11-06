@@ -1,7 +1,13 @@
+import { host } from "@/utils/SiteProps";
 import { getEvents, unionByDay } from "@/utils/calendar";
 
 export default async function handle(req, res) {
-  const { dateMin: _min, dateMax: _max } = JSON.parse(req.body);
+  // const log = await fetch(`${host}/api/log`, {
+  //   method: "POST",
+  //   body: req.body,
+  // });
+
+  const { dateMin: _min, dateMax: _max } = req.body;
 
   var dateMin = new Date(_min);
   var dateMax = new Date(_max);

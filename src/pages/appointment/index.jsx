@@ -5,6 +5,7 @@ import { createClient } from "@/prismicio";
 import { getStaticContent } from "@/utils/StaticContent";
 import { host } from "@/utils/SiteProps";
 import { conforms } from "lodash";
+import axios from "axios";
 
 export async function getServerSideProps() {
   const client = createClient();
@@ -13,16 +14,22 @@ export async function getServerSideProps() {
   var date = new Date();
   var dateMax = new Date();
   dateMax.setFullYear(date.getFullYear() + 1);
-  var request = await fetch(`${host}/api/appointment/busy`, {
-    method: "POST",
-    body: JSON.stringify({
-      dateMin: date.toISOString(),
-      dateMax: dateMax.toISOString(),
-    }),
+  axios.defaults.baseURL = host;
+  var busy = await axios.post("/api/appointment/busy", {
+    dateMin: date.toISOString(),
+    dateMax: dateMax.toISOString(),
   });
-  var busy = await request.json();
+
+  // var request = await fetch(`${host}/api/appointment/busy`, {
+  //   method: "POST",
+  //   body: JSON.stringify({
+  //     dateMin: date.toISOString(),
+  //     dateMax: dateMax.toISOString(),
+  //   }),
+  // });
+  // var busy = await request.json();
   return {
-    props: { busy, staticContent: await staticContent },
+    props: { busy: busy.data, staticContent: await staticContent },
   };
 }
 
