@@ -13,7 +13,7 @@
 
 .container {
   color: white;
-  width: 60rem;
+  width: fit-content;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-auto-rows: auto;
@@ -72,9 +72,13 @@
   text-align: end;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 940px) {
   .icon {
     display: block;
+  }
+
+  .container {
+    width: 100vw;
   }
 
   .menu {
