@@ -15,10 +15,13 @@ export async function getServerSideProps() {
   var dateMax = new Date();
   dateMax.setFullYear(date.getFullYear() + 1);
   axios.defaults.baseURL = host;
-  var busy = await axios.post("/api/appointment/busy", {
-    dateMin: date.toISOString(),
-    dateMax: dateMax.toISOString(),
-  });
+  var busy = await axios.get(
+    `/api/appointment/busy?dateMin=${date.toISOString()}&dateMax=${dateMax.toISOString()}`,
+    {
+      dateMin: date.toISOString(),
+      dateMax: dateMax.toISOString(),
+    }
+  );
 
   // var request = await fetch(`${host}/api/appointment/busy`, {
   //   method: "POST",

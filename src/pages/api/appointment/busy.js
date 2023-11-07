@@ -1,5 +1,6 @@
 import { host } from "@/utils/SiteProps";
 import { getEvents, unionByDay } from "@/utils/calendar";
+import { useSearchParams } from "next/navigation";
 
 export default async function handle(req, res) {
   // const log = await fetch(`${host}/api/log`, {
@@ -7,7 +8,7 @@ export default async function handle(req, res) {
   //   body: req.body,
   // });
 
-  const { dateMin: _min, dateMax: _max } = req.body;
+  const { dateMin: _min, dateMax: _max } = req.query;
 
   var dateMin = new Date(_min);
   var dateMax = new Date(_max);
