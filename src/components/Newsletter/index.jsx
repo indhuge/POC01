@@ -34,7 +34,6 @@ export default function Newsletter({ mainText, inputPlaceholder, buttonText }) {
     state.email = "";
   };
 
-
   return (
     <div className={Styles.main}>
       <div className={Styles.content}>
@@ -47,7 +46,7 @@ export default function Newsletter({ mainText, inputPlaceholder, buttonText }) {
             value={state.email}
             onChange={onEmailChaged}
           />
-          <input type="submit" value={buttonText} />
+          <input type="submit" className="text-black" value={buttonText} />
         </form>
       </div>
     </div>
