@@ -5,7 +5,7 @@ export default function Page({ post }) {
   return (
     <div className={Styles.main}>
       <div className={Styles.text}>
-        <h1>{post?.data.post_title}</h1>
+        <h1 className="text-xl mb-1">{post?.data.post_title}</h1>
         <p>{post?.data.post_description}</p>
       </div>
       <PrismicNextImage
