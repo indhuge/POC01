@@ -30,4 +30,3 @@ const syncDB = async () => {
   }
 };
 syncDB();
-syncDB();
