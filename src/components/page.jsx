@@ -31,6 +31,12 @@ export default function Page({ metaData, children, StaticContent }) {
         image={StaticContent?.popupimage}
         closeText={StaticContent?.popupclosetext}
       />
+      <Popup
+        header={StaticContent?.popuptitle}
+        text={StaticContent?.popuptext}
+        image={StaticContent?.popupimage}
+        closeText={StaticContent?.popupclosetext}
+      />
       <Head>
         <title>{metaData?.meta_title}</title>
         <link
@@ -42,6 +48,10 @@ export default function Page({ metaData, children, StaticContent }) {
         <meta
           name="robots"
           content="max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
+        />
+        <meta
+          name="keywords"
+          content={processTags(metaData?.meta_tags ?? [])}
         />
         <meta
           name="keywords"
@@ -71,6 +81,9 @@ export default function Page({ metaData, children, StaticContent }) {
       />
       {Hotjar.init(siteId, hotjarVersion)}
       {console.log("hotjar")}
+      {Hotjar.init(siteId, hotjarVersion)}
+      {console.log("hotjar")}
     </main>
   );
 }
+
